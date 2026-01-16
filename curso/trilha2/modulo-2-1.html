@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 2.1: Pipeline Universal - Visao Geral | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg hidden sm:inline">GIPM Master</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">O Metodo</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancado</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">NotebookLMX</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Pratico</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-neutral-300">Inicio</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-400 hover:text-blue-400">Trilha 2: O Metodo</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-blue-400">Modulo 2.1</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MODULO 2.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 Pipeline Universal: Visao Geral</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        O Pipeline Universal e o coracao do metodo GIPM. Todo endpoint, toda funcionalidade segue o mesmo fluxo de 9 passos, garantindo consistencia e governanca.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">8</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">~45</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Interm.</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Tecnico</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Topico 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔄 O que e o Pipeline Universal</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Pipeline Universal e uma <strong class="text-blue-400">sequencia padronizada de 9 passos</strong> que toda operacao no GIPM deve seguir. Ele garante que independente da funcionalidade, o fluxo de governanca seja sempre aplicado.
+      </p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Definicao Central</h3>
+        <p class="text-neutral-300 mb-4">O Pipeline Universal e um <strong class="text-white">contrato arquitetural</strong> que define:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Ordem exata das operacoes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Pontos de validacao obrigatorios</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Onde a IA pode e nao pode atuar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>O que deve ser persistido</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Topico 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📋 Os 9 passos do pipeline</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada chamada a um endpoint GIPM passa por exatamente 9 passos, divididos em tres fases: <strong class="text-blue-400">Entrada</strong>, <strong class="text-blue-400">Processamento</strong> e <strong class="text-blue-400">Saida</strong>.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <div class="space-y-4">
+          <div class="flex items-center space-x-4 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
+            <span class="w-8 h-8 rounded-full bg-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold">1</span>
+            <div><strong class="text-emerald-400">Solicitacao</strong> - Request do usuario chega ao sistema</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
+            <span class="w-8 h-8 rounded-full bg-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold">2</span>
+            <div><strong class="text-emerald-400">Validacao</strong> - Autenticacao e autorizacao</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
+            <span class="w-8 h-8 rounded-full bg-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold">3</span>
+            <div><strong class="text-emerald-400">Contexto</strong> - Coleta de dados relevantes</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-blue-900/20 rounded-lg border border-blue-500/30">
+            <span class="w-8 h-8 rounded-full bg-blue-500/30 text-blue-400 flex items-center justify-center font-bold">4</span>
+            <div><strong class="text-blue-400">Normalizacao</strong> - Padronizacao dos dados</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-blue-900/20 rounded-lg border border-blue-500/30">
+            <span class="w-8 h-8 rounded-full bg-blue-500/30 text-blue-400 flex items-center justify-center font-bold">5</span>
+            <div><strong class="text-blue-400">Injecao</strong> - Persona e preferencias</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-blue-900/20 rounded-lg border border-blue-500/30">
+            <span class="w-8 h-8 rounded-full bg-blue-500/30 text-blue-400 flex items-center justify-center font-bold">6</span>
+            <div><strong class="text-blue-400">Chamada IA</strong> - Execucao da IA (estrutura)</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+            <span class="w-8 h-8 rounded-full bg-purple-500/30 text-purple-400 flex items-center justify-center font-bold">7</span>
+            <div><strong class="text-purple-400">Persistencia</strong> - Armazenamento completo</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+            <span class="w-8 h-8 rounded-full bg-purple-500/30 text-purple-400 flex items-center justify-center font-bold">8</span>
+            <div><strong class="text-purple-400">Materializacao</strong> - Geracao de artefatos finais</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+            <span class="w-8 h-8 rounded-full bg-purple-500/30 text-purple-400 flex items-center justify-center font-bold">9</span>
+            <div><strong class="text-purple-400">Retorno</strong> - Response ao usuario</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🎯 Por que todo endpoint segue o mesmo fluxo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A padronizacao do fluxo nao e burocracia - e <strong class="text-blue-400">arquitetura de governanca</strong>. Quando todo endpoint segue o mesmo pipeline, voce ganha beneficios criticos.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">✓ Beneficios da Padronizacao</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Auditoria simplificada</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Debug previsivel</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Onboarding acelerado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Metricas comparaveis</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Sem Padronizacao</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cada endpoint e uma caixa preta</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Debug vira adivinhacao</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Novos devs demoram para entender</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Metricas nao se comparam</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🔀 Entrada → Processamento → Saida</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Os 9 passos se agrupam em tres fases logicas, cada uma com responsabilidades distintas.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 text-center">
+          <div class="text-3xl mb-3">📥</div>
+          <h4 class="font-bold text-emerald-400 mb-2">ENTRADA</h4>
+          <p class="text-sm text-neutral-400">Passos 1-3</p>
+          <p class="text-xs text-neutral-500 mt-2">Receber, validar, contextualizar</p>
+        </div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 text-center">
+          <div class="text-3xl mb-3">⚙️</div>
+          <h4 class="font-bold text-blue-400 mb-2">PROCESSAMENTO</h4>
+          <p class="text-sm text-neutral-400">Passos 4-6</p>
+          <p class="text-xs text-neutral-500 mt-2">Normalizar, injetar, chamar IA</p>
+        </div>
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 text-center">
+          <div class="text-3xl mb-3">📤</div>
+          <h4 class="font-bold text-purple-400 mb-2">SAIDA</h4>
+          <p class="text-sm text-neutral-400">Passos 7-9</p>
+          <p class="text-xs text-neutral-500 mt-2">Persistir, materializar, retornar</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">📊 Diagrama do pipeline completo</h2>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <div class="font-mono text-sm text-neutral-300 overflow-x-auto">
+          <pre class="whitespace-pre">
+┌─────────────────────────────────────────────────────────────────┐
+│                      PIPELINE UNIVERSAL GIPM                      │
+├───────────────┬───────────────────────┬─────────────────────────┤
+│    ENTRADA    │    PROCESSAMENTO      │         SAIDA           │
+├───────────────┼───────────────────────┼─────────────────────────┤
+│               │                       │                         │
+│  1.Request    │  4.Normalizacao       │  7.Persistencia         │
+│      ↓        │      ↓                │      ↓                  │
+│  2.Validacao  │  5.Injecao Persona    │  8.Materializacao       │
+│      ↓        │      ↓                │      ↓                  │
+│  3.Contexto   │  6.Chamada IA         │  9.Retorno              │
+│               │                       │                         │
+└───────────────┴───────────────────────┴─────────────────────────┘
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🔗 Interdependencia entre passos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada passo depende do anterior e prepara o proximo. Pular ou inverter passos <strong class="text-blue-400">quebra a governanca</strong>.
+      </p>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Regra de Ouro</h3>
+        <p class="text-neutral-300">Nunca chame a IA (passo 6) sem antes passar pelos passos 1-5. Nunca retorne (passo 9) sem persistir (passo 7).</p>
+      </div>
+    </section>
+
+    <!-- Topico 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">⚠️ Erros comuns na implementacao</h2>
+      </div>
+      <div class="space-y-4 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+          <h4 class="font-semibold text-red-400 mb-2">❌ Chamar IA sem contexto</h4>
+          <p class="text-sm text-neutral-400">Pular passo 3 resulta em respostas genericas sem valor</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+          <h4 class="font-semibold text-red-400 mb-2">❌ Nao persistir antes de retornar</h4>
+          <p class="text-sm text-neutral-400">Perda de auditoria e impossibilidade de debug</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4">
+          <h4 class="font-semibold text-red-400 mb-2">❌ Pular injecao de persona</h4>
+          <p class="text-sm text-neutral-400">IA opera sem governanca cognitiva</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">8</span>
+        <h2 class="text-2xl font-bold">✅ Checklist de validacao</h2>
+      </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">Checklist do Pipeline</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 rounded"><span class="text-neutral-300">Todos os 9 passos estao implementados?</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 rounded"><span class="text-neutral-300">Validacao acontece antes da IA?</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 rounded"><span class="text-neutral-300">Contexto e coletado adequadamente?</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 rounded"><span class="text-neutral-300">Persona e injetada em toda chamada?</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 rounded"><span class="text-neutral-300">Persistencia captura tudo?</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" class="w-5 h-5 rounded"><span class="text-neutral-300">Materializacao segue Two-Phase Rule?</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><span><strong class="text-white">Pipeline Universal</strong> - 9 passos obrigatorios para toda operacao</span></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><span><strong class="text-white">Tres fases</strong> - Entrada, Processamento, Saida</span></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><span><strong class="text-white">Padronizacao</strong> - Garante auditabilidade e debug</span></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><span><strong class="text-white">Interdependencia</strong> - Nunca pular passos</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 2</a>
+          <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master - Metodo de Projetos com IA Governada</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

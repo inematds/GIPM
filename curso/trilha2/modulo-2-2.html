@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 2.2: Pipeline - Passos 1-3 (Entrada) | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10">T1</a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">T2</a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10">T3</a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10">T4</a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10">T5</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-neutral-300">Inicio</a><span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-400 hover:text-blue-400">Trilha 2</a><span class="text-neutral-600">/</span>
+        <span class="text-blue-400">Modulo 2.2</span>
+      </nav>
+    </div>
+  </div>
+
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MODULO 2.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📥 Pipeline: Passos 1-3 (Entrada)</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A fase de entrada e onde tudo comeca: receber a solicitacao, validar acesso e coletar o contexto necessario.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">~30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Interm.</div><div class="text-xs text-neutral-400">Nivel</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Tecnico</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📥 Passo 1: Solicitacao do usuario</h2>
+      </div>
+      <p class="text-neutral-300 mb-6">O pipeline comeca quando uma <strong class="text-blue-400">solicitacao (request)</strong> chega ao sistema. Este passo captura tudo que o usuario enviou.</p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">O que capturar no Passo 1</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Payload:</strong> Corpo da requisicao (JSON, form data)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Headers:</strong> Authorization, Content-Type, etc.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Metadados:</strong> IP, timestamp, user-agent</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span><strong>Identificadores:</strong> Request ID unico para rastreamento</span></li>
+        </ul>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h4 class="font-semibold text-white mb-3">Exemplo de Codigo</h4>
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>@app.post("/api/chat")
+async def chat_endpoint(request: ChatRequest):
+    # Passo 1: Capturar solicitacao
+    request_id = generate_request_id()
+    incoming_data = {
+        "request_id": request_id,
+        "timestamp": datetime.utcnow(),
+        "payload": request.dict(),
+        "ip": get_client_ip()
+    }
+    # Continua para Passo 2...</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔐 Passo 2: Validacao de acesso</h2>
+      </div>
+      <p class="text-neutral-300 mb-6">Antes de processar qualquer coisa, o sistema deve <strong class="text-blue-400">validar quem esta fazendo a solicitacao</strong> e se tem permissao.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-4">🔑 Autenticacao</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Validar token JWT</li>
+            <li>• Verificar sessao ativa</li>
+            <li>• Checar API key</li>
+            <li>• Identificar usuario</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-blue-400 mb-4">🛡️ Autorizacao</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Checar permissoes do usuario</li>
+            <li>• Validar acesso ao recurso</li>
+            <li>• Verificar quotas/limites</li>
+            <li>• Aplicar rate limiting</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Importante</h3>
+        <p class="text-neutral-300">Nunca pule a validacao de acesso. Este passo e a <strong class="text-white">primeira linha de defesa</strong> do sistema.</p>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🗂️ Passo 3: Coleta de contexto</h2>
+      </div>
+      <p class="text-neutral-300 mb-6">Apos validar o acesso, o sistema <strong class="text-blue-400">coleta todo o contexto necessario</strong> para a IA poder responder adequadamente.</p>
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">Tipos de Contexto</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Contexto do Usuario</h4>
+            <p class="text-sm text-neutral-400">Preferencias, historico, configuracoes pessoais</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Contexto do Dominio</h4>
+            <p class="text-sm text-neutral-400">Dados do negocio, regras especificas, documentos</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Contexto da Sessao</h4>
+            <p class="text-sm text-neutral-400">Conversas anteriores, estado atual</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Contexto do Sistema</h4>
+            <p class="text-sm text-neutral-400">Configuracoes globais, limites, politicas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🔀 Fluxo de dados entre passos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6">Cada passo adiciona informacoes ao objeto de contexto que sera passado adiante.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <div class="space-y-4">
+          <div class="flex items-center space-x-4">
+            <span class="w-24 text-blue-400 font-semibold">Passo 1</span>
+            <span class="text-neutral-500">→</span>
+            <span class="text-neutral-300">request_data, metadata</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="w-24 text-blue-400 font-semibold">Passo 2</span>
+            <span class="text-neutral-500">→</span>
+            <span class="text-neutral-300">+ user_info, permissions</span>
+          </div>
+          <div class="flex items-center space-x-4">
+            <span class="w-24 text-blue-400 font-semibold">Passo 3</span>
+            <span class="text-neutral-500">→</span>
+            <span class="text-neutral-300">+ context_data, history</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">💻 Implementacao em codigo</h2>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>async def process_entrada(request: Request):
+    # Passo 1: Solicitacao
+    pipeline_ctx = PipelineContext(
+        request_id=generate_id(),
+        raw_request=await request.json()
+    )
+
+    # Passo 2: Validacao
+    user = await validate_token(request.headers)
+    if not user:
+        raise HTTPException(401, "Unauthorized")
+    pipeline_ctx.user = user
+
+    # Passo 3: Contexto
+    pipeline_ctx.context = await collect_context(
+        user_id=user.id,
+        session_id=request.headers.get("x-session-id")
+    )
+
+    return pipeline_ctx</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Exemplos praticos</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-3">Exemplo: Chat com Historico</h4>
+          <p class="text-sm text-neutral-400 mb-3">Usuario envia mensagem em conversa existente:</p>
+          <ul class="text-sm text-neutral-300 space-y-1">
+            <li><strong class="text-blue-400">P1:</strong> Captura mensagem + session_id</li>
+            <li><strong class="text-blue-400">P2:</strong> Valida token, identifica usuario</li>
+            <li><strong class="text-blue-400">P3:</strong> Carrega historico da conversa + preferencias</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-3">Exemplo: Geracao de Documento</h4>
+          <p class="text-sm text-neutral-400 mb-3">Usuario solicita criacao de relatorio:</p>
+          <ul class="text-sm text-neutral-300 space-y-1">
+            <li><strong class="text-blue-400">P1:</strong> Captura parametros do relatorio</li>
+            <li><strong class="text-blue-400">P2:</strong> Valida se usuario pode gerar relatorios</li>
+            <li><strong class="text-blue-400">P3:</strong> Coleta dados do sistema para o relatorio</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><span><strong class="text-white">Passo 1</strong> - Capturar solicitacao completa com metadados</span></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><span><strong class="text-white">Passo 2</strong> - Validar autenticacao e autorizacao</span></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><span><strong class="text-white">Passo 3</strong> - Coletar todo contexto necessario</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-2-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master - Metodo de Projetos com IA Governada</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});
+  </script>
+</body>
+</html>
