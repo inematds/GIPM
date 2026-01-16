@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 1.7: Niveis de Profundidade | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg hidden sm:inline">GIPM Master</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">Fundamentos</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10">O Metodo</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-neutral-300">Inicio</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-400 hover:text-emerald-400">Trilha 1</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-emerald-400">Modulo 1.7</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MODULO 1.7</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📈 Niveis de Profundidade</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Aprenda a calibrar o rigor de governanca conforme o contexto: exploratorio, operacional ou institucional.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">6</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">~30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Basico</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Estrategia</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Visao Geral dos Niveis -->
+    <section class="mb-16">
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🎚️ Os Tres Niveis</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-amber-900/30 rounded-lg p-4 border border-amber-500/30 text-center">
+            <div class="text-3xl mb-2">🔬</div>
+            <h4 class="font-bold text-amber-400">Exploratorio</h4>
+            <p class="text-xs text-neutral-400 mt-1">Prototipos e experimentos</p>
+          </div>
+          <div class="bg-blue-900/30 rounded-lg p-4 border border-blue-500/30 text-center">
+            <div class="text-3xl mb-2">⚙️</div>
+            <h4 class="font-bold text-blue-400">Operacional</h4>
+            <p class="text-xs text-neutral-400 mt-1">Uso recorrente interno</p>
+          </div>
+          <div class="bg-purple-900/30 rounded-lg p-4 border border-purple-500/30 text-center">
+            <div class="text-3xl mb-2">🏛️</div>
+            <h4 class="font-bold text-purple-400">Institucional</h4>
+            <p class="text-xs text-neutral-400 mt-1">Governanca completa</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔬 Nivel Exploratorio: prototipos e experimentos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O nivel exploratorio e para <strong class="text-emerald-400">validar ideias rapidamente</strong>. Rigor minimo, velocidade maxima. O objetivo e aprender, nao entregar.
+      </p>
+      <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">🎯 Caracteristicas do Nivel Exploratorio</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Quem usa</h4>
+            <p class="text-sm text-neutral-400">Desenvolvedor individual, pesquisador, times de inovacao</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Duracaoo</h4>
+            <p class="text-sm text-neutral-400">Horas a dias (experimentos curtos)</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Usuarios</h4>
+            <p class="text-sm text-neutral-400">1-3 pessoas do time</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Tolerancia a erro</h4>
+            <p class="text-sm text-neutral-400">Alta - erros sao aprendizado</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">📋 O que fazer/nao fazer</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h4 class="font-semibold text-emerald-400 mb-2">✓ Fazer</h4>
+            <ul class="space-y-1 text-neutral-300 text-sm">
+              <li>• Testar diferentes prompts</li>
+              <li>• Comparar modelos</li>
+              <li>• Validar se IA resolve o problema</li>
+              <li>• Documentar aprendizados</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-red-400 mb-2">✗ Evitar</h4>
+            <ul class="space-y-1 text-neutral-300 text-sm">
+              <li>• Overengineering prematuro</li>
+              <li>• Persistencia complexa</li>
+              <li>• Auditoria detalhada</li>
+              <li>• Governanca formal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">⚙️ Nivel Operacional: uso recorrente</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O nivel operacional e para <strong class="text-emerald-400">uso interno recorrente</strong>. Ja validou que funciona, agora precisa de consistencia e algum controle.
+      </p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🎯 Caracteristicas do Nivel Operacional</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Quem usa</h4>
+            <p class="text-sm text-neutral-400">Times internos, departamentos, uso corporativo interno</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Duracao</h4>
+            <p class="text-sm text-neutral-400">Semanas a meses (uso continuo)</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Usuarios</h4>
+            <p class="text-sm text-neutral-400">10-100 pessoas internas</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Tolerancia a erro</h4>
+            <p class="text-sm text-neutral-400">Media - erros incomodam mas nao sao criticos</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📋 Requisitos do Nivel Operacional</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">🔐 Autenticacao</h4>
+            <p class="text-xs text-neutral-400">Login basico, controle de quem acessa</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">🎭 Persona</h4>
+            <p class="text-xs text-neutral-400">Uma ou poucas personas definidas</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">💾 Persistencia</h4>
+            <p class="text-xs text-neutral-400">Log basico de uso e custos</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">💰 Custos</h4>
+            <p class="text-xs text-neutral-400">Limite mensal, alerta basico</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">🔀 API</h4>
+            <p class="text-xs text-neutral-400">Backend intermediario simples</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">📊 Metricas</h4>
+            <p class="text-xs text-neutral-400">Dashboard basico de uso</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🏛️ Nivel Institucional: governanca forte</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O nivel institucional e para <strong class="text-emerald-400">producao com usuarios externos ou compliance</strong>. Rigor maximo, governanca completa, auditoria total.
+      </p>
+      <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">🎯 Caracteristicas do Nivel Institucional</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Quem usa</h4>
+            <p class="text-sm text-neutral-400">Clientes, cidadaos, usuarios finais externos</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Duracao</h4>
+            <p class="text-sm text-neutral-400">Anos (produto em producao)</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Usuarios</h4>
+            <p class="text-sm text-neutral-400">1000+ usuarios externos</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Tolerancia a erro</h4>
+            <p class="text-sm text-neutral-400">Baixa - erros impactam reputacao e podem ter consequencias legais</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">📋 Requisitos do Nivel Institucional (COMPLETOS)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-sm">
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">Pipeline Universal</div>
+            <p class="text-xs text-neutral-400">9 passos completos</p>
+          </div>
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">Governanca Cognitiva</div>
+            <p class="text-xs text-neutral-400">Personas + preferencias</p>
+          </div>
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">Persistencia Total</div>
+            <p class="text-xs text-neutral-400">Inputs, outputs, custos</p>
+          </div>
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">Audit Trail</div>
+            <p class="text-xs text-neutral-400">Rastreabilidade completa</p>
+          </div>
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">Limites de Custo</div>
+            <p class="text-xs text-neutral-400">Por usuario, execucao, dia</p>
+          </div>
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">Validacao de Output</div>
+            <p class="text-xs text-neutral-400">Guardrails ativos</p>
+          </div>
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">Materializacao</div>
+            <p class="text-xs text-neutral-400">Duas fases rigorosas</p>
+          </div>
+          <div class="bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
+            <div class="text-purple-400 font-semibold mb-1">METHOD_MAPPING</div>
+            <p class="text-xs text-neutral-400">Documentacao formal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📈 Escalonamento de rigor</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O rigor de governanca <strong class="text-emerald-400">escala naturalmente</strong> conforme o projeto evolui. Comece leve, adicione controles conforme necessario.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🎚️ Parametros que Escalam</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-dark-600">
+                <th class="text-left py-3 px-3 text-neutral-400">Parametro</th>
+                <th class="text-center py-3 px-3 text-amber-400">Exploratorio</th>
+                <th class="text-center py-3 px-3 text-blue-400">Operacional</th>
+                <th class="text-center py-3 px-3 text-purple-400">Institucional</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-300">
+              <tr class="border-b border-dark-700">
+                <td class="py-3 px-3 font-medium">Persistencia</td>
+                <td class="text-center py-3 px-3">Nenhuma</td>
+                <td class="text-center py-3 px-3">Basica</td>
+                <td class="text-center py-3 px-3">Total</td>
+              </tr>
+              <tr class="border-b border-dark-700">
+                <td class="py-3 px-3 font-medium">Personas</td>
+                <td class="text-center py-3 px-3">Ad hoc</td>
+                <td class="text-center py-3 px-3">1-3 definidas</td>
+                <td class="text-center py-3 px-3">Biblioteca completa</td>
+              </tr>
+              <tr class="border-b border-dark-700">
+                <td class="py-3 px-3 font-medium">Validacao</td>
+                <td class="text-center py-3 px-3">Manual</td>
+                <td class="text-center py-3 px-3">Basica</td>
+                <td class="text-center py-3 px-3">Automatizada</td>
+              </tr>
+              <tr class="border-b border-dark-700">
+                <td class="py-3 px-3 font-medium">Custos</td>
+                <td class="text-center py-3 px-3">Ignorado</td>
+                <td class="text-center py-3 px-3">Monitorado</td>
+                <td class="text-center py-3 px-3">Controlado/Alertas</td>
+              </tr>
+              <tr class="border-b border-dark-700">
+                <td class="py-3 px-3 font-medium">Auditoria</td>
+                <td class="text-center py-3 px-3">Nenhuma</td>
+                <td class="text-center py-3 px-3">Logs simples</td>
+                <td class="text-center py-3 px-3">Audit trail completo</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 font-medium">Documentacao</td>
+                <td class="text-center py-3 px-3">Notas pessoais</td>
+                <td class="text-center py-3 px-3">README basico</td>
+                <td class="text-center py-3 px-3">METHOD_MAPPING formal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🔄 Mesmo pipeline, parametros diferentes</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O pipeline GIPM e o mesmo em todos os niveis - o que muda sao os <strong class="text-emerald-400">parametros de configuracao</strong>. Isso permite evoluir sem reescrever.
+      </p>
+      <div class="bg-gradient-to-r from-amber-900/20 via-blue-900/20 to-purple-900/20 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔧 Exemplo: Parametro "persistence_level"</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-800 rounded-lg p-4 border border-amber-500/30">
+            <h4 class="font-semibold text-amber-400 mb-2">Exploratorio</h4>
+            <pre class="text-xs text-neutral-400 bg-dark-900 rounded p-2"><code>persistence_level: "none"
+log_inputs: false
+log_outputs: false
+track_costs: false</code></pre>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-4 border border-blue-500/30">
+            <h4 class="font-semibold text-blue-400 mb-2">Operacional</h4>
+            <pre class="text-xs text-neutral-400 bg-dark-900 rounded p-2"><code>persistence_level: "basic"
+log_inputs: false
+log_outputs: true
+track_costs: true</code></pre>
+          </div>
+          <div class="bg-dark-800 rounded-lg p-4 border border-purple-500/30">
+            <h4 class="font-semibold text-purple-400 mb-2">Institucional</h4>
+            <pre class="text-xs text-neutral-400 bg-dark-900 rounded p-2"><code>persistence_level: "full"
+log_inputs: true
+log_outputs: true
+track_costs: true</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Vantagem</h3>
+        <p class="text-neutral-300">Voce pode comecar no nivel exploratorio e <strong class="text-white">subir para institucional mudando apenas configuracao</strong>, sem refatorar a arquitetura.</p>
+      </div>
+    </section>
+
+    <!-- Topico 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🎯 Como escolher o nivel certo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A escolha do nivel depende de <strong class="text-emerald-400">quem usa, qual o risco e qual o horizonte</strong>. Use estas perguntas para decidir.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">❓ Questionario de Nivel</h3>
+        <div class="space-y-4">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">1. Quem sao os usuarios?</h4>
+            <div class="grid grid-cols-3 gap-2 text-sm">
+              <div class="bg-amber-900/20 rounded p-2 text-center border border-amber-500/20">
+                <span class="text-amber-400">Exploratorio</span>
+                <p class="text-xs text-neutral-400">Eu/meu time</p>
+              </div>
+              <div class="bg-blue-900/20 rounded p-2 text-center border border-blue-500/20">
+                <span class="text-blue-400">Operacional</span>
+                <p class="text-xs text-neutral-400">Colegas internos</p>
+              </div>
+              <div class="bg-purple-900/20 rounded p-2 text-center border border-purple-500/20">
+                <span class="text-purple-400">Institucional</span>
+                <p class="text-xs text-neutral-400">Usuarios externos</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">2. Qual o impacto de um erro?</h4>
+            <div class="grid grid-cols-3 gap-2 text-sm">
+              <div class="bg-amber-900/20 rounded p-2 text-center border border-amber-500/20">
+                <span class="text-amber-400">Exploratorio</span>
+                <p class="text-xs text-neutral-400">Aprendizado</p>
+              </div>
+              <div class="bg-blue-900/20 rounded p-2 text-center border border-blue-500/20">
+                <span class="text-blue-400">Operacional</span>
+                <p class="text-xs text-neutral-400">Inconveniencia</p>
+              </div>
+              <div class="bg-purple-900/20 rounded p-2 text-center border border-purple-500/20">
+                <span class="text-purple-400">Institucional</span>
+                <p class="text-xs text-neutral-400">Dano real</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">3. Precisa de auditoria?</h4>
+            <div class="grid grid-cols-3 gap-2 text-sm">
+              <div class="bg-amber-900/20 rounded p-2 text-center border border-amber-500/20">
+                <span class="text-amber-400">Exploratorio</span>
+                <p class="text-xs text-neutral-400">Nao</p>
+              </div>
+              <div class="bg-blue-900/20 rounded p-2 text-center border border-blue-500/20">
+                <span class="text-blue-400">Operacional</span>
+                <p class="text-xs text-neutral-400">Seria util</p>
+              </div>
+              <div class="bg-purple-900/20 rounded p-2 text-center border border-purple-500/20">
+                <span class="text-purple-400">Institucional</span>
+                <p class="text-xs text-neutral-400">Obrigatorio</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">4. Por quanto tempo vai rodar?</h4>
+            <div class="grid grid-cols-3 gap-2 text-sm">
+              <div class="bg-amber-900/20 rounded p-2 text-center border border-amber-500/20">
+                <span class="text-amber-400">Exploratorio</span>
+                <p class="text-xs text-neutral-400">Dias</p>
+              </div>
+              <div class="bg-blue-900/20 rounded p-2 text-center border border-blue-500/20">
+                <span class="text-blue-400">Operacional</span>
+                <p class="text-xs text-neutral-400">Meses</p>
+              </div>
+              <div class="bg-purple-900/20 rounded p-2 text-center border border-purple-500/20">
+                <span class="text-purple-400">Institucional</span>
+                <p class="text-xs text-neutral-400">Anos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3">🎯 Regra de Ouro</h3>
+        <p class="text-neutral-300">Na duvida, <strong class="text-white">comece um nivel abaixo</strong> do que acha que precisa. E mais facil subir o rigor do que remover complexidade desnecessaria.</p>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Nivel Exploratorio</strong><span class="text-neutral-400"> - Prototipos, experimentos, aprendizado rapido</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Nivel Operacional</strong><span class="text-neutral-400"> - Uso interno recorrente, controle basico</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Nivel Institucional</strong><span class="text-neutral-400"> - Producao externa, governanca completa</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Escalonamento</strong><span class="text-neutral-400"> - Rigor aumenta com usuarios e risco</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Pipeline unico</strong><span class="text-neutral-400"> - Mesmo codigo, parametros diferentes</span></div>
+          </div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Proximo modulo:</h3>
+          <p class="text-neutral-300"><strong class="text-white">1.8 - Vocabulario Essencial do GIPM</strong> - Domine os termos fundamentais do metodo.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-1-8.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master - Metodo de Projetos com IA Governada</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 1.6: GIPM vs Abordagens Tradicionais | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg hidden sm:inline">GIPM Master</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">Fundamentos</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10">O Metodo</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-neutral-300">Inicio</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-400 hover:text-emerald-400">Trilha 1</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-emerald-400">Modulo 1.6</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MODULO 1.6</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚔️ GIPM vs Abordagens Tradicionais</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Compare GIPM com prompt engineering, agentes autonomos, no-code tools e outras abordagens populares.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">6</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">~40</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Basico</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Comparativo</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Topico 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">⚔️ GIPM vs "Prompt Engineering"</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Prompt Engineering e a arte de escrever prompts eficazes. <strong class="text-emerald-400">GIPM vai alem</strong>: cria sistemas que injetam contexto, personas e guardrails automaticamente, sem depender do usuario.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">✏️</span>
+            <h4 class="font-bold text-amber-400">Prompt Engineering</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Foco na escrita do prompt</li>
+            <li>• Usuario precisa lembrar de tudo</li>
+            <li>• Cada interacao e independente</li>
+            <li>• Dificil manter consistencia</li>
+            <li>• Sem auditoria automatica</li>
+            <li>• Escala = mais prompts</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">🏛️</span>
+            <h4 class="font-bold text-emerald-400">GIPM</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Foco em politicas do sistema</li>
+            <li>• Sistema injeta contexto automatico</li>
+            <li>• Personas persistentes entre interacoes</li>
+            <li>• Consistencia garantida</li>
+            <li>• Auditoria completa</li>
+            <li>• Escala = mesmas politicas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3">🔄 Evolucao, nao Substituicao</h3>
+        <p class="text-neutral-300 text-sm">GIPM nao elimina prompt engineering - ele o <strong class="text-white">encapsula</strong>. Os bons prompts viram personas e configuracoes do sistema, aplicadas automaticamente em toda interacao.</p>
+      </div>
+    </section>
+
+    <!-- Topico 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">⚔️ GIPM vs Agentes Autonomos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Agentes autonomos deixam a IA decidir o fluxo de execucao. <strong class="text-emerald-400">GIPM inverte isso</strong>: o sistema controla o fluxo, a IA executa tarefas especificas.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">🤖</span>
+            <h4 class="font-bold text-purple-400">Agentes Autonomos</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• IA decide proxima acao</li>
+            <li>• Fluxo imprevisivel</li>
+            <li>• Pode "fugir do script"</li>
+            <li>• Dificil auditar decisoes</li>
+            <li>• Custos imprevistos (loops)</li>
+            <li>• Alta complexidade de debug</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">🏛️</span>
+            <h4 class="font-bold text-emerald-400">GIPM</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Sistema decide proxima acao</li>
+            <li>• Fluxo deterministico</li>
+            <li>• IA opera dentro de limites</li>
+            <li>• Toda decisao rastreavel</li>
+            <li>• Custos previsiveis</li>
+            <li>• Debug simples e direto</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Riscos de Agentes Autonomos</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="bg-dark-800/50 rounded-lg p-3">
+            <h4 class="font-semibold text-white mb-1">Loop Infinito</h4>
+            <p class="text-neutral-400">IA decide repetir acao indefinidamente</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-3">
+            <h4 class="font-semibold text-white mb-1">Escalada de Privilegios</h4>
+            <p class="text-neutral-400">IA decide acessar recursos nao autorizados</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-3">
+            <h4 class="font-semibold text-white mb-1">Alucinacao em Cascata</h4>
+            <p class="text-neutral-400">Erro em uma acao contamina as proximas</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Posicionamento</h3>
+        <p class="text-neutral-300">Agentes autonomos tem seu lugar em experimentacao e pesquisa. Para <strong class="text-white">producao institucional</strong>, GIPM oferece a governanca necessaria.</p>
+      </div>
+    </section>
+
+    <!-- Topico 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">⚔️ GIPM vs No-Code AI Tools</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Ferramentas no-code facilitam o uso de IA, mas geralmente sacrificam governanca. <strong class="text-emerald-400">GIPM exige controle total</strong> sobre o comportamento do sistema.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">🔧</span>
+            <h4 class="font-bold text-blue-400">No-Code AI Tools</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Interface visual simples</li>
+            <li>• Rapido para comecar</li>
+            <li>• Limitado ao que a tool oferece</li>
+            <li>• Dados ficam na plataforma</li>
+            <li>• Lock-in forte</li>
+            <li>• Auditoria limitada ou inexistente</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">🏛️</span>
+            <h4 class="font-bold text-emerald-400">GIPM</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Requer desenvolvimento</li>
+            <li>• Mais lento para comecar</li>
+            <li>• Personalizacao total</li>
+            <li>• Dados sob seu controle</li>
+            <li>• Anti-lock-in por design</li>
+            <li>• Auditoria completa</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3">📊 Trade-offs</h3>
+        <div class="grid grid-cols-3 gap-4 text-center text-sm">
+          <div>
+            <div class="text-neutral-400 mb-1">Velocidade Inicial</div>
+            <div class="flex justify-center space-x-1">
+              <span class="text-blue-400">No-Code</span>
+              <span class="text-neutral-600">></span>
+              <span class="text-emerald-400">GIPM</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-neutral-400 mb-1">Governanca</div>
+            <div class="flex justify-center space-x-1">
+              <span class="text-emerald-400">GIPM</span>
+              <span class="text-neutral-600">></span>
+              <span class="text-blue-400">No-Code</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-neutral-400 mb-1">Escala Longo Prazo</div>
+            <div class="flex justify-center space-x-1">
+              <span class="text-emerald-400">GIPM</span>
+              <span class="text-neutral-600">></span>
+              <span class="text-blue-400">No-Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">⚔️ GIPM vs LLM Direto na Aplicacao</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Muitos projetos chamam LLMs diretamente do frontend ou backend sem camada intermediaria. <strong class="text-emerald-400">GIPM sempre interpoe um sistema de governanca</strong>.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">📱</span>
+            <h4 class="font-bold text-red-400">LLM Direto</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Chamada direta: App → LLM</li>
+            <li>• Prompt montado no client</li>
+            <li>• API key exposta ou hardcoded</li>
+            <li>• Sem controle de custos</li>
+            <li>• Sem persistencia de interacoes</li>
+            <li>• Usuario pode injetar qualquer prompt</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl">🏛️</span>
+            <h4 class="font-bold text-emerald-400">GIPM</h4>
+          </div>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Chamada via API propria: App → Backend → LLM</li>
+            <li>• Prompt montado no server com contexto</li>
+            <li>• API key segura no backend</li>
+            <li>• Limites de custo por usuario</li>
+            <li>• Toda interacao persistida</li>
+            <li>• Sistema controla o que vai para IA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🔀 Arquitetura Comparada</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="text-center">
+            <h4 class="font-semibold text-red-400 mb-3">❌ LLM Direto</h4>
+            <div class="flex items-center justify-center space-x-2 text-sm">
+              <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded">Frontend</span>
+              <span class="text-neutral-600">→</span>
+              <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded">LLM API</span>
+            </div>
+          </div>
+          <div class="text-center">
+            <h4 class="font-semibold text-emerald-400 mb-3">✓ GIPM</h4>
+            <div class="flex items-center justify-center space-x-2 text-sm flex-wrap gap-y-2">
+              <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded">Frontend</span>
+              <span class="text-neutral-600">→</span>
+              <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded">Backend API</span>
+              <span class="text-neutral-600">→</span>
+              <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded">LLM API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">📊 Matriz Comparativa</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Veja lado a lado como cada abordagem se comporta em criterios importantes para projetos institucionais.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-dark-600">
+              <th class="text-left py-3 px-3 text-neutral-400">Criterio</th>
+              <th class="text-center py-3 px-3 text-amber-400">Prompt Eng.</th>
+              <th class="text-center py-3 px-3 text-purple-400">Agentes</th>
+              <th class="text-center py-3 px-3 text-blue-400">No-Code</th>
+              <th class="text-center py-3 px-3 text-red-400">LLM Direto</th>
+              <th class="text-center py-3 px-3 text-emerald-400">GIPM</th>
+            </tr>
+          </thead>
+          <tbody class="text-neutral-300">
+            <tr class="border-b border-dark-700">
+              <td class="py-3 px-3 font-medium">Governanca</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr class="border-b border-dark-700">
+              <td class="py-3 px-3 font-medium">Auditabilidade</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr class="border-b border-dark-700">
+              <td class="py-3 px-3 font-medium">Previsibilidade</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr class="border-b border-dark-700">
+              <td class="py-3 px-3 font-medium">Velocidade Inicial</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+            </tr>
+            <tr class="border-b border-dark-700">
+              <td class="py-3 px-3 font-medium">Escalabilidade</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr class="border-b border-dark-700">
+              <td class="py-3 px-3 font-medium">Controle de Custos</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-medium">Anti-Lock-in</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐</td>
+              <td class="text-center py-3 px-3">⭐⭐⭐⭐⭐</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Topico 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">✅ Quando usar cada abordagem</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Nenhuma abordagem e universalmente melhor. A escolha depende do <strong class="text-emerald-400">contexto, objetivos e restricoes</strong> do seu projeto.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-4">✏️ Use Prompt Engineering quando:</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Experimentos rapidos e pessoais</li>
+            <li>• Validar se IA resolve um problema</li>
+            <li>• Prototipo de uma unica funcao</li>
+            <li>• Uso individual, sem escala</li>
+          </ul>
+        </div>
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">🤖 Use Agentes Autonomos quando:</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Pesquisa academica</li>
+            <li>• Problemas exploratrios sem resposta conhecida</li>
+            <li>• Ambiente sandbox isolado</li>
+            <li>• Risco aceitavel de comportamento inesperado</li>
+          </ul>
+        </div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">🔧 Use No-Code AI Tools quando:</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• MVP rapido para validar mercado</li>
+            <li>• Equipe nao-tecnica</li>
+            <li>• Problema ja resolvido pela tool</li>
+            <li>• Dados nao sao sensiveis</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">🏛️ Use GIPM quando:</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Produto para usuarios reais</li>
+            <li>• Necessidade de auditoria</li>
+            <li>• Escala com multiplos usuarios</li>
+            <li>• Controle de custos e importa</li>
+            <li>• Compliance/regulacao</li>
+            <li>• Projeto institucional</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-gradient-to-br from-emerald-900/40 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4">🎯 Regra Geral</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Comece simples</h4>
+            <p class="text-sm text-neutral-400">Use prompt engineering ou no-code para validar a ideia rapidamente.</p>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Migre para GIPM</h4>
+            <p class="text-sm text-neutral-400">Quando validar e decidir ir para producao, aplique governanca GIPM.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">vs Prompt Engineering</strong><span class="text-neutral-400"> - GIPM encapsula prompts em politicas sistemicas</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">vs Agentes Autonomos</strong><span class="text-neutral-400"> - GIPM inverte: sistema controla, IA executa</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">vs No-Code Tools</strong><span class="text-neutral-400"> - GIPM oferece controle total vs conveniencia</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">vs LLM Direto</strong><span class="text-neutral-400"> - GIPM sempre interpoe camada de governanca</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Escolha consciente</strong><span class="text-neutral-400"> - Cada abordagem tem seu lugar, GIPM e para producao institucional</span></div>
+          </div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Proximo modulo:</h3>
+          <p class="text-neutral-300"><strong class="text-white">1.7 - Niveis de Profundidade</strong> - Entenda como aplicar diferentes niveis de rigor GIPM conforme o contexto.</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-1-7.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master - Metodo de Projetos com IA Governada</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => { themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden'); html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light'); });
+  </script>
+</body>
+</html>

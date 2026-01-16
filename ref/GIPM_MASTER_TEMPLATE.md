@@ -165,6 +165,26 @@ MODULO COMPLETO
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
 ```
 
+### Card do Modulo (Header)
+
+**IMPORTANTE:** O titulo do modulo deve usar `text-2xl` para maior destaque visual.
+
+```html
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+  <!-- Header do Modulo -->
+  <div class="p-6 border-b border-dark-600">
+    <div class="flex items-center justify-between mb-2">
+      <span class="text-emerald-400 font-bold">1.1</span>
+      <span class="text-xs text-neutral-500">~30 min</span>
+    </div>
+    <h3 class="text-2xl font-bold mb-2">💥 Titulo do Modulo</h3>
+    <p class="text-neutral-400 text-sm">Descricao breve do modulo.</p>
+  </div>
+  <!-- Topicos Expansiveis -->
+  <!-- Botoes -->
+</div>
+```
+
 ### Conteudo do Topico Expansivel (3 Secoes)
 
 ```html

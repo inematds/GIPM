@@ -136,7 +136,7 @@
           <span class="text-emerald-400 font-bold">1.1</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">💥 O Problema da IA Desgovernada</h3>
+        <h3 class="text-2xl font-bold mb-2">💥 O Problema da IA Desgovernada</h3>
         <p class="text-neutral-400 text-sm">Entenda por que IA sem governanca e um risco e como isso afeta projetos reais.</p>
       </div>
 
@@ -329,7 +329,7 @@
           <span class="text-emerald-400 font-bold">1.2</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">🎓 O que e o GIPM</h3>
+        <h3 class="text-2xl font-bold mb-2">🎓 O que e o GIPM</h3>
         <p class="text-neutral-400 text-sm">Definicao, origem, filosofia e beneficios do metodo GIPM.</p>
       </div>
       <div class="divide-y divide-dark-600">
@@ -500,99 +500,1071 @@
       </div>
     </div>
 
-    <!-- Modulo 1.3 (Resumido) -->
+    <!-- Modulo 1.3 -->
     <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-emerald-400 font-bold">1.3</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">🔒 Os 5 Principios Inalteraveis</h3>
+        <h3 class="text-2xl font-bold mb-2">🔒 Os 5 Principios Inalteraveis</h3>
         <p class="text-neutral-400 text-sm">API-first, orquestracao, duas fases, persistencia e anti-lock-in.</p>
       </div>
-      <div class="p-6 text-center text-neutral-500">
-        <p class="mb-4">6 topicos sobre os principios fundamentais do GIPM</p>
-        <span class="text-emerald-400 text-sm">Conteudo disponivel em breve</span>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔌</span>
+            <div>
+              <span class="font-medium">Principio 1: API-first sempre</span>
+              <span class="text-neutral-500 text-sm ml-2">- Exposicao via interface</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Toda capacidade do sistema deve ser exposta via API. Nenhuma funcionalidade existe apenas em interface grafica ou script isolado.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">APIs permitem integracao, automacao, testes e auditoria. Sistemas API-first sao naturalmente mais modulares e governaveis.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">REST, endpoints, contratos de API, versionamento, documentacao automatica.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎛️</span>
+            <div>
+              <span class="font-medium">Principio 2: Backend orquestra, IA executa</span>
+              <span class="text-neutral-500 text-sm ml-2">- Separacao de controle</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A IA nunca controla o fluxo de execucao. O backend determina quando, como e com quais parametros a IA sera invocada.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Separar orquestracao de execucao garante previsibilidade. Voce sempre sabe o que vai acontecer e quando.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Orquestracao, invocacao controlada, fluxo deterministico, IA como servico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">Principio 3: IA gera estrutura, sistema gera artefatos</span>
+              <span class="text-neutral-500 text-sm ml-2">- Regra das duas fases</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A IA produz estruturas de dados (JSON, objetos). O sistema e responsavel por materializar essas estruturas em artefatos finais.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Esta separacao permite validar, auditar e transformar outputs da IA antes de gerar qualquer artefato final.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Two-Phase Rule, estrutura vs artefato, materializacao, validacao intermediaria.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">💾</span>
+            <div>
+              <span class="font-medium">Principio 4: Persistencia total</span>
+              <span class="text-neutral-500 text-sm ml-2">- Tudo e armazenado</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Toda interacao com IA, seus inputs, outputs, parametros e metadados sao persistidos. Nada e perdido ou efemero.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Persistencia total habilita auditoria, debug, replay e melhoria continua baseada em dados reais.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Audit trail, logs estruturados, replay, analise historica, rastreabilidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🧩</span>
+            <div>
+              <span class="font-medium">Principio 5: Modularidade e anti-lock-in</span>
+              <span class="text-neutral-500 text-sm ml-2">- Componentes substituiveis</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Todo componente, incluindo o provedor de IA, pode ser substituido sem reescrever o sistema. Nenhuma dependencia e absoluta.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Anti-lock-in protege contra mudancas de preco, descontinuacao de servicos e permite otimizacao continua.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Abstracoes, interfaces, adapters, troca de provedor, independencia tecnologica.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">⚖️</span>
+            <div>
+              <span class="font-medium">Por que sao inalteraveis</span>
+              <span class="text-neutral-500 text-sm ml-2">- A base do metodo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Estes principios sao a fundacao do GIPM. Violar qualquer um deles compromete a governanca e previsibilidade do sistema.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Entender a imutabilidade dos principios ajuda a resistir pressoes por atalhos que comprometem a arquitetura.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Invariantes, trade-offs, divida tecnica, integridade arquitetural.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          📖 Ver em Modal
+        </button>
+        <a href="modulo-1-3.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">
+          📄 Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- Modulo 1.4 (Resumido) -->
+    <!-- Modulo 1.4 -->
     <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-emerald-400 font-bold">1.4</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">🏗️ Arquitetura de Tres Camadas</h3>
+        <h3 class="text-2xl font-bold mb-2">🏗️ Arquitetura de Tres Camadas</h3>
         <p class="text-neutral-400 text-sm">Camada humana, sistema e IA - responsabilidades e limites.</p>
       </div>
-      <div class="p-6 text-center text-neutral-500">
-        <p class="mb-4">6 topicos sobre a arquitetura fundamental</p>
-        <span class="text-emerald-400 text-sm">Conteudo disponivel em breve</span>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">👤</span>
+            <div>
+              <span class="font-medium">Camada 1: Decisao Humana</span>
+              <span class="text-neutral-500 text-sm ml-2">- O que nunca e delegado</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A camada onde humanos definem objetivos, limites, criterios de sucesso e politicas. Nunca delegada a IA ou sistema.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Entender onde termina a automacao e comeca a responsabilidade humana e fundamental para governanca efetiva.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Objetivos estrategicos, limites de operacao, criterios de sucesso, aprovacoes, politicas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">⚙️</span>
+            <div>
+              <span class="font-medium">Camada 2: Sistema (Orquestracao)</span>
+              <span class="text-neutral-500 text-sm ml-2">- Validacao e controle</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">O backend que valida estados, controla fluxo, aplica regras de negocio e gerencia a comunicacao com a camada de IA.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A camada de sistema e onde a governanca se materializa em codigo. E o guardiao das politicas definidas na camada humana.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Validacao de estados, controle de fluxo, regras de negocio, logging, persistencia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">Camada 3: IA (Cognicao)</span>
+              <span class="text-neutral-500 text-sm ml-2">- Analise e sintese</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A camada cognitiva que analisa, estrutura e sintetiza informacao. Executa tarefas mas nunca controla o fluxo.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Definir claramente o escopo da IA evita que ela assuma responsabilidades alem de sua capacidade ou confiabilidade.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Analise semantica, geracao de estruturas, sintese de informacao, classificacao, extracao.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🚧</span>
+            <div>
+              <span class="font-medium">Limites de cada camada</span>
+              <span class="text-neutral-500 text-sm ml-2">- Fronteiras claras</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Cada camada tem fronteiras bem definidas. Nenhuma camada deve invadir responsabilidades de outra.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Fronteiras claras facilitam debug, manutencao e evolucao do sistema. Violacoes de limites sao a raiz de muitos problemas.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Separacao de responsabilidades, contratos, interfaces, encapsulamento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔀</span>
+            <div>
+              <span class="font-medium">Fluxo de responsabilidades</span>
+              <span class="text-neutral-500 text-sm ml-2">- Como as camadas interagem</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">O fluxo unidirecional: Humano define → Sistema orquestra → IA executa → Sistema valida → Humano aprova (se necessario).</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Entender o fluxo permite projetar sistemas onde cada camada faz exatamente o que deve fazer, no momento certo.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Fluxo unidirecional, handoffs, validacao em cada etapa, loops de feedback controlados.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">📐</span>
+            <div>
+              <span class="font-medium">Diagrama da arquitetura</span>
+              <span class="text-neutral-500 text-sm ml-2">- Visualizacao completa</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Representacao visual das tres camadas, suas interacoes, pontos de validacao e fluxo de dados.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Diagramas facilitam comunicacao com stakeholders e servem como referencia durante implementacao e debug.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Diagramas de arquitetura, fluxos, pontos de integracao, documentacao visual.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          📖 Ver em Modal
+        </button>
+        <a href="modulo-1-4.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">
+          📄 Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- Modulo 1.5 (Resumido) -->
+    <!-- Modulo 1.5 -->
     <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-emerald-400 font-bold">1.5</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">🧠 Mentalidade de Governanca</h3>
+        <h3 class="text-2xl font-bold mb-2">🧠 Mentalidade de Governanca</h3>
         <p class="text-neutral-400 text-sm">Mudanca de mindset de usuario para governante de IA.</p>
       </div>
-      <div class="p-6 text-center text-neutral-500">
-        <p class="mb-4">6 topicos sobre a mentalidade necessaria</p>
-        <span class="text-emerald-400 text-sm">Conteudo disponivel em breve</span>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">Mudanca de mindset: de usuario a governante</span>
+              <span class="text-neutral-500 text-sm ml-2">- Nova perspectiva</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A transicao mental de consumir IA para governar IA. Voce deixa de ser usuario passivo e se torna arquiteto do comportamento.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sem essa mudanca de mentalidade, voce continuara dependente da sorte em vez de ter controle sistematico.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Proatividade, design de comportamento, controle sistematico, responsabilidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📋</span>
+            <div>
+              <span class="font-medium">Pensar em politicas, nao em prompts</span>
+              <span class="text-neutral-500 text-sm ml-2">- Nivel superior</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Em vez de focar em prompts individuais, voce define politicas que governam como todos os prompts devem ser construidos e executados.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Politicas escalam. Um bom prompt resolve um problema; uma boa politica resolve categorias inteiras de problemas.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Politicas de IA, personas, templates, regras sistematicas, escalabilidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔧</span>
+            <div>
+              <span class="font-medium">IA como servico, nao como decisor</span>
+              <span class="text-neutral-500 text-sm ml-2">- Papel correto</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A IA e um servico que voce invoca quando necessario, nao um agente autonomo que toma decisoes por conta propria.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Essa perspectiva mantem voce no controle e evita a armadilha de delegar decisoes importantes para sistemas nao confiaveis.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">IA como ferramenta, invocacao sob demanda, controle humano, servico cognitivo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Rastreabilidade como valor</span>
+              <span class="text-neutral-500 text-sm ml-2">- Tudo documentado</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A capacidade de reconstruir qualquer decisao ou output ate sua origem. Cada interacao com IA tem um rastro auditavel.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Rastreabilidade permite debug, compliance, melhoria continua e responsabilizacao quando necessario.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Audit trail, logs, reproducibilidade, accountability, transparencia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">💰</span>
+            <div>
+              <span class="font-medium">Custo como metrica de qualidade</span>
+              <span class="text-neutral-500 text-sm ml-2">- Eficiencia mensuravel</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">O custo de cada interacao com IA (tokens, tempo, retrabalho) e uma metrica de qualidade do sistema, nao apenas financeira.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sistemas bem governados tendem a ser mais eficientes. Alto custo geralmente indica problemas de governanca.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Custo por execucao, eficiencia de tokens, taxa de retrabalho, ROI de governanca.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🏛️</span>
+            <div>
+              <span class="font-medium">Visao institucional vs experimental</span>
+              <span class="text-neutral-500 text-sm ml-2">- Escala de maturidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">A diferenca entre experimentar com IA (aceitar incerteza) e operar com IA institucionalmente (exigir previsibilidade).</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Saber onde voce esta nessa escala determina quanto rigor de governanca e apropriado para seu contexto.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Maturidade de IA, niveis de rigor, experimentacao vs producao, escala de governanca.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          📖 Ver em Modal
+        </button>
+        <a href="modulo-1-5.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">
+          📄 Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- Modulo 1.6 (Resumido) -->
+    <!-- Modulo 1.6 -->
     <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-emerald-400 font-bold">1.6</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">⚔️ GIPM vs Abordagens Tradicionais</h3>
+        <h3 class="text-2xl font-bold mb-2">⚔️ GIPM vs Abordagens Tradicionais</h3>
         <p class="text-neutral-400 text-sm">Comparativo com prompt engineering, agentes autonomos e no-code.</p>
       </div>
-      <div class="p-6 text-center text-neutral-500">
-        <p class="mb-4">6 topicos comparativos</p>
-        <span class="text-emerald-400 text-sm">Conteudo disponivel em breve</span>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">✍️</span>
+            <div>
+              <span class="font-medium">GIPM vs "Prompt Engineering"</span>
+              <span class="text-neutral-500 text-sm ml-2">- Alem dos prompts</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Prompt engineering foca em otimizar prompts individuais. GIPM foca em sistemas que governam como prompts sao construidos e executados.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Entender a diferenca evita confundir taticas (prompts) com estrategia (governanca). Um bom prompt sem governanca ainda e fragil.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Prompts vs politicas, otimizacao local vs sistemica, escalabilidade, reproducibilidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🤖</span>
+            <div>
+              <span class="font-medium">GIPM vs Agentes Autonomos</span>
+              <span class="text-neutral-500 text-sm ml-2">- Controle vs autonomia</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Agentes autonomos delegam controle a IA. GIPM mantem controle no sistema, usando IA apenas para tarefas cognitivas especificas.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Agentes autonomos podem ser uteis para prototipagem, mas sao arriscados em producao. GIPM oferece caminho seguro para escala.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Autonomia vs controle, previsibilidade, risco operacional, governanca de agentes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔌</span>
+            <div>
+              <span class="font-medium">GIPM vs No-Code AI Tools</span>
+              <span class="text-neutral-500 text-sm ml-2">- Flexibilidade vs facilidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Ferramentas no-code oferecem rapidez mas limitam customizacao. GIPM requer desenvolvimento mas oferece controle total.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">No-code pode ser um bom comeco, mas sistemas serios precisam da flexibilidade que so codigo oferece.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Trade-off velocidade vs controle, limitacoes de plataforma, migracao, lock-in.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">⚡</span>
+            <div>
+              <span class="font-medium">GIPM vs LLM direto na aplicacao</span>
+              <span class="text-neutral-500 text-sm ml-2">- Camadas vs acesso direto</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Chamar LLM diretamente do frontend e rapido de implementar mas impossivel de governar. GIPM adiciona camadas de controle.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Acesso direto e aceitavel para POCs. Para producao, as camadas do GIPM sao essenciais para seguranca e controle.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Camadas de abstracao, seguranca, validacao, auditoria, controle de custos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📊</span>
+            <div>
+              <span class="font-medium">Matriz comparativa</span>
+              <span class="text-neutral-500 text-sm ml-2">- Visao consolidada</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Uma tabela comparando GIPM com outras abordagens em dimensoes como governanca, escalabilidade, auditoria e custo.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">A matriz ajuda a comunicar rapidamente as diferencas para stakeholders e a escolher a abordagem certa para cada contexto.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Criterios de comparacao, pontos fortes e fracos, analise de trade-offs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Quando usar cada abordagem</span>
+              <span class="text-neutral-500 text-sm ml-2">- Guia de decisao</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Um guia pratico para escolher entre GIPM e outras abordagens baseado em requisitos de projeto, recursos e maturidade.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">GIPM nao e sempre a resposta certa. Saber quando usar cada abordagem e sinal de maturidade tecnica.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Criterios de selecao, analise de requisitos, maturidade de equipe, recursos disponiveis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          📖 Ver em Modal
+        </button>
+        <a href="modulo-1-6.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">
+          📄 Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- Modulo 1.7 (Resumido) -->
+    <!-- Modulo 1.7 -->
     <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-emerald-400 font-bold">1.7</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">📊 Niveis de Profundidade</h3>
+        <h3 class="text-2xl font-bold mb-2">📊 Niveis de Profundidade</h3>
         <p class="text-neutral-400 text-sm">Exploratorio, operacional e institucional - quando usar cada um.</p>
       </div>
-      <div class="p-6 text-center text-neutral-500">
-        <p class="mb-4">6 topicos sobre niveis de aplicacao</p>
-        <span class="text-emerald-400 text-sm">Conteudo disponivel em breve</span>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🧪</span>
+            <div>
+              <span class="font-medium">Nivel Exploratorio: prototipos e experimentos</span>
+              <span class="text-neutral-500 text-sm ml-2">- Baixo rigor</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">O nivel mais leve de governanca, para prototipos e experimentos onde falhas sao aceitaveis e o objetivo e aprender rapidamente.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Aplicar governanca demais em experimentos mata a velocidade. O nivel exploratorio permite inovar sem burocracia.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">POC, prototipo, fail fast, iteracao rapida, tolerancia a falha.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">⚙️</span>
+            <div>
+              <span class="font-medium">Nivel Operacional: uso recorrente</span>
+              <span class="text-neutral-500 text-sm ml-2">- Rigor medio</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Nivel intermediario para sistemas em uso regular, onde consistencia importa mas o impacto de falhas e limitado.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Muitos projetos vivem neste nivel. Requer mais estrutura que exploratorio, mas sem o overhead institucional.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Producao leve, monitoramento basico, logs, validacao de outputs, alertas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🏛️</span>
+            <div>
+              <span class="font-medium">Nivel Institucional: governanca forte</span>
+              <span class="text-neutral-500 text-sm ml-2">- Rigor maximo</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">O nivel mais rigoroso, para sistemas criticos onde falhas tem impacto significativo e auditoria e obrigatoria.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Sistemas de saude, financas e governo exigem este nivel. O GIPM foi projetado para suportar governanca institucional completa.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Compliance, auditoria completa, aprovacoes formais, rastreabilidade total, SLAs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📈</span>
+            <div>
+              <span class="font-medium">Escalonamento de rigor</span>
+              <span class="text-neutral-500 text-sm ml-2">- Progressao natural</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Como sistemas evoluem de exploratorio para operacional e eventualmente institucional a medida que maturam.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Saber quando e como escalar o rigor permite crescer organicamente sem parar o sistema para reestruturacao.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Maturidade de sistema, gatilhos de escalonamento, migracao de nivel, indicadores.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔄</span>
+            <div>
+              <span class="font-medium">Mesmo pipeline, parametros diferentes</span>
+              <span class="text-neutral-500 text-sm ml-2">- Configuracao flexivel</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">O mesmo pipeline GIPM pode operar em diferentes niveis apenas ajustando parametros como validacao, logging e aprovacoes.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Isso significa que voce nao precisa construir sistemas diferentes para cada nivel - apenas configurar o mesmo sistema de forma diferente.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Parametrizacao, configuracao de ambiente, feature flags, politicas de validacao.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🎯</span>
+            <div>
+              <span class="font-medium">Como escolher o nivel certo</span>
+              <span class="text-neutral-500 text-sm ml-2">- Guia pratico</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Criterios praticos para determinar qual nivel de profundidade usar baseado em impacto, requisitos e recursos.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Escolher o nivel errado desperdiça recursos (muito rigor) ou cria riscos (pouco rigor). A escolha certa equilibra ambos.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Analise de impacto, requisitos de compliance, recursos disponiveis, apetite de risco.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          📖 Ver em Modal
+        </button>
+        <a href="modulo-1-7.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">
+          📄 Ver Completo
+        </a>
       </div>
     </div>
 
-    <!-- Modulo 1.8 (Resumido) -->
+    <!-- Modulo 1.8 -->
     <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-emerald-400 font-bold">1.8</span>
           <span class="text-xs text-neutral-500">~30 min</span>
         </div>
-        <h3 class="text-xl font-bold mb-2">📖 Vocabulario Essencial do GIPM</h3>
+        <h3 class="text-2xl font-bold mb-2">📖 Vocabulario Essencial do GIPM</h3>
         <p class="text-neutral-400 text-sm">Glossario completo de termos e conceitos do metodo.</p>
       </div>
-      <div class="p-6 text-center text-neutral-500">
-        <p class="mb-4">6 topicos de vocabulario</p>
-        <span class="text-emerald-400 text-sm">Conteudo disponivel em breve</span>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📚</span>
+            <div>
+              <span class="font-medium">Glossario: Governanca, Persona, Pipeline</span>
+              <span class="text-neutral-500 text-sm ml-2">- Termos fundamentais</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Definicoes precisas de termos centrais do GIPM: Governanca (controle sistematico), Persona (identidade de IA), Pipeline (fluxo de execucao).</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Vocabulario compartilhado evita mal-entendidos e permite comunicacao clara sobre conceitos tecnicos.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Governanca cognitiva, personas de IA, pipelines de processamento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📚</span>
+            <div>
+              <span class="font-medium">Glossario: Depth Level, Two-Phase Rule</span>
+              <span class="text-neutral-500 text-sm ml-2">- Conceitos de arquitetura</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Depth Level (nivel de rigor), Two-Phase Rule (IA gera estrutura, sistema gera artefato) - conceitos arquiteturais fundamentais.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Estes termos aparecem frequentemente na documentacao e discussoes tecnicas sobre GIPM.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Niveis de profundidade, regra das duas fases, separacao de responsabilidades.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📚</span>
+            <div>
+              <span class="font-medium">Glossario: Cognitive Governance, Audit Trail</span>
+              <span class="text-neutral-500 text-sm ml-2">- Controle e rastreabilidade</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Cognitive Governance (governar como IA pensa), Audit Trail (rastro completo de todas as operacoes para auditoria).</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Estes conceitos sao a essencia do GIPM - controlar o pensamento da IA e manter registro de tudo.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Governanca cognitiva, trilha de auditoria, compliance, transparencia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📚</span>
+            <div>
+              <span class="font-medium">Glossario: Anti-Lock-In, Reference Implementation</span>
+              <span class="text-neutral-500 text-sm ml-2">- Flexibilidade e exemplos</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Anti-Lock-In (independencia de fornecedores), Reference Implementation (implementacao de referencia que demonstra o metodo).</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Anti-lock-in garante que voce nao fique preso a um provedor. Reference implementation fornece exemplos concretos.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Independencia de vendor, abstracoes, implementacoes de referencia, exemplos praticos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📚</span>
+            <div>
+              <span class="font-medium">Glossario: Materializacao, Persistencia</span>
+              <span class="text-neutral-500 text-sm ml-2">- Geracao e armazenamento</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Materializacao (converter estruturas em artefatos), Persistencia (armazenar todas as interacoes e dados permanentemente).</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Estes processos sao centrais no pipeline GIPM - a IA gera estruturas que sao materializadas e tudo e persistido.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Geracao de artefatos, armazenamento, banco de dados, historico, replay.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">✅</span>
+            <div>
+              <span class="font-medium">Quiz de fixacao</span>
+              <span class="text-neutral-500 text-sm ml-2">- Teste seu conhecimento</span>
+            </div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div>
+                <span class="text-emerald-400 font-semibold">O que e:</span>
+                <p class="text-neutral-300 text-sm">Um quiz interativo para testar se voce aprendeu os termos e conceitos essenciais do vocabulario GIPM.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Por que aprender:</span>
+                <p class="text-neutral-300 text-sm">Quizzes ajudam a consolidar o aprendizado e identificar areas que precisam de revisao.</p>
+              </div>
+              <div>
+                <span class="text-emerald-400 font-semibold">Conceitos-chave:</span>
+                <p class="text-neutral-300 text-sm">Autoavaliacao, fixacao de conteudo, revisao de vocabulario.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-1-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
+          📖 Ver em Modal
+        </button>
+        <a href="modulo-1-8.html" class="px-4 py-2 text-sm bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-colors">
+          📄 Ver Completo
+        </a>
       </div>
     </div>
 
@@ -683,7 +1655,13 @@
       // Mapear modalId para arquivo
       const modalMap = {
         'modal-1-1': { title: '💥 O Problema da IA Desgovernada', file: 'modulo-1-1.html' },
-        'modal-1-2': { title: '🎓 O que e o GIPM', file: 'modulo-1-2.html' }
+        'modal-1-2': { title: '🎓 O que e o GIPM', file: 'modulo-1-2.html' },
+        'modal-1-3': { title: '🔒 Os 5 Principios Inalteraveis', file: 'modulo-1-3.html' },
+        'modal-1-4': { title: '🏗️ Arquitetura de Tres Camadas', file: 'modulo-1-4.html' },
+        'modal-1-5': { title: '🧠 Mentalidade de Governanca', file: 'modulo-1-5.html' },
+        'modal-1-6': { title: '⚔️ GIPM vs Abordagens Tradicionais', file: 'modulo-1-6.html' },
+        'modal-1-7': { title: '📊 Niveis de Profundidade', file: 'modulo-1-7.html' },
+        'modal-1-8': { title: '📖 Vocabulario Essencial do GIPM', file: 'modulo-1-8.html' }
       };
 
       const modal = modalMap[modalId];
