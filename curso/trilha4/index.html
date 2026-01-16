@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 4: Projeto NotebookLMX | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg hidden sm:inline">GIPM Master</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">O Metodo</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Avancado</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">NotebookLMX</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span>
+            <span class="hidden sm:inline">Pratico</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">TRILHA 4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📓 Projeto NotebookLMX</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Implementacao de Referencia Completa. Aprenda GIPM analisando uma aplicacao real com FastAPI e Gemini.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">10</div>
+          <div class="text-xs text-neutral-400">Modulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">66</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">~6h</div>
+          <div class="text-xs text-neutral-400">Duracao</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Avanc.</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="space-y-8">
+
+      <!-- Módulo 4.1 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-1.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.1</span>
+            <span class="text-xs text-neutral-500">6 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🎯 Visao Geral do NotebookLMX</h3>
+          <p class="text-neutral-400 text-sm">O que e, funcionalidades, arquitetura e stack tecnologico.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">🎯</span>
+              <div><span class="font-medium">O que e o NotebookLMX</span><span class="text-neutral-500 text-sm ml-2">- Introducao ao projeto</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Aplicacao de referencia que implementa o metodo GIPM para geracao de conteudo multimidia a partir de fontes textuais.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ver uma implementacao real do GIPM acelera a compreensao e serve como modelo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Reference implementation, NotebookLM clone, GIPM compliant, multimodal output.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">📋</span>
+              <div><span class="font-medium">Funcionalidades principais</span><span class="text-neutral-500 text-sm ml-2">- Recursos do sistema</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Conjunto de funcionalidades: upload de fontes, chat, geracao de documentos, audio e video.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender o escopo funcional ajuda a mapear componentes GIPM para features reais.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Source management, chat interface, artifact generation, export formats.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🏗️</span>
+              <div><span class="font-medium">Arquitetura geral</span><span class="text-neutral-500 text-sm ml-2">- Visao macro do sistema</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Diagrama e explicacao da arquitetura em 3 camadas conforme GIPM.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Visualizar a arquitetura ajuda a entender como os conceitos GIPM se materializam.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Camada humana, orquestracao, cognicao, fluxo de dados, componentes.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">🔧</span>
+              <div><span class="font-medium">Stack tecnologico</span><span class="text-neutral-500 text-sm ml-2">- FastAPI, Gemini e mais</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnologias usadas: FastAPI (backend), Gemini (IA), SQLite (banco), React (frontend).</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conhecer o stack permite navegar o codigo e adaptar para outras tecnologias.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">FastAPI, Google Gemini, SQLite, React, Python async.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Mapeamento GIPM → Implementacao</span><span class="text-neutral-500 text-sm ml-2">- Teoria na pratica</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tabela que mapeia cada conceito GIPM para sua implementacao no codigo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conecta teoria e pratica de forma explicita e auditavel.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">METHOD_MAPPING.md, traceabilidade, compliance check, documentation.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">🔍</span>
+              <div><span class="font-medium">Como usar como referencia</span><span class="text-neutral-500 text-sm ml-2">- Guia de estudo</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategia recomendada para estudar o codigo e extrair aprendizados.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Maximiza o valor da reference implementation como ferramenta de aprendizado.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Code walkthrough, pattern extraction, adaptation strategies, learning path.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-1.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.2 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-2.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.2</span>
+            <span class="text-xs text-neutral-500">6 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">📁 Estrutura do Projeto</h3>
+          <p class="text-neutral-400 text-sm">Organizacao de pastas, arquivos e configuracoes.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">📁</span>
+              <div><span class="font-medium">Organizacao de pastas</span><span class="text-neutral-500 text-sm ml-2">- Estrutura de diretorios</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Hierarquia de pastas do projeto seguindo convencoes GIPM.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Estrutura clara facilita navegacao e manutencao do codigo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">src/, api/, services/, models/, utils/, tests/.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">📋</span>
+              <div><span class="font-medium">Principais arquivos</span><span class="text-neutral-500 text-sm ml-2">- Arquivos-chave</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Descricao dos arquivos mais importantes e sua funcao no sistema.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber onde procurar cada tipo de funcionalidade acelera o desenvolvimento.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">main.py, routers/, persona_utils.py, services/, schemas.py.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🔧</span>
+              <div><span class="font-medium">Configuracoes</span><span class="text-neutral-500 text-sm ml-2">- Settings e environment</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Gerenciamento de configuracoes via arquivos .env e settings classes.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Configuracao adequada permite deploy em diferentes ambientes sem alteracao de codigo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pydantic settings, environment variables, .env files, secrets management.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Dependencias</span><span class="text-neutral-500 text-sm ml-2">- Bibliotecas e pacotes</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Lista e explicacao das dependencias do projeto e suas versoes.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conhecer dependencias ajuda a resolver problemas e substituir componentes.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">requirements.txt, pyproject.toml, version pinning, dependency audit.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">🚀</span>
+              <div><span class="font-medium">Setup e instalacao</span><span class="text-neutral-500 text-sm ml-2">- Como rodar localmente</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Passo a passo para clonar, configurar e rodar o projeto localmente.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Setup funcional e o primeiro passo para estudar e modificar o codigo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">git clone, virtual environment, pip install, database setup, API keys.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">🧪</span>
+              <div><span class="font-medium">Ambiente de desenvolvimento</span><span class="text-neutral-500 text-sm ml-2">- Dev workflow</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Ferramentas e configuracoes para desenvolvimento produtivo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ambiente bem configurado aumenta produtividade e qualidade de codigo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Hot reload, debugger, linting, formatting, pre-commit hooks.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-2.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.3 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-3.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.3</span>
+            <span class="text-xs text-neutral-500">8 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🔌 Backend: FastAPI e Orquestracao</h3>
+          <p class="text-neutral-400 text-sm">Endpoints, routers, middleware e logging estruturado.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">🔌</span>
+              <div><span class="font-medium">Endpoints principais</span><span class="text-neutral-500 text-sm ml-2">- /notebooks, /sources, /chat</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">APIs REST para gerenciar notebooks, fontes de dados e conversas com IA.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender os endpoints e o ponto de entrada para toda funcionalidade do sistema.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">CRUD operations, RESTful design, OpenAPI, request/response models.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">🎛️</span>
+              <div><span class="font-medium">Router structure</span><span class="text-neutral-500 text-sm ml-2">- Organizacao de rotas</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Padrao de organizacao de rotas usando APIRouter do FastAPI.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Routers bem organizados facilitam manutencao e adicao de novas features.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">APIRouter, prefix, tags, include_router, modularizacao.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🔐</span>
+              <div><span class="font-medium">Validacao de acesso</span><span class="text-neutral-500 text-sm ml-2">- Autenticacao e autorizacao</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Mecanismos para verificar identidade e permissoes de acesso.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Seguranca e fundamental em qualquer sistema com dados de usuarios.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Dependencies, OAuth2, JWT tokens, permission checks.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Estado e sessoes</span><span class="text-neutral-500 text-sm ml-2">- Gerenciamento de estado</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como o sistema gerencia estado de conversas e sessoes de usuario.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Estado bem gerenciado garante continuidade e consistencia da experiencia.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Session management, conversation history, context persistence.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">🔄</span>
+              <div><span class="font-medium">Middleware GIPM</span><span class="text-neutral-500 text-sm ml-2">- Interceptadores de requisicao</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Middleware que implementa validacoes e injecoes GIPM em cada requisicao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Middleware centraliza logica transversal de governanca.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Request interception, persona injection, logging middleware, timing.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">📋</span>
+              <div><span class="font-medium">Schemas e modelos</span><span class="text-neutral-500 text-sm ml-2">- Pydantic models</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Definicao de schemas de entrada/saida usando Pydantic.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Schemas tipados garantem validacao automatica e documentacao precisa.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">BaseModel, Field validation, serialization, OpenAPI generation.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+              <span class="text-lg">⚠️</span>
+              <div><span class="font-medium">Error handling</span><span class="text-neutral-500 text-sm ml-2">- Tratamento de erros</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Padrao para capturar, tratar e retornar erros de forma consistente.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Erros bem tratados melhoram experiencia do usuario e facilitam debug.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">HTTPException, exception handlers, error responses, status codes.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">8</span>
+              <span class="text-lg">📈</span>
+              <div><span class="font-medium">Logging estruturado</span><span class="text-neutral-500 text-sm ml-2">- Logs para auditoria</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Sistema de logging em formato JSON para facilitar busca e analise.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Logs estruturados sao essenciais para auditabilidade GIPM.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">structlog, JSON logs, correlation IDs, log levels, audit trail.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-3.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.4 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-4.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.4</span>
+            <span class="text-xs text-neutral-500">6 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🤖 Integracao com Gemini</h3>
+          <p class="text-neutral-400 text-sm">Configuracao do cliente, prompts, parsing e custos.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">🤖</span>
+              <div><span class="font-medium">Configuracao do cliente Gemini</span><span class="text-neutral-500 text-sm ml-2">- Setup da API</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Inicializacao e configuracao do cliente Google Gemini.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Configuracao correta garante comunicacao eficiente com o modelo de IA.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">API key, model selection, generation config, safety settings.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">📋</span>
+              <div><span class="font-medium">System prompts</span><span class="text-neutral-500 text-sm ml-2">- Instrucoes base</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Prompts de sistema que definem comportamento base do modelo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">System prompts bem escritos garantem respostas consistentes e de qualidade.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">System instruction, role definition, output format, constraints.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🎭</span>
+              <div><span class="font-medium">Injecao de personas</span><span class="text-neutral-500 text-sm ml-2">- Governanca cognitiva</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Mecanismo de injecao de persona no prompt antes da chamada a IA.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Injecao de persona e o core da governanca cognitiva GIPM.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Persona template, prompt composition, dynamic injection, context.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Parsing de respostas</span><span class="text-neutral-500 text-sm ml-2">- Processamento de output</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tecnicas para extrair e estruturar informacao das respostas da IA.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Parsing robusto garante que outputs sejam utilizaveis pelo sistema.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">JSON extraction, structured output, validation, error handling.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">💰</span>
+              <div><span class="font-medium">Tracking de custos</span><span class="text-neutral-500 text-sm ml-2">- Monitoramento financeiro</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Sistema para rastrear tokens consumidos e custos de cada requisicao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Controle de custos e essencial para viabilidade financeira do projeto.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Token counting, cost calculation, usage metrics, budget alerts.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">⚠️</span>
+              <div><span class="font-medium">Fallbacks e retry</span><span class="text-neutral-500 text-sm ml-2">- Resiliencia</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategias para lidar com falhas na API e garantir disponibilidade.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Resiliencia garante experiencia do usuario mesmo com problemas externos.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Exponential backoff, circuit breaker, fallback models, graceful degradation.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-4.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.5 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-5.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.5</span>
+            <span class="text-xs text-neutral-500">8 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🎭 Governanca Cognitiva na Pratica</h3>
+          <p class="text-neutral-400 text-sm">Personas, settings, injecao automatica e metricas.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">📁</span>
+              <div><span class="font-medium">Arquivo persona_utils.py</span><span class="text-neutral-500 text-sm ml-2">- Codigo de personas</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Arquivo central que contem toda logica de gerenciamento de personas.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender este arquivo e entender a implementacao pratica de governanca.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">PersonaManager, load_persona, compose_prompt, validation.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">🎭</span>
+              <div><span class="font-medium">Definicao de personas</span><span class="text-neutral-500 text-sm ml-2">- Estrutura e conteudo</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como as personas sao definidas em arquivos YAML ou JSON.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Definicao clara de personas e fundamental para consistencia de output.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Persona schema, attributes, instructions, tone, constraints.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">⚙️</span>
+              <div><span class="font-medium">Settings por notebook</span><span class="text-neutral-500 text-sm ml-2">- Configuracao individual</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Sistema de preferencias e configuracoes especificas por notebook.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Permite customizacao sem afetar outros notebooks do mesmo usuario.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Per-notebook config, inheritance, override, defaults.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">💉</span>
+              <div><span class="font-medium">Injecao automatica</span><span class="text-neutral-500 text-sm ml-2">- Transparente ao usuario</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Mecanismo que injeta persona automaticamente sem intervencao manual.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Automacao garante que governanca seja sempre aplicada.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Middleware injection, prompt wrapping, invisible to user.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Preferencias de output</span><span class="text-neutral-500 text-sm ml-2">- Formatos de saida</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Configuracao de formatos e estilos de saida preferidos pelo usuario.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Preferencias de output sao parte da governanca cognitiva.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Output format, length preferences, style settings, language.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">🔄</span>
+              <div><span class="font-medium">Persistencia de preferencias</span><span class="text-neutral-500 text-sm ml-2">- Salvamento de config</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como preferencias sao salvas e recuperadas entre sessoes.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Persistencia garante continuidade da experiencia personalizada.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Database storage, serialization, versioning, migration.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+              <span class="text-lg">🧪</span>
+              <div><span class="font-medium">Testando personas</span><span class="text-neutral-500 text-sm ml-2">- Validacao de comportamento</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategias para testar se personas produzem resultados esperados.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Testes garantem que mudancas nao quebram comportamento esperado.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Persona tests, golden outputs, regression testing, evaluation metrics.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">8</span>
+              <span class="text-lg">📈</span>
+              <div><span class="font-medium">Metricas de uso</span><span class="text-neutral-500 text-sm ml-2">- Analytics de personas</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Metricas para medir eficacia e uso de cada persona.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Dados de uso guiam evolucao e otimizacao das personas.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Usage tracking, success rates, A/B testing, feedback loops.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-5.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.6 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-6.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.6</span>
+            <span class="text-xs text-neutral-500">6 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🔄 Pipeline Universal Implementado</h3>
+          <p class="text-neutral-400 text-sm">Request, validation, context, AI call, persistence, materialization.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">📥</span>
+              <div><span class="font-medium">Request → Validation</span><span class="text-neutral-500 text-sm ml-2">- Entrada e validacao</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Passos 1-2 do pipeline: receber requisicao e validar dados de entrada.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Validacao inicial previne erros cascata e garante qualidade de entrada.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Request parsing, schema validation, sanitization, early rejection.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">🗂️</span>
+              <div><span class="font-medium">Context collection</span><span class="text-neutral-500 text-sm ml-2">- Coleta de contexto</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Passo 3 do pipeline: coletar contexto relevante de fontes e historico.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Contexto rico melhora qualidade das respostas da IA.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Source retrieval, history loading, RAG, context windowing.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🔄</span>
+              <div><span class="font-medium">Normalization</span><span class="text-neutral-500 text-sm ml-2">- Padronizacao de dados</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Passo 4 do pipeline: normalizar e preparar dados para envio a IA.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Normalizacao garante consistencia independente da fonte de dados.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Data transformation, encoding, truncation, template filling.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">🤖</span>
+              <div><span class="font-medium">AI call</span><span class="text-neutral-500 text-sm ml-2">- Chamada ao modelo</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Passo 5-6 do pipeline: injecao de persona e chamada ao modelo de IA.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Este e o ponto onde a IA gera o conteudo, com governanca aplicada.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Persona injection, API call, streaming, response handling.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">💾</span>
+              <div><span class="font-medium">Persistence</span><span class="text-neutral-500 text-sm ml-2">- Salvamento de dados</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Passo 7 do pipeline: persistir resposta, metricas e logs para auditoria.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Persistencia e obrigatoria para auditabilidade GIPM.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Database write, audit log, token tracking, cost logging.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">📦</span>
+              <div><span class="font-medium">Materialization</span><span class="text-neutral-500 text-sm ml-2">- Geracao de artefatos</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Passos 8-9 do pipeline: gerar artefatos finais e retornar ao cliente.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Materializacao transforma output de IA em artefatos utilizaveis.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">JSON to artifact, file generation, response formatting, delivery.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-6.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.7 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-7.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.7</span>
+            <span class="text-xs text-neutral-500">8 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">📄 Materializacao de Artefatos</h3>
+          <p class="text-neutral-400 text-sm">Geracao de .docx, .pptx, .mp3, .mp4 e storage.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">📄</span>
+              <div><span class="font-medium">Gerando .docx</span><span class="text-neutral-500 text-sm ml-2">- Documentos Word</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Geracao de documentos Word a partir de estrutura JSON.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Documentos sao um dos outputs mais comuns em aplicacoes corporativas.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">python-docx, templates, styling, sections, tables.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Gerando .pptx</span><span class="text-neutral-500 text-sm ml-2">- Apresentacoes</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Geracao de apresentacoes PowerPoint a partir de estrutura JSON.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Apresentacoes automatizadas economizam tempo significativo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">python-pptx, slide layouts, placeholders, images, animations.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🎵</span>
+              <div><span class="font-medium">Gerando .mp3 (TTS)</span><span class="text-neutral-500 text-sm ml-2">- Audio narrado</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Conversao de texto em audio usando Text-to-Speech.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Audio expande acessibilidade e casos de uso do conteudo.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">TTS APIs, voice selection, SSML, audio encoding, chunking.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">🎬</span>
+              <div><span class="font-medium">Gerando .mp4</span><span class="text-neutral-500 text-sm ml-2">- Video</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Geracao de videos combinando slides e audio narrado.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Video e o formato mais engajador para conteudo educacional.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">FFmpeg, slide timing, audio sync, encoding, thumbnails.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">🔀</span>
+              <div><span class="font-medium">JSON → Artefato</span><span class="text-neutral-500 text-sm ml-2">- Pipeline de conversao</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Arquitetura do sistema de conversao de JSON estruturado em artefatos.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender o pipeline permite adicionar novos formatos de output.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Schema definition, converter interface, factory pattern, plugins.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">📁</span>
+              <div><span class="font-medium">Storage e download</span><span class="text-neutral-500 text-sm ml-2">- Armazenamento</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Sistema de armazenamento e disponibilizacao de artefatos gerados.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Storage adequado garante disponibilidade e performance de downloads.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">File storage, signed URLs, expiration, cleanup, CDN.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+              <span class="text-lg">🔄</span>
+              <div><span class="font-medium">Processamento async</span><span class="text-neutral-500 text-sm ml-2">- Background jobs</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Processamento de artefatos pesados em background sem bloquear usuario.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Async e essencial para artefatos que levam tempo (video, audio longo).</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Task queue, job status, webhooks, polling, progress tracking.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">8</span>
+              <span class="text-lg">⚠️</span>
+              <div><span class="font-medium">Tratamento de erros</span><span class="text-neutral-500 text-sm ml-2">- Falhas de geracao</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategias para lidar com falhas durante geracao de artefatos.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Erros bem tratados evitam perda de trabalho e frustacao do usuario.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Error recovery, partial output, retry logic, user notification.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-7.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.8 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-8.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.8</span>
+            <span class="text-xs text-neutral-500">6 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🗃️ Persistencia e Banco de Dados</h3>
+          <p class="text-neutral-400 text-sm">Modelo de dados, tabelas, queries e auditoria.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">🗃️</span>
+              <div><span class="font-medium">Modelo de dados</span><span class="text-neutral-500 text-sm ml-2">- Estrutura do banco</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Diagrama e explicacao do modelo de dados do NotebookLMX.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Modelo de dados e a fundacao para toda persistencia e auditoria.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ERD, relationships, normalization, indexes, constraints.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Tabelas principais</span><span class="text-neutral-500 text-sm ml-2">- Notebooks, sources, chats</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Descricao detalhada das tabelas principais e seus campos.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Conhecer as tabelas e essencial para queries e manutencao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">notebooks, sources, messages, artifacts, audit_logs.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🔍</span>
+              <div><span class="font-medium">Queries de auditoria</span><span class="text-neutral-500 text-sm ml-2">- Consultas para compliance</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Queries pre-definidas para auditoria e compliance GIPM.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Auditoria e requisito central do GIPM e precisa ser eficiente.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Audit queries, time range, user filtering, cost aggregation.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">📈</span>
+              <div><span class="font-medium">Historico completo</span><span class="text-neutral-500 text-sm ml-2">- Rastreabilidade total</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Sistema de historico completo de todas as interacoes e mudancas.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Historico completo e obrigatorio para conformidade GIPM.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Event sourcing, versioning, soft delete, timeline reconstruction.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">💰</span>
+              <div><span class="font-medium">Registro de custos</span><span class="text-neutral-500 text-sm ml-2">- Tracking financeiro</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Tabelas e queries para tracking de custos de IA por usuario/notebook.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Controle de custos e essencial para sustentabilidade do projeto.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Token tracking, cost calculation, billing reports, alerts.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">🔐</span>
+              <div><span class="font-medium">Backup e recuperacao</span><span class="text-neutral-500 text-sm ml-2">- Protecao de dados</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategias de backup e procedimentos de recuperacao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Backup e fundamental para continuidade e compliance.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Backup schedule, point-in-time recovery, disaster recovery, testing.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-8.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.9 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-9.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.9</span>
+            <span class="text-xs text-neutral-500">6 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🎨 Frontend e UX</h3>
+          <p class="text-neutral-400 text-sm">Interface, componentes, comunicacao com API e usabilidade.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">🎨</span>
+              <div><span class="font-medium">Interface do NotebookLMX</span><span class="text-neutral-500 text-sm ml-2">- Visao geral da UI</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Visao geral da interface de usuario e suas principais areas.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender a UI ajuda a conectar frontend com backend e vice-versa.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Layout, navigation, sidebar, main content, modals.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">📱</span>
+              <div><span class="font-medium">Componentes principais</span><span class="text-neutral-500 text-sm ml-2">- Building blocks</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Componentes React reutilizaveis que compoem a interface.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Componentes bem estruturados facilitam manutencao e extensao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ChatPanel, SourceList, ArtifactViewer, SettingsModal.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">🔄</span>
+              <div><span class="font-medium">Comunicacao com API</span><span class="text-neutral-500 text-sm ml-2">- Frontend-backend</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Padrao de comunicacao entre frontend e API backend.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Comunicacao eficiente garante boa experiencia do usuario.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">API client, hooks, loading states, error handling, caching.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Exibicao de resultados</span><span class="text-neutral-500 text-sm ml-2">- Renderizacao de outputs</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Como resultados de IA e artefatos sao exibidos na interface.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Boa exibicao de resultados e crucial para experiencia do usuario.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Markdown rendering, streaming, previews, download buttons.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">⚙️</span>
+              <div><span class="font-medium">Configuracao de preferencias</span><span class="text-neutral-500 text-sm ml-2">- UI de settings</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Interface para usuario configurar preferencias e personas.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Configuracao acessivel empodera usuarios a customizar experiencia.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Settings panel, form validation, save/cancel, defaults.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">🧪</span>
+              <div><span class="font-medium">Testes de usabilidade</span><span class="text-neutral-500 text-sm ml-2">- Validacao de UX</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Estrategias para testar e validar usabilidade da interface.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Testes de usabilidade revelam problemas antes dos usuarios reais.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">User testing, heuristic evaluation, accessibility, A/B testing.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-9')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-9.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Módulo 4.10 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <a href="modulo-4-10.html" class="block p-6 hover:bg-dark-700/50 transition-colors">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-amber-400 font-bold">4.10</span>
+            <span class="text-xs text-neutral-500">6 topicos</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">🚀 Deploy e Operacao</h3>
+          <p class="text-neutral-400 text-sm">Deploy, monitoring, metricas, seguranca e CI/CD.</p>
+        </a>
+        <div class="border-t border-dark-600">
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-lg">🚀</span>
+              <div><span class="font-medium">Deploy options</span><span class="text-neutral-500 text-sm ml-2">- Opcoes de hospedagem</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Diferentes opcoes para deploy do NotebookLMX em producao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Escolher opcao de deploy correta impacta custo, performance e manutencao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Docker, Kubernetes, serverless, PaaS, cloud providers.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-lg">📊</span>
+              <div><span class="font-medium">Monitoring</span><span class="text-neutral-500 text-sm ml-2">- Observabilidade</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Sistema de monitoramento para acompanhar saude da aplicacao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Monitoramento permite detectar e resolver problemas rapidamente.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Health checks, metrics, logs, alerts, dashboards.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-lg">📈</span>
+              <div><span class="font-medium">Metricas de producao</span><span class="text-neutral-500 text-sm ml-2">- KPIs operacionais</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Metricas essenciais para acompanhar performance em producao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Metricas guiam decisoes de otimizacao e capacidade.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Latency, throughput, error rate, saturation, SLIs/SLOs.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-lg">🔐</span>
+              <div><span class="font-medium">Security em producao</span><span class="text-neutral-500 text-sm ml-2">- Seguranca operacional</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Praticas de seguranca especificas para ambiente de producao.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Producao expoe riscos reais que exigem medidas adicionais.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">HTTPS, secrets management, network security, WAF, penetration testing.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-lg">📋</span>
+              <div><span class="font-medium">Runbook operacional</span><span class="text-neutral-500 text-sm ml-2">- Guia de operacoes</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Documentacao de procedimentos operacionais para equipe de suporte.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Runbook reduz tempo de resposta a incidentes e padroniza acoes.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Incident response, troubleshooting guides, escalation, recovery procedures.</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="topic-item">
+            <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+              <span class="text-lg">🔄</span>
+              <div><span class="font-medium">CI/CD pipeline</span><span class="text-neutral-500 text-sm ml-2">- Deploy automatizado</span></div>
+            </button>
+            <div class="topic-explanation px-6 pb-4">
+              <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+                <div><span class="text-amber-400 font-semibold">O que e:</span><p class="text-neutral-300 text-sm">Pipeline de integracao e deploy continuo para atualizacoes seguras.</p></div>
+                <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">CI/CD automatiza releases e reduz risco de erros manuais.</p></div>
+                <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">GitHub Actions, testing, staging, blue-green deploy, rollback.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-4-10')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-4-10.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-12 flex flex-col sm:flex-row gap-4">
+      <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-4 bg-dark-800 border border-dark-600 text-neutral-300 rounded-lg font-semibold hover:border-purple-500/50 transition-colors">
+        ← Trilha 3: Avancado
+      </a>
+      <a href="../trilha5/index.html" class="flex-1 text-center px-6 py-4 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">
+        Trilha 5: Pratico →
+      </a>
+    </div>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <!-- Modal Container -->
+  <div id="modal-container" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-dark-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-dark-600">
+      <div class="sticky top-0 bg-dark-800 p-4 border-b border-dark-600 flex justify-between items-center">
+        <h3 id="modal-title" class="text-xl font-bold"></h3>
+        <button onclick="closeModal()" class="p-2 hover:bg-dark-700 rounded-lg transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="modal-content" class="p-6"></div>
+    </div>
+  </div>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Toggle Topics
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    // Modal
+    function openModal(modalId) {
+      const container = document.getElementById('modal-container');
+      const title = document.getElementById('modal-title');
+      const content = document.getElementById('modal-content');
+      const modalMap = {
+        'modal-4-1': { title: '🎯 Visao Geral do NotebookLMX', file: 'modulo-4-1.html' },
+        'modal-4-2': { title: '📁 Estrutura do Projeto', file: 'modulo-4-2.html' },
+        'modal-4-3': { title: '🔌 Backend: FastAPI e Orquestracao', file: 'modulo-4-3.html' },
+        'modal-4-4': { title: '🤖 Integracao com Gemini', file: 'modulo-4-4.html' },
+        'modal-4-5': { title: '🎭 Governanca Cognitiva na Pratica', file: 'modulo-4-5.html' },
+        'modal-4-6': { title: '🔄 Pipeline Universal Implementado', file: 'modulo-4-6.html' },
+        'modal-4-7': { title: '📦 Materializacao de Artefatos', file: 'modulo-4-7.html' },
+        'modal-4-8': { title: '💾 Persistencia e Banco de Dados', file: 'modulo-4-8.html' },
+        'modal-4-9': { title: '🎨 Frontend e UX', file: 'modulo-4-9.html' },
+        'modal-4-10': { title: '🚀 Deploy e Operacao', file: 'modulo-4-10.html' }
+      };
+      const modal = modalMap[modalId];
+      if (modal) {
+        title.textContent = modal.title;
+        content.innerHTML = '<div class="text-center py-8"><span class="text-neutral-400">Carregando...</span></div>';
+        container.classList.remove('hidden');
+        fetch(modal.file)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const mainContent = doc.querySelector('main');
+            if (mainContent) content.innerHTML = mainContent.innerHTML;
+          })
+          .catch(() => {
+            content.innerHTML = '<div class="text-center py-8"><span class="text-red-400">Erro ao carregar conteudo</span></div>';
+          });
+      }
+    }
+    function closeModal() {
+      document.getElementById('modal-container').classList.add('hidden');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
