@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 3.2: Arquiteturas Avancadas | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">T3</a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T4</a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 3</a><span class="text-neutral-600">/</span><span class="text-purple-400">Modulo 3.2</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MODULO 3.2</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🏗️ Arquiteturas Avancadas</h1><p class="text-lg text-neutral-400 max-w-3xl">Padroes arquiteturais para escalar sistemas GIPM em ambientes enterprise.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">8</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avanc.</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Tecnico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🏗️ Multi-tenant GIPM</h2></div>
+      <p class="text-neutral-300 mb-6">Arquitetura para servir <strong class="text-purple-400">multiplos clientes</strong> com isolamento de dados e configuracoes.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h4 class="font-semibold text-white mb-4">Estrategias de isolamento</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-dark-700/50 rounded-lg p-4"><h5 class="font-semibold text-purple-400 mb-2">Por Database</h5><p class="text-sm text-neutral-400">Cada tenant tem seu banco separado</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-4"><h5 class="font-semibold text-purple-400 mb-2">Por Schema</h5><p class="text-sm text-neutral-400">Mesmo banco, schemas diferentes</p></div>
+          <div class="bg-dark-700/50 rounded-lg p-4"><h5 class="font-semibold text-purple-400 mb-2">Por Row</h5><p class="text-sm text-neutral-400">Mesmo schema, filtro por tenant_id</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔀 Pipelines paralelos</h2></div>
+      <p class="text-neutral-300 mb-6">Executar multiplas chamadas de IA <strong class="text-purple-400">simultaneamente</strong> para maior throughput.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>async def parallel_pipeline(requests: list[Request]):
+    tasks = [
+        process_single(req) for req in requests
+    ]
+    results = await asyncio.gather(*tasks)
+    return results
+
+# Com limitacao de concorrencia
+semaphore = asyncio.Semaphore(10)  # max 10 concurrent
+async def process_with_limit(req):
+    async with semaphore:
+        return await process_single(req)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📊 Event-driven architecture</h2></div>
+      <p class="text-neutral-300 mb-6">Usar eventos para <strong class="text-purple-400">desacoplar componentes</strong> do pipeline.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <div class="space-y-3">
+          <div class="flex items-center space-x-4"><span class="text-purple-400 font-mono text-sm">request.received</span><span class="text-neutral-400">→</span><span class="text-sm text-neutral-300">Inicia validacao</span></div>
+          <div class="flex items-center space-x-4"><span class="text-purple-400 font-mono text-sm">context.collected</span><span class="text-neutral-400">→</span><span class="text-sm text-neutral-300">Injeta persona</span></div>
+          <div class="flex items-center space-x-4"><span class="text-purple-400 font-mono text-sm">ai.responded</span><span class="text-neutral-400">→</span><span class="text-sm text-neutral-300">Persiste e materializa</span></div>
+          <div class="flex items-center space-x-4"><span class="text-purple-400 font-mono text-sm">artifact.created</span><span class="text-neutral-400">→</span><span class="text-sm text-neutral-300">Notifica usuario</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🗃️ Estrategias de cache</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">O que cachear</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Respostas identicas a requests identicos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Contexto frequentemente acessado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Personas compiladas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Embeddings de documentos</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">O que NAO cachear</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dados que mudam frequentemente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Respostas personalizadas por usuario</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dados sensiveis</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Outputs com timestamp</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔄 Async processing</h2></div>
+      <p class="text-neutral-300 mb-6">Processar tarefas longas de forma <strong class="text-purple-400">assincrona</strong> com filas.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># Endpoint retorna imediatamente
+@app.post("/generate")
+async def generate(request: Request):
+    job_id = await queue.enqueue(process_request, request)
+    return {"job_id": job_id, "status": "processing"}
+
+# Endpoint para consultar status
+@app.get("/jobs/{job_id}")
+async def get_job(job_id: str):
+    status = await queue.get_status(job_id)
+    return status</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📈 Escalabilidade horizontal</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h4 class="font-semibold text-white mb-4">Componentes stateless</h4>
+        <p class="text-neutral-300 mb-4">Para escalar horizontalmente, cada componente deve ser <strong class="text-white">stateless</strong>:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400">•</span><span>Sessoes em Redis, nao em memoria</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400">•</span><span>Arquivos em S3, nao em disco local</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400">•</span><span>Configuracoes em ConfigMap/Secrets</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400">•</span><span>Load balancer distribui requisicoes</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">🔐 Security patterns</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4"><h5 class="font-semibold text-purple-400 mb-2">API Gateway</h5><p class="text-sm text-neutral-400">Rate limiting, auth, logging centralizado</p></div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4"><h5 class="font-semibold text-purple-400 mb-2">Secrets Management</h5><p class="text-sm text-neutral-400">Vault, AWS Secrets Manager para API keys</p></div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4"><h5 class="font-semibold text-purple-400 mb-2">Encryption</h5><p class="text-sm text-neutral-400">TLS em transito, AES-256 em repouso</p></div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-4"><h5 class="font-semibold text-purple-400 mb-2">Audit Logging</h5><p class="text-sm text-neutral-400">Toda acao logada e imutavel</p></div>
+      </div>
+    </section>
+
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">8</span><h2 class="text-2xl font-bold">🌐 Multi-region deployment</h2></div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Consideracoes</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span>Latencia: usuarios proximos ao datacenter mais perto</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span>Compliance: dados podem ter requisitos de residencia</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span>Disponibilidade: failover automatico entre regioes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary">•</span><span>Custo: LLM providers podem cobrar diferente por regiao</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><span><strong class="text-white">Multi-tenant</strong> - Isolamento por database, schema ou row</span></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><span><strong class="text-white">Event-driven</strong> - Desacoplar componentes com eventos</span></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><span><strong class="text-white">Async</strong> - Filas para processamento longo</span></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><span><strong class="text-white">Stateless</strong> - Componentes sem estado para escalar</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-3-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>
