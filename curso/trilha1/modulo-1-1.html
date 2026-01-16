@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 1.1: O Problema da IA Desgovernada | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    /* Light mode overrides */
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- Navigation Global -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <!-- Logo + INEMA.CLUB -->
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg hidden sm:inline">GIPM Master</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+
+        <!-- Trilhas + Theme Toggle -->
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">O Metodo</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Avancado</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span>
+            <span class="hidden sm:inline">NotebookLMX</span>
+          </a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
+            <span class="sm:hidden">T5</span>
+            <span class="hidden sm:inline">Pratico</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-neutral-300">Inicio</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-400 hover:text-emerald-400">Trilha 1: Fundamentos</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-emerald-400">Modulo 1.1</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">
+        MODULO 1.1
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">💥 O Problema da IA Desgovernada</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Entenda por que IA sem governanca e um risco e como isso afeta projetos reais. Este modulo estabelece a base para compreender a necessidade do metodo GIPM.
+      </p>
+
+      <!-- Stats Banner -->
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">6</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">~30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Basico</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-emerald-400">Teoria</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Topico 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎯 O que acontece quando IA decide sozinha</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando sistemas de IA tomam decisoes sem supervisao humana adequada, o resultado pode ser <strong class="text-emerald-400">imprevisivelcatastrofico</strong>. Nao estamos falando de cenarios de ficcao cientifica, mas de problemas reais que acontecem diariamente em empresas que adotaram IA sem governanca.
+      </p>
+
+      <!-- Box Conceito Principal -->
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
+          <span class="mr-2">📋</span> Conceito Central
+        </h3>
+        <p class="text-neutral-300 mb-4">
+          A <strong class="text-white">autonomia descontrolada de IA</strong> ocorre quando um modelo de linguagem ou sistema de IA opera sem:
+        </p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-400 mt-1">•</span>
+            <span><strong class="text-white">Guardrails:</strong> Limites claros sobre o que pode ou nao fazer</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-400 mt-1">•</span>
+            <span><strong class="text-white">Validacao:</strong> Verificacao sistematica dos outputs</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-400 mt-1">•</span>
+            <span><strong class="text-white">Rastreabilidade:</strong> Registro do que foi decidido e por que</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="text-emerald-400 mt-1">•</span>
+            <span><strong class="text-white">Supervisao:</strong> Humanos no loop para decisoes criticas</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Box Dados -->
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center">
+          <span class="mr-2">📊</span> Dados de Pesquisa
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="text-center p-4 bg-dark-800/50 rounded-lg">
+            <div class="text-3xl font-bold text-blue-400">67%</div>
+            <div class="text-sm text-neutral-400">das empresas relatam problemas com outputs de IA</div>
+          </div>
+          <div class="text-center p-4 bg-dark-800/50 rounded-lg">
+            <div class="text-3xl font-bold text-blue-400">45%</div>
+            <div class="text-sm text-neutral-400">tiveram que retrabalhar projetos de IA</div>
+          </div>
+          <div class="text-center p-4 bg-dark-800/50 rounded-lg">
+            <div class="text-3xl font-bold text-blue-400">$2.4M</div>
+            <div class="text-sm text-neutral-400">custo medio de falhas de IA em 2024</div>
+          </div>
+        </div>
+        <p class="text-xs text-neutral-500 mt-4 text-center">Fonte: Gartner AI Governance Report 2024</p>
+      </div>
+
+      <!-- Grid Fazer vs Evitar -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que acontece COM governanca</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Outputs previsiveis e consistentes</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Decisoes rastreadas e auditaveis</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Erros detectados antes de impactar usuarios</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Custos controlados e otimizados</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O que acontece SEM governanca</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Alucinacoes e informacoes falsas</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Impossivel saber por que errou</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Usuarios afetados por erros graves</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <span class="text-red-400">✗</span>
+              <span>Custos disparam sem controle</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Dica Pratica -->
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">
+          Antes de implementar qualquer solucao de IA, pergunte: <strong class="text-white">"O que acontece se a IA errar aqui?"</strong> Se a resposta for "problema serio", voce precisa de governanca. Se a resposta for "ninguem nota", talvez possa ser mais experimental.
+        </p>
+      </div>
+    </section>
+
+    <!-- Topico 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">💥 Casos reais de falhas por falta de governanca</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Aprender com os erros dos outros e sempre mais barato. Aqui estao casos reais que demonstram a <strong class="text-emerald-400">importancia critica</strong> de implementar governanca de IA desde o inicio do projeto.
+      </p>
+
+      <!-- Timeline de Casos -->
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-red-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Chatbot de Atendimento Descontrolado</h4>
+            <p class="text-sm text-neutral-400 mb-3">Empresa de aviacao - 2024</p>
+            <p class="text-neutral-300 text-sm mb-3">
+              Um chatbot de atendimento prometeu reembolsos e descontos que nao existiam nas politicas da empresa. O resultado? Milhares de clientes exigindo o prometido.
+            </p>
+            <div class="flex items-center space-x-4 text-sm">
+              <span class="text-red-400">Prejuizo: $500K+</span>
+              <span class="text-neutral-500">|</span>
+              <span class="text-neutral-400">Reputacao danificada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-red-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Geracao de Conteudo com Dados Falsos</h4>
+            <p class="text-sm text-neutral-400 mb-3">Portal de noticias - 2023</p>
+            <p class="text-neutral-300 text-sm mb-3">
+              Sistema de IA gerou artigos com citacoes e estatisticas completamente inventadas. Os artigos foram publicados automaticamente sem revisao humana.
+            </p>
+            <div class="flex items-center space-x-4 text-sm">
+              <span class="text-red-400">50+ artigos falsos</span>
+              <span class="text-neutral-500">|</span>
+              <span class="text-neutral-400">Credibilidade destruida</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
+            <span class="text-red-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Vazamento de Dados via IA</h4>
+            <p class="text-sm text-neutral-400 mb-3">Instituicao financeira - 2024</p>
+            <p class="text-neutral-300 text-sm mb-3">
+              IA treinada com dados sensiveis comecou a incluir informacoes de clientes em respostas a outros usuarios. Sem auditoria, o problema persistiu por meses.
+            </p>
+            <div class="flex items-center space-x-4 text-sm">
+              <span class="text-red-400">Multa LGPD: $2M</span>
+              <span class="text-neutral-500">|</span>
+              <span class="text-neutral-400">Processo coletivo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box de Alerta -->
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center">
+          <span class="mr-2">⚠️</span> Licao Principal
+        </h3>
+        <p class="text-neutral-300">
+          Em todos esses casos, o problema nao foi a IA em si, mas a <strong class="text-white">ausencia de governanca</strong>. Com validacao de outputs, limites claros e auditoria, esses problemas teriam sido detectados antes de causar danos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Topico 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔍 O mito da IA autonoma</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A ideia de que IA pode funcionar de forma completamente autonoma e confiavel e um <strong class="text-emerald-400">mito perigoso</strong>. Mesmo os modelos mais avancados tem limitacoes fundamentais que exigem supervisao.
+      </p>
+
+      <!-- Box de Conceito -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
+          <span class="mr-2">🧠</span> Por que LLMs nao podem ser totalmente autonomos
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Alucinacao</h4>
+            <p class="text-sm text-neutral-400">LLMs geram texto que "parece" correto mas pode ser completamente falso. Eles nao "sabem" - eles "preveem".</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Falta de Contexto</h4>
+            <p class="text-sm text-neutral-400">Sem acesso ao contexto especifico do seu negocio, a IA faz suposicoes que podem estar erradas.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Inconsistencia</h4>
+            <p class="text-sm text-neutral-400">A mesma pergunta pode gerar respostas diferentes em momentos diferentes, sem explicacao.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <h4 class="font-semibold text-white mb-2">Vieses</h4>
+            <p class="text-sm text-neutral-400">Modelos herdam vieses dos dados de treinamento, que podem nao ser apropriados para seu contexto.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dica Pratica -->
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Expectativa vs Realidade
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h4 class="font-semibold text-neutral-300 mb-2">❌ Expectativa</h4>
+            <p class="text-sm text-neutral-400">"A IA vai resolver tudo sozinha, basta dar o prompt certo"</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-neutral-300 mb-2">✓ Realidade</h4>
+            <p class="text-sm text-neutral-400">"IA e uma ferramenta poderosa que precisa de guardrails, contexto e supervisao"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">⚠️ Riscos institucionais e regulatorios</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Alem dos riscos operacionais, implementar IA sem governanca adequada expoe organizacoes a <strong class="text-emerald-400">riscos legais e regulatorios</strong> significativos.
+      </p>
+
+      <!-- Box de Regulamentacoes -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
+          <span class="mr-2">📜</span> Regulamentacoes Relevantes
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4 p-4 bg-dark-700/50 rounded-lg">
+            <div class="w-16 h-16 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-blue-400 font-bold text-sm">LGPD</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white mb-1">Lei Geral de Protecao de Dados (Brasil)</h4>
+              <p class="text-sm text-neutral-400">Exige transparencia sobre uso de dados pessoais em decisoes automatizadas. Multas de ate 2% do faturamento.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 p-4 bg-dark-700/50 rounded-lg">
+            <div class="w-16 h-16 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-purple-400 font-bold text-sm">AI Act</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white mb-1">AI Act (Uniao Europeia)</h4>
+              <p class="text-sm text-neutral-400">Classifica sistemas de IA por risco e exige documentacao, auditoria e transparencia para sistemas de alto risco.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 p-4 bg-dark-700/50 rounded-lg">
+            <div class="w-16 h-16 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+              <span class="text-amber-400 font-bold text-sm">SEC</span>
+            </div>
+            <div>
+              <h4 class="font-semibold text-white mb-1">Regulamentacoes Financeiras</h4>
+              <p class="text-sm text-neutral-400">Instituicoes financeiras devem explicar decisoes de credito. IA "caixa preta" nao e aceitavel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de Riscos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4 text-center">
+          <div class="text-2xl mb-2">⚖️</div>
+          <h4 class="font-semibold text-red-400 mb-1">Risco Legal</h4>
+          <p class="text-xs text-neutral-400">Processos por decisoes automatizadas discriminatorias ou incorretas</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4 text-center">
+          <div class="text-2xl mb-2">💰</div>
+          <h4 class="font-semibold text-red-400 mb-1">Risco Financeiro</h4>
+          <p class="text-xs text-neutral-400">Multas regulatorias, indenizacoes e custos de remediation</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-4 text-center">
+          <div class="text-2xl mb-2">🏢</div>
+          <h4 class="font-semibold text-red-400 mb-1">Risco Reputacional</h4>
+          <p class="text-xs text-neutral-400">Perda de confianca de clientes, parceiros e investidores</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">💡 A inversao de paradigma: governar vs usar</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A chave para o sucesso com IA esta em mudar de <strong class="text-emerald-400">"usuario de IA"</strong> para <strong class="text-emerald-400">"governante de IA"</strong>. Essa inversao de paradigma e o fundamento do metodo GIPM.
+      </p>
+
+      <!-- Box de Conceito -->
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center">
+          <span class="mr-2">🔄</span> Mudanca de Mentalidade
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="text-center">
+            <div class="text-4xl mb-3">😰</div>
+            <h4 class="font-semibold text-white mb-2">Mentalidade de Usuario</h4>
+            <ul class="text-sm text-neutral-400 space-y-2 text-left">
+              <li>• "Como faco a IA fazer X?"</li>
+              <li>• "Qual o prompt certo?"</li>
+              <li>• "Por que a IA errou?"</li>
+              <li>• Reativo a problemas</li>
+            </ul>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl mb-3">😎</div>
+            <h4 class="font-semibold text-white mb-2">Mentalidade de Governante</h4>
+            <ul class="text-sm text-neutral-400 space-y-2 text-left">
+              <li>• "Como defino os limites da IA?"</li>
+              <li>• "Quais politicas aplicar?"</li>
+              <li>• "Como prevenir erros?"</li>
+              <li>• Proativo com controles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dica Pratica -->
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center">
+          <span class="mr-2">💡</span> Dica Pratica
+        </h3>
+        <p class="text-neutral-300">
+          Em vez de pensar em <strong class="text-white">"prompts"</strong>, pense em <strong class="text-white">"politicas"</strong>. Um prompt e uma instrucao unica. Uma politica e um conjunto de regras que governam como a IA deve se comportar em todas as situacoes similares.
+        </p>
+      </div>
+    </section>
+
+    <!-- Topico 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">📊 Custo da imprevisibilidade</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A imprevisibilidade de sistemas de IA sem governanca tem um <strong class="text-emerald-400">custo real e mensuravel</strong>. Quantificar esse custo e essencial para justificar investimentos em governanca.
+      </p>
+
+      <!-- Grid de Custos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h3 class="text-lg font-semibold text-red-400 mb-4 flex items-center">
+            <span class="mr-2">💸</span> Custos Diretos
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start space-x-3">
+              <span class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <span class="text-red-400 text-sm">$</span>
+              </span>
+              <div>
+                <h4 class="font-medium text-white">Custo de API desperdicado</h4>
+                <p class="text-sm text-neutral-400">Chamadas que geram outputs inuteis ou incorretos</p>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <span class="text-red-400 text-sm">$</span>
+              </span>
+              <div>
+                <h4 class="font-medium text-white">Retrabalho</h4>
+                <p class="text-sm text-neutral-400">Tempo de devs corrigindo problemas de IA</p>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <span class="text-red-400 text-sm">$</span>
+              </span>
+              <div>
+                <h4 class="font-medium text-white">Suporte ao cliente</h4>
+                <p class="text-sm text-neutral-400">Atendimento de reclamacoes por erros de IA</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center">
+            <span class="mr-2">📉</span> Custos Indiretos
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start space-x-3">
+              <span class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                <span class="text-amber-400 text-sm">!</span>
+              </span>
+              <div>
+                <h4 class="font-medium text-white">Perda de confianca</h4>
+                <p class="text-sm text-neutral-400">Usuarios param de confiar no sistema</p>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                <span class="text-amber-400 text-sm">!</span>
+              </span>
+              <div>
+                <h4 class="font-medium text-white">Oportunidade perdida</h4>
+                <p class="text-sm text-neutral-400">Projetos abandonados por falta de confiabilidade</p>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                <span class="text-amber-400 text-sm">!</span>
+              </span>
+              <div>
+                <h4 class="font-medium text-white">Dano reputacional</h4>
+                <p class="text-sm text-neutral-400">Impacto de longo prazo na marca</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Box ROI -->
+      <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center">
+          <span class="mr-2">📈</span> ROI da Governanca
+        </h3>
+        <p class="text-neutral-300 mb-4">
+          Investir em governanca de IA tipicamente retorna <strong class="text-white">3-5x o investimento</strong> atraves de:
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div class="bg-dark-800/50 rounded-lg p-3">
+            <div class="text-xl font-bold text-emerald-400">-40%</div>
+            <div class="text-xs text-neutral-400">Custo de API</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-3">
+            <div class="text-xl font-bold text-emerald-400">-60%</div>
+            <div class="text-xs text-neutral-400">Retrabalho</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-3">
+            <div class="text-xl font-bold text-emerald-400">+80%</div>
+            <div class="text-xs text-neutral-400">Confiabilidade</div>
+          </div>
+          <div class="bg-dark-800/50 rounded-lg p-3">
+            <div class="text-xl font-bold text-emerald-400">100%</div>
+            <div class="text-xs text-neutral-400">Auditabilidade</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo Final -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">📝</span> Resumo do Modulo
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">IA autonoma e um mito</strong>
+              <span class="text-neutral-400"> - Todos os modelos precisam de supervisao e guardrails</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Casos reais demonstram riscos</strong>
+              <span class="text-neutral-400"> - Prejuizos financeiros, legais e reputacionais sao concretos</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Regulamentacoes exigem controle</strong>
+              <span class="text-neutral-400"> - LGPD, AI Act e outras normas demandam transparencia</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Governar > Usar</strong>
+              <span class="text-neutral-400"> - A mudanca de mentalidade e fundamental</span>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div>
+              <strong class="text-white">Governanca tem ROI claro</strong>
+              <span class="text-neutral-400"> - O investimento se paga rapidamente</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Proximo modulo:</h3>
+          <p class="text-neutral-300 mb-2">
+            <strong class="text-white">1.2 - O que e o GIPM</strong> - Agora que voce entende o problema, vamos conhecer a solucao: o metodo GIPM em detalhes.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 1
+          </a>
+          <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Proximo Modulo →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">
+        🎓 GIPM Master - Metodo de Projetos com IA Governada
+      </p>
+      <p class="text-neutral-500 text-xs">
+        © 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
