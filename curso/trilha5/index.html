@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 5: Exercicio Pratico | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#14B8A6',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg hidden sm:inline">GIPM Master</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T4</a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">T5</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-white">Inicio</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-teal-400">Trilha 5</span>
+      </nav>
+    </div>
+  </div>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-16 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center space-x-3 mb-4">
+        <span class="px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full">TRILHA 5</span>
+        <span class="px-3 py-1 bg-dark-700 text-neutral-400 text-xs font-semibold rounded-full">PRATICO</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">🛠️ Exercicio Pratico</h1>
+      <p class="text-xl text-neutral-400 max-w-3xl mb-8">Crie Seu Proprio Projeto GIPM do Zero</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-teal-400">10</div>
+          <div class="text-sm text-neutral-400">Modulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-teal-400">64</div>
+          <div class="text-sm text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-teal-400">~6h</div>
+          <div class="text-sm text-neutral-400">Duracao</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-teal-400">Pratico</div>
+          <div class="text-sm text-neutral-400">Nivel</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="space-y-6">
+
+      <!-- Modulo 5.1 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.1</span>
+              <div>
+                <h3 class="text-lg font-semibold">🎯 Definindo o Projeto</h3>
+                <p class="text-sm text-neutral-400">Escolha de dominio, requisitos e stakeholders</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🎯 Escolhendo o dominio</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Identificar uma area de aplicacao onde a IA pode agregar valor com governanca adequada.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 Requisitos funcionais</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Definir o que o sistema deve fazer: funcionalidades principais e casos de uso.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📊 Requisitos nao-funcionais</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Performance, escalabilidade, seguranca e compliance necessarios.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">👥 Stakeholders</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Identificar todos os interessados e suas expectativas.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔍 Analise de viabilidade</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Avaliar se o projeto e viavel tecnica e financeiramente.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📝 Project brief</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Documento resumido com visao geral do projeto.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-1.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.2 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.2</span>
+              <div>
+                <h3 class="text-lg font-semibold">🏗️ Arquitetura GIPM do Projeto</h3>
+                <p class="text-sm text-neutral-400">3 camadas, personas e pipeline</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">8 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🏗️ Definindo as 3 camadas</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Separar claramente Camada Humana, Sistema e Cognitiva.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🎭 Desenhando personas</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Criar personas adequadas para o dominio do projeto.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 Mapeando o pipeline</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Adaptar os 9 passos do Pipeline Universal ao projeto.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📊 Escolha de depth level</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Definir nivel de governanca necessario.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔧 Stack tecnologico</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Escolher tecnologias adequadas ao projeto.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🗃️ Modelo de dados</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Desenhar estrutura de dados para persistencia.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔌 Design de APIs</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Projetar endpoints seguindo API-first.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📐 Diagrama de arquitetura</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Criar diagrama visual da arquitetura.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-2.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.3 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.3</span>
+              <div>
+                <h3 class="text-lg font-semibold">⚙️ Setup do Projeto</h3>
+                <p class="text-sm text-neutral-400">Estrutura, configuracao e ambiente</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📁 Estrutura de pastas</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Organizar o projeto seguindo padroes GIPM.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔧 Configuracao inicial</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Arquivos de configuracao e variaveis de ambiente.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📦 Dependencias</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Instalar e gerenciar bibliotecas necessarias.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🐳 Docker setup</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Containerizar a aplicacao.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🗃️ Banco de dados</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Configurar persistencia de dados.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🧪 Ambiente de testes</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Configurar ferramentas de teste.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-3.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.4 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.4</span>
+              <div>
+                <h3 class="text-lg font-semibold">🔄 Implementando o Pipeline</h3>
+                <p class="text-sm text-neutral-400">Os 9 passos em codigo</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">8 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📥 Passo 1-2: Request e validacao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Receber e validar inputs do usuario.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🗂️ Passo 3-4: Contexto e normalizacao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Coletar e normalizar contexto necessario.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🎭 Passo 5: Injecao de persona</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Aplicar persona ao prompt.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🤖 Passo 6: Chamada a IA</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Executar chamada ao modelo.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">💾 Passo 7: Persistencia</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Salvar toda a interacao.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📦 Passo 8: Materializacao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Gerar artefato final.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">↩️ Passo 9: Retorno</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Retornar resposta ao cliente.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🧪 Testes do pipeline</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Testar cada passo isoladamente.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-4.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.5 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.5</span>
+              <div>
+                <h3 class="text-lg font-semibold">🎭 Implementando Governanca Cognitiva</h3>
+                <p class="text-sm text-neutral-400">Personas, preferencias e injecao</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🎭 Criando suas personas</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Definir personas especificas do dominio.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">⚙️ Sistema de preferencias</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Permitir customizacao por usuario.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">💉 Mecanismo de injecao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Implementar injecao automatica de persona.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📊 Logs de governanca</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Registrar todas as decisoes de governanca.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🧪 Validando comportamento</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Testar se a IA respeita as personas.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📈 Metricas de qualidade</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Medir eficacia da governanca.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-5.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.6 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.6</span>
+              <div>
+                <h3 class="text-lg font-semibold">📦 Materializacao de Outputs</h3>
+                <p class="text-sm text-neutral-400">Formatos de saida e geradores</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📊 Definindo formatos de saida</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Escolher formatos adequados ao projeto.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔧 Implementando geradores</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Criar materializadores para cada formato.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📁 Sistema de storage</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Armazenar artefatos gerados.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔄 Processamento assincrono</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Gerar artefatos em background.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">⚠️ Tratamento de falhas</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Lidar com erros na geracao.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🧪 Testes de integracao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Testar geracao end-to-end.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-6.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.7 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.7</span>
+              <div>
+                <h3 class="text-lg font-semibold">💾 Persistencia e Auditoria</h3>
+                <p class="text-sm text-neutral-400">Modelo de dados e rastreabilidade</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🗃️ Implementando o modelo</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Criar tabelas e relacionamentos.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📊 CRUD operations</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Implementar operacoes basicas.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔍 Queries de auditoria</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Consultar historico de interacoes.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">💰 Tracking de custos</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Registrar consumo de tokens e custos.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📈 Dashboards</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Visualizar metricas de uso.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔐 Compliance</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Garantir conformidade regulatoria.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-7')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-7.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.8 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.8</span>
+              <div>
+                <h3 class="text-lg font-semibold">🧪 Testes e Qualidade</h3>
+                <p class="text-sm text-neutral-400">Testes unitarios, integracao e coverage</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🧪 Testes unitarios</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Testar funcoes isoladamente.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🧪 Testes de integracao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Testar componentes juntos.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🧪 Testes de pipeline</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Testar fluxo completo.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📊 Coverage</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Medir cobertura de testes.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🔍 Code review checklist</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Checklist para revisao de codigo.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">✅ Definition of done GIPM</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Criterios de conclusao GIPM.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-8')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-8.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.9 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.9</span>
+              <div>
+                <h3 class="text-lg font-semibold">📋 Documentacao GIPM</h3>
+                <p class="text-sm text-neutral-400">METHOD_MAPPING, COGNITIVE_GOVERNANCE e mais</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 METHOD_MAPPING.md</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Documentar mapeamento metodo-codigo.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 COGNITIVE_GOVERNANCE.md</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Documentar governanca cognitiva.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 API Documentation</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Documentar endpoints da API.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 Runbook</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Guia operacional.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 Architecture Decision Records</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Registrar decisoes arquiteturais.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">✅ Checklist de documentacao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Verificar completude da documentacao.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-9')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-9.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+      <!-- Modulo 5.10 -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden">
+        <div class="p-6 border-b border-dark-600">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <span class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-500/20 text-teal-400 font-bold">5.10</span>
+              <div>
+                <h3 class="text-lg font-semibold">🚀 Deploy e Apresentacao</h3>
+                <p class="text-sm text-neutral-400">Producao, monitoring e apresentacao final</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 bg-teal-500/20 text-teal-400 text-xs rounded">6 topicos</span>
+          </div>
+        </div>
+        <div class="p-4 space-y-2">
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🚀 Preparando para deploy</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Checklist pre-deploy.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📊 Configuracao de producao</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Ajustar configuracoes para prod.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📈 Monitoring setup</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Configurar monitoramento.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🎤 Apresentando o projeto</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Estrutura da apresentacao final.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">📋 Demonstracao pratica</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Roteiro de demo.</div></div>
+          <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full flex items-center justify-between p-3 bg-dark-700/50 rounded-lg hover:bg-dark-700"><span class="text-sm">🎓 Certificacao GIPM</span><span class="text-neutral-500">+</span></button><div class="topic-explanation p-3 text-sm text-neutral-400">Conclusao e proximos passos.</div></div>
+        </div>
+        <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+          <button onclick="openModal('modal-5-10')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">📖 Ver em Modal</button>
+          <a href="modulo-5-10.html" class="px-4 py-2 text-sm bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors">📄 Ver Completo</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal Container -->
+  <div id="modal-container" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4">
+    <div class="bg-dark-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div class="flex items-center justify-between p-4 border-b border-dark-600">
+        <h3 id="modal-title" class="text-lg font-semibold"></h3>
+        <button onclick="closeModal()" class="p-2 hover:bg-dark-700 rounded-lg">✕</button>
+      </div>
+      <div id="modal-content" class="p-6 overflow-y-auto flex-1"></div>
+    </div>
+  </div>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    const modalMap = {
+      'modal-5-1': { title: '🎯 Definindo o Projeto', file: 'modulo-5-1.html' },
+      'modal-5-2': { title: '🏗️ Arquitetura GIPM do Projeto', file: 'modulo-5-2.html' },
+      'modal-5-3': { title: '⚙️ Setup do Projeto', file: 'modulo-5-3.html' },
+      'modal-5-4': { title: '🔄 Implementando o Pipeline', file: 'modulo-5-4.html' },
+      'modal-5-5': { title: '🎭 Implementando Governanca Cognitiva', file: 'modulo-5-5.html' },
+      'modal-5-6': { title: '📦 Materializacao de Outputs', file: 'modulo-5-6.html' },
+      'modal-5-7': { title: '💾 Persistencia e Auditoria', file: 'modulo-5-7.html' },
+      'modal-5-8': { title: '🧪 Testes e Qualidade', file: 'modulo-5-8.html' },
+      'modal-5-9': { title: '📋 Documentacao GIPM', file: 'modulo-5-9.html' },
+      'modal-5-10': { title: '🚀 Deploy e Apresentacao', file: 'modulo-5-10.html' }
+    };
+
+    function openModal(modalId) {
+      const modal = modalMap[modalId];
+      if (!modal) return;
+      document.getElementById('modal-title').textContent = modal.title;
+      fetch(modal.file)
+        .then(r => r.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const main = doc.querySelector('main');
+          document.getElementById('modal-content').innerHTML = main ? main.innerHTML : html;
+          document.getElementById('modal-container').classList.remove('hidden');
+          document.getElementById('modal-container').classList.add('flex');
+        });
+    }
+
+    function closeModal() {
+      document.getElementById('modal-container').classList.add('hidden');
+      document.getElementById('modal-container').classList.remove('flex');
+    }
+  </script>
+</body>
+</html>

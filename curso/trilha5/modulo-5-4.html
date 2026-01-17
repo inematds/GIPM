@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5.4: Implementando o Pipeline | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#14B8A6',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T4</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 5</a><span class="text-neutral-600">/</span><span class="text-teal-400">Modulo 5.4</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MODULO 5.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 Implementando o Pipeline</h1><p class="text-lg text-neutral-400 max-w-3xl">Os 9 passos do Pipeline Universal em codigo funcional.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">8</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">~60</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Pratico</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Hands-on</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📥 Passo 1-2: Request e Validacao</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># app/services/pipeline.py
+from uuid import uuid4
+from app.config import settings
+
+class Pipeline:
+    async def step_1_receive(self, request: dict) -> dict:
+        """Passo 1: Receber e normalizar input"""
+        return {
+            "request_id": str(uuid4()),
+            "input": request.get("input", ""),
+            "persona": request.get("persona", settings.DEFAULT_PERSONA),
+            "timestamp": datetime.utcnow()
+        }
+
+    async def step_2_validate(self, data: dict) -> dict:
+        """Passo 2: Validar contra regras de governanca"""
+        if not data["input"]:
+            raise ValidationError("Input vazio")
+        if len(data["input"]) > settings.MAX_TOKENS_PER_REQUEST:
+            raise ValidationError("Input muito grande")
+        # Validar persona
+        if data["persona"] not in ALLOWED_PERSONAS:
+            raise ValidationError(f"Persona invalida: {data['persona']}")
+        return data</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🗂️ Passo 3-4: Contexto e Normalizacao</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>    async def step_3_context(self, data: dict) -> dict:
+        """Passo 3: Coletar contexto necessario"""
+        context = {
+            **data,
+            "system_context": {
+                "date": datetime.utcnow().isoformat(),
+                "version": settings.VERSION,
+            }
+        }
+        # Adicionar contexto especifico do dominio
+        if data.get("document_id"):
+            context["document"] = await self.load_document(data["document_id"])
+        return context
+
+    async def step_4_normalize(self, context: dict) -> dict:
+        """Passo 4: Normalizar para formato do LLM"""
+        normalized = {
+            **context,
+            "input_normalized": context["input"].strip().lower(),
+            "token_count_estimate": len(context["input"].split()) * 1.3
+        }
+        return normalized</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🎭 Passo 5: Injecao de Persona</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>    async def step_5_persona(self, data: dict) -> dict:
+        """Passo 5: Injetar persona no prompt"""
+        from app.governance.personas import get_persona
+
+        persona = get_persona(data["persona"])
+
+        # Montar prompt com persona injetada
+        prompt = f"""{persona.system_prompt}
+
+CONTEXTO ATUAL:
+{data.get('system_context', {})}
+
+SOLICITACAO DO USUARIO:
+{data['input']}
+
+RESPONDA SEGUINDO AS REGRAS DA PERSONA ACIMA."""
+
+        data["prompt_final"] = prompt
+        data["persona_used"] = persona.name
+        return data</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🤖 Passo 6: Chamada a IA</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>    async def step_6_invoke(self, data: dict) -> dict:
+        """Passo 6: Chamar o LLM"""
+        from app.services.llm import LLMService
+
+        llm = LLMService()
+        start_time = time.time()
+
+        response = await llm.generate(
+            prompt=data["prompt_final"],
+            max_tokens=8192,
+            temperature=0.7
+        )
+
+        data["ai_response"] = response.text
+        data["tokens_input"] = response.usage.input_tokens
+        data["tokens_output"] = response.usage.output_tokens
+        data["latency_ms"] = (time.time() - start_time) * 1000
+        data["cost_usd"] = self._calculate_cost(response.usage)
+
+        return data</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">💾 Passo 7: Persistencia</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>    async def step_7_persist(self, data: dict, db: Session) -> dict:
+        """Passo 7: Salvar TUDO no banco"""
+        from app.models.interaction import Interaction
+
+        interaction = Interaction(
+            request_id=data["request_id"],
+            input_text=data["input"],
+            prompt_sent=data["prompt_final"],
+            response_received=data["ai_response"],
+            persona_used=data["persona_used"],
+            tokens_input=data["tokens_input"],
+            tokens_output=data["tokens_output"],
+            cost_usd=data["cost_usd"],
+            latency_ms=data["latency_ms"],
+            timestamp=data["timestamp"]
+        )
+
+        db.add(interaction)
+        db.commit()
+
+        data["persisted"] = True
+        return data</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📦 Passo 8: Materializacao</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>    async def step_8_materialize(self, data: dict) -> dict:
+        """Passo 8: Gerar artefato final (se necessario)"""
+        output_format = data.get("output_format", "text")
+
+        if output_format == "text":
+            data["artifact"] = data["ai_response"]
+        elif output_format == "markdown":
+            data["artifact"] = self._format_markdown(data["ai_response"])
+        elif output_format == "json":
+            data["artifact"] = self._parse_json(data["ai_response"])
+
+        return data</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">↩️ Passo 9: Retorno</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>    async def step_9_return(self, data: dict) -> PipelineResponse:
+        """Passo 9: Retornar resposta ao cliente"""
+        return PipelineResponse(
+            request_id=data["request_id"],
+            response=data["artifact"],
+            metadata={
+                "tokens_used": data["tokens_input"] + data["tokens_output"],
+                "cost_usd": data["cost_usd"],
+                "latency_ms": data["latency_ms"],
+                "persona_used": data["persona_used"]
+            }
+        )</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">8</span><h2 class="text-2xl font-bold">🧪 Pipeline Completo</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>    async def execute(self, request: dict, db: Session) -> PipelineResponse:
+        """Executa pipeline completo de 9 passos"""
+        # ENTRADA
+        data = await self.step_1_receive(request)
+        data = await self.step_2_validate(data)
+        data = await self.step_3_context(data)
+        data = await self.step_4_normalize(data)
+
+        # PROCESSAMENTO
+        data = await self.step_5_persona(data)
+        data = await self.step_6_invoke(data)
+
+        # SAIDA
+        data = await self.step_7_persist(data, db)
+        data = await self.step_8_materialize(data)
+        return await self.step_9_return(data)</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">9 Passos</strong> - Implementados em codigo</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Validacao</strong> - Regras de governanca</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Persistencia</strong> - Tudo e salvo</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Rastreabilidade</strong> - request_id em tudo</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-5-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-5-5.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

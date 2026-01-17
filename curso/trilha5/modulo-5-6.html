@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5.6: Materializacao de Outputs | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#14B8A6',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T4</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 5</a><span class="text-neutral-600">/</span><span class="text-teal-400">Modulo 5.6</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MODULO 5.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">📦 Materializacao de Outputs</h1><p class="text-lg text-neutral-400 max-w-3xl">Definir formatos de saida e implementar geradores.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">~40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Pratico</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Hands-on</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📊 Definindo Formatos de Saida</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># app/services/materializers.py
+from enum import Enum
+from abc import ABC, abstractmethod
+
+class OutputFormat(Enum):
+    TEXT = "text"
+    MARKDOWN = "markdown"
+    JSON = "json"
+    HTML = "html"
+    PDF = "pdf"
+
+class BaseMaterializer(ABC):
+    @abstractmethod
+    async def materialize(self, content: str, metadata: dict) -> bytes:
+        pass
+
+    @property
+    @abstractmethod
+    def format(self) -> OutputFormat:
+        pass
+
+    @property
+    @abstractmethod
+    def content_type(self) -> str:
+        pass</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔧 Implementando Geradores</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class MarkdownMaterializer(BaseMaterializer):
+    format = OutputFormat.MARKDOWN
+    content_type = "text/markdown"
+
+    async def materialize(self, content: str, metadata: dict) -> bytes:
+        # Adiciona cabecalho com metadados
+        header = f"""---
+request_id: {metadata.get('request_id')}
+generated_at: {metadata.get('timestamp')}
+persona: {metadata.get('persona')}
+---
+
+"""
+        return (header + content).encode('utf-8')
+
+class JSONMaterializer(BaseMaterializer):
+    format = OutputFormat.JSON
+    content_type = "application/json"
+
+    async def materialize(self, content: str, metadata: dict) -> bytes:
+        output = {
+            "content": content,
+            "metadata": metadata
+        }
+        return json.dumps(output, indent=2, ensure_ascii=False).encode('utf-8')
+
+class HTMLMaterializer(BaseMaterializer):
+    format = OutputFormat.HTML
+    content_type = "text/html"
+
+    async def materialize(self, content: str, metadata: dict) -> bytes:
+        import markdown
+        html_content = markdown.markdown(content)
+        template = f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body>{html_content}</body></html>"""
+        return template.encode('utf-8')</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📁 Sistema de Storage</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>from pathlib import Path
+import aiofiles
+
+class ArtifactStorage:
+    def __init__(self, base_path: str = "./artifacts"):
+        self.base_path = Path(base_path)
+        self.base_path.mkdir(parents=True, exist_ok=True)
+
+    async def save(self, request_id: str, content: bytes, format: OutputFormat) -> str:
+        """Salva artefato e retorna path"""
+        extension = format.value
+        filename = f"{request_id}.{extension}"
+        filepath = self.base_path / filename
+
+        async with aiofiles.open(filepath, 'wb') as f:
+            await f.write(content)
+
+        return str(filepath)
+
+    async def get(self, request_id: str, format: OutputFormat) -> bytes:
+        """Recupera artefato salvo"""
+        extension = format.value
+        filepath = self.base_path / f"{request_id}.{extension}"
+
+        async with aiofiles.open(filepath, 'rb') as f:
+            return await f.read()
+
+    async def delete(self, request_id: str, format: OutputFormat):
+        """Remove artefato"""
+        extension = format.value
+        filepath = self.base_path / f"{request_id}.{extension}"
+        filepath.unlink(missing_ok=True)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔄 Processamento Assincrono</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>import asyncio
+from concurrent.futures import ThreadPoolExecutor
+
+class AsyncMaterializationService:
+    def __init__(self):
+        self.executor = ThreadPoolExecutor(max_workers=4)
+        self.storage = ArtifactStorage()
+
+    async def materialize_async(
+        self,
+        content: str,
+        format: OutputFormat,
+        metadata: dict
+    ) -> str:
+        """Materializa em background e retorna task_id"""
+        task_id = str(uuid4())
+
+        # Inicia em background
+        asyncio.create_task(
+            self._process(task_id, content, format, metadata)
+        )
+
+        return task_id
+
+    async def _process(self, task_id: str, content: str, format: OutputFormat, metadata: dict):
+        materializer = self._get_materializer(format)
+        artifact = await materializer.materialize(content, metadata)
+        await self.storage.save(task_id, artifact, format)
+
+        # Notifica conclusao (webhook, pubsub, etc)
+        await self._notify_complete(task_id)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">⚠️ Tratamento de Falhas</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class MaterializationError(Exception):
+    pass
+
+class MaterializationService:
+    async def materialize_with_fallback(
+        self,
+        content: str,
+        format: OutputFormat,
+        metadata: dict
+    ) -> tuple[bytes, OutputFormat]:
+        """Tenta materializar, com fallback para formato mais simples"""
+        try:
+            materializer = self._get_materializer(format)
+            return await materializer.materialize(content, metadata), format
+        except Exception as e:
+            self.log.warning(f"Falha em {format}, tentando fallback", error=str(e))
+
+            # Fallback: tenta formato mais simples
+            if format == OutputFormat.PDF:
+                return await self.materialize_with_fallback(content, OutputFormat.HTML, metadata)
+            elif format == OutputFormat.HTML:
+                return await self.materialize_with_fallback(content, OutputFormat.MARKDOWN, metadata)
+            else:
+                # Ultimo recurso: texto puro
+                return content.encode('utf-8'), OutputFormat.TEXT</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🧪 Testes de Integracao</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># tests/test_materialization.py
+import pytest
+
+class TestMaterialization:
+    @pytest.mark.asyncio
+    async def test_markdown_materialization(self):
+        materializer = MarkdownMaterializer()
+        result = await materializer.materialize(
+            "# Titulo\nConteudo",
+            {"request_id": "123", "timestamp": "2024-01-01"}
+        )
+        assert b"request_id: 123" in result
+        assert b"# Titulo" in result
+
+    @pytest.mark.asyncio
+    async def test_storage_save_and_retrieve(self):
+        storage = ArtifactStorage("./test_artifacts")
+        content = b"test content"
+        await storage.save("test-123", content, OutputFormat.TEXT)
+        retrieved = await storage.get("test-123", OutputFormat.TEXT)
+        assert retrieved == content
+
+    @pytest.mark.asyncio
+    async def test_fallback_on_error(self):
+        service = MaterializationService()
+        result, format = await service.materialize_with_fallback(
+            "content", OutputFormat.PDF, {}
+        )
+        # Se PDF falhar, deve retornar formato mais simples
+        assert format in [OutputFormat.PDF, OutputFormat.HTML, OutputFormat.MARKDOWN, OutputFormat.TEXT]</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Formatos</strong> - Text, Markdown, JSON, HTML</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Storage</strong> - Artefatos persistidos</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Async</strong> - Processamento em background</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Fallback</strong> - Resiliencia a falhas</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-5-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-5-7.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

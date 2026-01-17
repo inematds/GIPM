@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 5.5: Implementando Governanca Cognitiva | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#14B8A6',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T4</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 5</a><span class="text-neutral-600">/</span><span class="text-teal-400">Modulo 5.5</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MODULO 5.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🎭 Implementando Governanca Cognitiva</h1><p class="text-lg text-neutral-400 max-w-3xl">Personas, preferencias e mecanismo de injecao.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">~40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Pratico</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Hands-on</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🎭 Criando Suas Personas</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># app/governance/personas.py
+from dataclasses import dataclass
+from typing import Dict
+
+@dataclass
+class Persona:
+    name: str
+    system_prompt: str
+    temperature: float = 0.7
+    max_tokens: int = 4096
+
+PERSONAS: Dict[str, Persona] = {
+    "professional": Persona(
+        name="professional",
+        system_prompt="""Voce e um assistente profissional.
+REGRAS:
+1. Seja direto e objetivo
+2. Use linguagem formal
+3. Cite fontes quando possivel
+4. Evite opinioes pessoais""",
+        temperature=0.5
+    ),
+    "creative": Persona(
+        name="creative",
+        system_prompt="""Voce e um assistente criativo.
+REGRAS:
+1. Use analogias e metaforas
+2. Sugira alternativas inovadoras
+3. Pense fora da caixa
+4. Seja inspirador""",
+        temperature=0.9
+    ),
+    "technical": Persona(
+        name="technical",
+        system_prompt="""Voce e um especialista tecnico.
+REGRAS:
+1. Inclua exemplos de codigo
+2. Seja preciso e detalhado
+3. Explique conceitos complexos
+4. Mencione trade-offs""",
+        temperature=0.3
+    )
+}
+
+def get_persona(name: str) -> Persona:
+    return PERSONAS.get(name, PERSONAS["professional"])</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">⚙️ Sistema de Preferencias</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># app/models/preferences.py
+from sqlalchemy import Column, Integer, String, JSON
+from app.database import Base
+
+class UserPreferences(Base):
+    __tablename__ = "user_preferences"
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(String, unique=True, index=True)
+    default_persona = Column(String, default="professional")
+    output_format = Column(String, default="markdown")
+    language = Column(String, default="pt-BR")
+    custom_rules = Column(JSON, default={})
+
+# Service
+class PreferencesService:
+    async def get_preferences(self, user_id: str, db: Session):
+        prefs = db.query(UserPreferences).filter_by(user_id=user_id).first()
+        if not prefs:
+            prefs = UserPreferences(user_id=user_id)
+            db.add(prefs)
+            db.commit()
+        return prefs
+
+    async def update_preferences(self, user_id: str, updates: dict, db: Session):
+        prefs = await self.get_preferences(user_id, db)
+        for key, value in updates.items():
+            setattr(prefs, key, value)
+        db.commit()
+        return prefs</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">💉 Mecanismo de Injecao</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class PersonaInjector:
+    """Injeta persona e preferencias no prompt"""
+
+    def inject(
+        self,
+        user_input: str,
+        persona: Persona,
+        preferences: UserPreferences,
+        context: dict = None
+    ) -> str:
+        # Combina persona + preferencias + regras customizadas
+        prompt_parts = [
+            persona.system_prompt,
+            f"\nIDIOMA: {preferences.language}",
+            f"FORMATO DE SAIDA: {preferences.output_format}",
+        ]
+
+        # Adiciona regras customizadas
+        if preferences.custom_rules:
+            prompt_parts.append("\nREGRAS ADICIONAIS:")
+            for rule in preferences.custom_rules.get("rules", []):
+                prompt_parts.append(f"- {rule}")
+
+        # Adiciona contexto
+        if context:
+            prompt_parts.append(f"\nCONTEXTO: {context}")
+
+        # Adiciona input do usuario
+        prompt_parts.append(f"\nSOLICITACAO:\n{user_input}")
+
+        return "\n".join(prompt_parts)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📊 Logs de Governanca</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># Registrar todas as decisoes de governanca
+class GovernanceLogger:
+    def __init__(self):
+        self.log = structlog.get_logger()
+
+    def log_persona_selection(self, request_id: str, persona: str, reason: str):
+        self.log.info(
+            "governance_persona_selected",
+            request_id=request_id,
+            persona=persona,
+            reason=reason
+        )
+
+    def log_rule_applied(self, request_id: str, rule: str, result: bool):
+        self.log.info(
+            "governance_rule_applied",
+            request_id=request_id,
+            rule=rule,
+            result=result
+        )
+
+    def log_preference_override(self, request_id: str, field: str, old: str, new: str):
+        self.log.info(
+            "governance_preference_override",
+            request_id=request_id,
+            field=field,
+            old_value=old,
+            new_value=new
+        )</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧪 Validando Comportamento</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># tests/test_governance.py
+import pytest
+
+class TestPersonaCompliance:
+    """Testes para verificar se a IA respeita as personas"""
+
+    async def test_professional_persona_is_formal(self, pipeline):
+        response = await pipeline.execute({
+            "input": "Me conte uma piada",
+            "persona": "professional"
+        })
+        # Professional nao conta piadas
+        assert "piada" not in response.lower() or "profissional" in response.lower()
+
+    async def test_technical_persona_includes_code(self, pipeline):
+        response = await pipeline.execute({
+            "input": "Como fazer um loop em Python?",
+            "persona": "technical"
+        })
+        # Technical deve incluir codigo
+        assert "```" in response or "for" in response
+
+    async def test_blocked_topic_rejected(self, pipeline):
+        with pytest.raises(BlockedTopicError):
+            await pipeline.execute({
+                "input": "Fale sobre politica partidaria",
+                "persona": "professional"
+            })</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📈 Metricas de Qualidade</h2></div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class GovernanceMetrics:
+    """Metricas para medir eficacia da governanca"""
+
+    async def get_persona_usage(self, db: Session) -> dict:
+        """Uso de cada persona"""
+        return db.query(
+            Interaction.persona_used,
+            func.count(Interaction.id)
+        ).group_by(Interaction.persona_used).all()
+
+    async def get_compliance_rate(self, db: Session) -> float:
+        """Taxa de requisicoes que passaram na validacao"""
+        total = db.query(func.count(Interaction.id)).scalar()
+        blocked = db.query(func.count(BlockedRequest.id)).scalar()
+        return (total - blocked) / total if total > 0 else 1.0
+
+    async def get_average_response_quality(self, db: Session) -> float:
+        """Media de qualidade das respostas (se houver feedback)"""
+        return db.query(func.avg(Feedback.score)).scalar() or 0.0</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Personas</strong> - Definidas e configuradas</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Preferencias</strong> - Sistema por usuario</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Injecao</strong> - Automatica no prompt</span></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><span><strong class="text-white">Metricas</strong> - Governanca medida</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-5-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-5-6.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>
