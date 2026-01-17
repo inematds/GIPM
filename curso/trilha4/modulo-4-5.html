@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.5: Governanca Cognitiva na Pratica | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">T4</a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 4</a><span class="text-neutral-600">/</span><span class="text-amber-400">Modulo 4.5</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🏛️ Governanca Cognitiva na Pratica</h1><p class="text-lg text-neutral-400 max-w-3xl">Implementacao dos 5 principios e 3 camadas no codigo real.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">8</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avanc.</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Pratico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🔌 Principio 1: API-First</h2></div>
+      <p class="text-neutral-300 mb-6">Toda funcionalidade exposta via API documentada.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># Toda funcao de IA tem um endpoint correspondente
+@router.post("/notebooks/{id}/chat")
+async def chat(
+    id: int,
+    request: ChatRequest,
+    db: Session = Depends(get_db)
+) -> ChatResponse:
+    """
+    Endpoint documentado automaticamente no OpenAPI.
+    A IA nunca e chamada diretamente pelo frontend.
+    """
+    return await chat_service.process(id, request)
+
+# OpenAPI disponivel em /docs
+# Schema exportavel para integracao externa</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🎯 Principio 2: Backend Orquestra</h2></div>
+      <p class="text-neutral-300 mb-6">O sistema controla o fluxo, a IA apenas executa.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class ChatOrchestrator:
+    """O backend decide quando e como chamar a IA"""
+
+    async def process(self, request: ChatRequest):
+        # 1. Backend valida (SISTEMA decide)
+        self.validate_request(request)
+
+        # 2. Backend prepara contexto (SISTEMA monta)
+        context = await self.build_context(request)
+
+        # 3. Backend chama IA (IA executa)
+        response = await self.gemini.generate(context)
+
+        # 4. Backend processa resultado (SISTEMA valida)
+        processed = self.post_process(response)
+
+        # 5. Backend persiste (SISTEMA armazena)
+        await self.save_interaction(request, processed)
+
+        return processed</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔀 Principio 3: Duas Fases</h2></div>
+      <p class="text-neutral-300 mb-6">IA gera estrutura, sistema materializa artefato.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">Fase 1: IA Gera Estrutura</h4>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># IA retorna JSON estruturado
+structure = await gemini.generate(
+    f"Gere estrutura para {type}"
+)
+
+# Resultado:
+{
+    "type": "podcast",
+    "segments": [
+        {"speaker": "host", "text": "..."},
+        {"speaker": "guest", "text": "..."}
+    ]
+}</code></pre>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">Fase 2: Sistema Materializa</h4>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># Sistema gera o artefato final
+def materialize_podcast(structure):
+    audio_segments = []
+    for seg in structure["segments"]:
+        # Sistema usa TTS
+        audio = tts_service.generate(
+            text=seg["text"],
+            voice=seg["speaker"]
+        )
+        audio_segments.append(audio)
+
+    return concatenate(audio_segments)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">💾 Principio 4: Persistencia Total</h2></div>
+      <p class="text-neutral-300 mb-6">Todo input e output e armazenado para auditoria.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class InteractionLog(Base):
+    __tablename__ = "interaction_logs"
+
+    id = Column(Integer, primary_key=True)
+    request_id = Column(String, unique=True, index=True)
+    notebook_id = Column(Integer, ForeignKey("notebooks.id"))
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+    # Input completo
+    prompt_sent = Column(Text)
+    parameters = Column(JSON)
+
+    # Output completo
+    response_received = Column(Text)
+    tokens_input = Column(Integer)
+    tokens_output = Column(Integer)
+
+    # Metadados
+    model_used = Column(String)
+    latency_ms = Column(Integer)
+    cost_usd = Column(Float)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔧 Principio 5: Modularidade</h2></div>
+      <p class="text-neutral-300 mb-6">Componentes substituiveis sem afetar o sistema.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>from abc import ABC, abstractmethod
+
+class LLMProvider(ABC):
+    """Interface abstrata - qualquer LLM implementa"""
+
+    @abstractmethod
+    async def generate(self, prompt: str) -> str:
+        pass
+
+class GeminiProvider(LLMProvider):
+    async def generate(self, prompt: str) -> str:
+        return await self.model.generate_content_async(prompt)
+
+class OpenAIProvider(LLMProvider):
+    async def generate(self, prompt: str) -> str:
+        return await self.client.chat.completions.create(...)
+
+# Injecao de dependencia
+def get_llm_provider() -> LLMProvider:
+    provider = settings.LLM_PROVIDER
+    if provider == "gemini":
+        return GeminiProvider()
+    elif provider == "openai":
+        return OpenAIProvider()</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">👤 Camada Humana</h2></div>
+      <p class="text-neutral-300 mb-6">Configuracoes que definem limites e criterios de sucesso.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># config/governance.py - Decisoes HUMANAS
+
+GOVERNANCE_CONFIG = {
+    # Limites definidos por humanos
+    "max_tokens_per_request": 30000,
+    "max_cost_per_day_usd": 50.0,
+    "allowed_personas": ["professional", "creative", "academic"],
+
+    # Criterios de qualidade
+    "min_response_quality_score": 0.7,
+    "require_source_citation": True,
+
+    # Restricoes de conteudo
+    "blocked_topics": ["politica", "religiao"],
+    "require_factual_basis": True,
+
+    # A IA NAO pode alterar estas configuracoes
+}</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">⚙️ Camada Sistema</h2></div>
+      <p class="text-neutral-300 mb-6">Codigo que valida, controla fluxo e aplica regras.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class GovernanceValidator:
+    """Sistema aplica regras definidas por humanos"""
+
+    def validate_request(self, request: ChatRequest):
+        # Valida contra configuracao
+        if request.persona not in GOVERNANCE_CONFIG["allowed_personas"]:
+            raise InvalidPersonaError()
+
+        for topic in GOVERNANCE_CONFIG["blocked_topics"]:
+            if topic in request.message.lower():
+                raise BlockedTopicError(topic)
+
+    def validate_response(self, response: str) -> bool:
+        # Sistema verifica qualidade
+        if GOVERNANCE_CONFIG["require_source_citation"]:
+            if not self._has_citations(response):
+                return False
+        return True</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">8</span><h2 class="text-2xl font-bold">🧠 Camada Cognitiva</h2></div>
+      <p class="text-neutral-300 mb-6">A IA e uma funcao pura: recebe input, retorna output.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class CognitiveLayer:
+    """IA como funcao pura - sem estado, sem decisoes de fluxo"""
+
+    async def analyze(self, sources: List[Source]) -> Analysis:
+        """Analisa fontes - retorna estrutura"""
+        pass
+
+    async def synthesize(self, context: Context) -> Synthesis:
+        """Sintetiza informacao - retorna texto"""
+        pass
+
+    async def structure(self, content: str, format: str) -> Structure:
+        """Estrutura conteudo - retorna JSON"""
+        pass
+
+    # A IA NAO:
+    # - Decide o que fazer a seguir
+    # - Acessa banco de dados
+    # - Controla fluxo da aplicacao
+    # - Persiste dados
+    # - Valida regras de negocio</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">5 Principios</strong> - Aplicados em codigo real</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">3 Camadas</strong> - Separacao clara de responsabilidades</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Governanca</strong> - Humano define, sistema aplica</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">IA Controlada</strong> - Executa, nao decide</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-4-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-4-6.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.1: Visao Geral do NotebookLMX | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">T4</a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 4</a><span class="text-neutral-600">/</span><span class="text-amber-400">Modulo 4.1</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.1</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Visao Geral do NotebookLMX</h1><p class="text-lg text-neutral-400 max-w-3xl">Conheca o projeto de referencia que implementa o metodo GIPM de forma completa.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avanc.</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Pratico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🎯 O que e o NotebookLMX</h2></div>
+      <p class="text-neutral-300 mb-6">O NotebookLMX e uma <strong class="text-amber-400">implementacao de referencia completa do metodo GIPM</strong>, demonstrando como construir um sistema que gera conteudo multimidia a partir de fontes textuais.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <h4 class="font-semibold text-white mb-4">Caracteristicas Principais</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-amber-900/20 rounded-lg p-4 border border-amber-500/30"><h5 class="font-semibold text-amber-400 mb-2">GIPM Compliant</h5><p class="text-sm text-neutral-400">Segue todos os 5 principios e implementa as 3 camadas</p></div>
+          <div class="bg-blue-900/20 rounded-lg p-4 border border-blue-500/30"><h5 class="font-semibold text-blue-400 mb-2">Multimodal</h5><p class="text-sm text-neutral-400">Gera documentos, audio e video a partir de texto</p></div>
+          <div class="bg-emerald-900/20 rounded-lg p-4 border border-emerald-500/30"><h5 class="font-semibold text-emerald-400 mb-2">Auditavel</h5><p class="text-sm text-neutral-400">Persistencia total de todas as operacoes</p></div>
+          <div class="bg-purple-900/20 rounded-lg p-4 border border-purple-500/30"><h5 class="font-semibold text-purple-400 mb-2">Open Source</h5><p class="text-sm text-neutral-400">Codigo aberto para estudo e adaptacao</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📋 Funcionalidades principais</h2></div>
+      <p class="text-neutral-300 mb-6">O sistema oferece um conjunto completo de funcionalidades para <strong class="text-amber-400">transformacao de conhecimento</strong>.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">📥</span><span><strong class="text-white">Upload de Fontes:</strong> Suporta PDF, TXT, DOCX, URLs</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">💬</span><span><strong class="text-white">Chat Contextual:</strong> Conversa com suas fontes usando Gemini</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">📄</span><span><strong class="text-white">Geracao de Documentos:</strong> Cria resumos, analises em DOCX/PDF</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">🎵</span><span><strong class="text-white">Audio Podcasts:</strong> Gera podcasts em MP3 via TTS</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">🎬</span><span><strong class="text-white">Video Briefings:</strong> Cria video-resumos automaticos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🏗️ Arquitetura geral</h2></div>
+      <p class="text-neutral-300 mb-6">A arquitetura segue rigorosamente as <strong class="text-amber-400">3 camadas do GIPM</strong>.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>┌─────────────────────────────────────────────────┐
+│           CAMADA HUMANA (Frontend)              │
+│  - Interface Web (HTML/CSS/JS)                  │
+│  - Configuracao de Preferencias                 │
+│  - Validacao de Outputs                         │
+└─────────────────────────────────────────────────┘
+                      │
+┌─────────────────────────────────────────────────┐
+│          CAMADA SISTEMA (Backend)               │
+│  - FastAPI (Orquestracao)                       │
+│  - SQLite (Persistencia)                        │
+│  - Pipeline Universal (9 passos)                │
+└─────────────────────────────────────────────────┘
+                      │
+┌─────────────────────────────────────────────────┐
+│            CAMADA IA (Cognicao)                 │
+│  - Gemini 1.5 (Geracao)                         │
+│  - Personas Injetadas                           │
+│  - Output Estruturado (JSON)                    │
+└─────────────────────────────────────────────────┘</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔧 Stack tecnologico</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">Backend</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>Python 3.11+</strong> - Linguagem principal</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>FastAPI</strong> - Framework web async</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>SQLite</strong> - Banco de dados</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>Pydantic</strong> - Validacao de dados</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">IA e Geracao</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>Gemini 1.5</strong> - LLM principal</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>Google TTS</strong> - Text-to-speech</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>python-docx</strong> - Geracao DOCX</span></li>
+            <li class="flex items-start space-x-2"><span class="text-amber-400">•</span><span><strong>MoviePy</strong> - Geracao de video</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📊 Mapeamento GIPM → Implementacao</h2></div>
+      <p class="text-neutral-300 mb-6">Como cada conceito GIPM se materializa no codigo.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead><tr class="border-b border-dark-600"><th class="text-left py-3 text-amber-400">Conceito GIPM</th><th class="text-left py-3 text-white">Implementacao</th></tr></thead>
+            <tbody class="text-neutral-300">
+              <tr class="border-b border-dark-700"><td class="py-3">Pipeline Universal</td><td class="py-3"><code class="bg-dark-700 px-2 py-1 rounded">pipeline.py</code></td></tr>
+              <tr class="border-b border-dark-700"><td class="py-3">Governanca Cognitiva</td><td class="py-3"><code class="bg-dark-700 px-2 py-1 rounded">persona_utils.py</code></td></tr>
+              <tr class="border-b border-dark-700"><td class="py-3">Regra das Duas Fases</td><td class="py-3"><code class="bg-dark-700 px-2 py-1 rounded">generators/*.py</code></td></tr>
+              <tr class="border-b border-dark-700"><td class="py-3">Persistencia Total</td><td class="py-3"><code class="bg-dark-700 px-2 py-1 rounded">database.py</code></td></tr>
+              <tr><td class="py-3">API-First</td><td class="py-3"><code class="bg-dark-700 px-2 py-1 rounded">routers/*.py</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔍 Como usar como referencia</h2></div>
+      <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4">Estrategia de Estudo</h3>
+        <ol class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">1.</span><span>Clone o repositorio e execute localmente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">2.</span><span>Explore os endpoints via Swagger UI (<code class="bg-dark-700 px-1 rounded">/docs</code>)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">3.</span><span>Trace uma requisicao completa pelo pipeline</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">4.</span><span>Estude <code class="bg-dark-700 px-1 rounded">persona_utils.py</code> para governanca</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">5.</span><span>Analise os geradores para entender Duas Fases</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 font-bold">6.</span><span>Adapte para seu proprio projeto</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">NotebookLMX</strong> - Implementacao de referencia GIPM completa</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Stack</strong> - FastAPI + Gemini + SQLite</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Funcionalidades</strong> - Chat, documentos, audio, video</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Arquitetura</strong> - 3 camadas bem definidas</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="../trilha3/modulo-3-8.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-4-2.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

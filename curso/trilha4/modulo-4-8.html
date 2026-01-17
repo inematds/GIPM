@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.8: Persistencia e Banco de Dados | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">T4</a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 4</a><span class="text-neutral-600">/</span><span class="text-amber-400">Modulo 4.8</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.8</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">💾 Persistencia e Banco de Dados</h1><p class="text-lg text-neutral-400 max-w-3xl">SQLite, modelos SQLAlchemy e a implementacao da persistencia total.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~35</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avanc.</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Pratico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🗄️ Modelos de Dados</h2></div>
+      <p class="text-neutral-300 mb-6">Estrutura das tabelas principais do NotebookLMX.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Float
+from sqlalchemy.orm import relationship
+from app.database import Base
+
+class Notebook(Base):
+    __tablename__ = "notebooks"
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String(255), nullable=False)
+    description = Column(Text)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, onupdate=datetime.utcnow)
+
+    # Relacionamentos
+    sources = relationship("Source", back_populates="notebook", cascade="all, delete")
+    messages = relationship("Message", back_populates="notebook", cascade="all, delete")
+    artifacts = relationship("Artifact", back_populates="notebook", cascade="all, delete")</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📚 Modelo Source</h2></div>
+      <p class="text-neutral-300 mb-6">Fontes de dados (PDFs, textos) vinculadas aos notebooks.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class Source(Base):
+    __tablename__ = "sources"
+
+    id = Column(Integer, primary_key=True, index=True)
+    notebook_id = Column(Integer, ForeignKey("notebooks.id"), nullable=False)
+
+    # Metadados do arquivo
+    filename = Column(String(255), nullable=False)
+    file_type = Column(String(50))  # pdf, txt, url
+    file_size = Column(Integer)
+    file_path = Column(String(500))
+
+    # Conteudo processado
+    extracted_text = Column(Text)
+    summary = Column(Text)
+    token_count = Column(Integer)
+
+    # Auditoria
+    uploaded_at = Column(DateTime, default=datetime.utcnow)
+    processed_at = Column(DateTime)
+    status = Column(String(20), default="pending")  # pending, processing, ready, error
+
+    notebook = relationship("Notebook", back_populates="sources")</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">💬 Modelo Message (Auditoria)</h2></div>
+      <p class="text-neutral-300 mb-6">Historico completo de interacoes para rastreabilidade.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class Message(Base):
+    __tablename__ = "messages"
+
+    id = Column(Integer, primary_key=True, index=True)
+    notebook_id = Column(Integer, ForeignKey("notebooks.id"), nullable=False)
+    request_id = Column(String(36), unique=True, index=True)
+
+    # Conteudo
+    role = Column(String(20))  # user, assistant
+    content = Column(Text, nullable=False)
+
+    # Metadados GIPM - Persistencia Total
+    prompt_sent = Column(Text)  # Prompt completo enviado
+    model_used = Column(String(50))
+    persona_used = Column(String(50))
+
+    # Metricas
+    tokens_input = Column(Integer)
+    tokens_output = Column(Integer)
+    cost_usd = Column(Float)
+    latency_ms = Column(Integer)
+
+    # Timestamps
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    notebook = relationship("Notebook", back_populates="messages")</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔧 Configuracao SQLAlchemy</h2></div>
+      <p class="text-neutral-300 mb-6">Setup do banco de dados com SQLite.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># app/database.py
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from app.config import settings
+
+SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL  # sqlite:///./notebooklmx.db
+
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    connect_args={"check_same_thread": False}  # SQLite only
+)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
+
+# Dependency para injetar sessao
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📝 Repository Pattern</h2></div>
+      <p class="text-neutral-300 mb-6">Camada de acesso a dados desacoplada.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class NotebookRepository:
+    def __init__(self, db: Session):
+        self.db = db
+
+    async def create(self, data: NotebookCreate) -> Notebook:
+        notebook = Notebook(**data.dict())
+        self.db.add(notebook)
+        self.db.commit()
+        self.db.refresh(notebook)
+        return notebook
+
+    async def get_by_id(self, id: int) -> Optional[Notebook]:
+        return self.db.query(Notebook).filter(Notebook.id == id).first()
+
+    async def list_all(self, skip: int = 0, limit: int = 100) -> List[Notebook]:
+        return self.db.query(Notebook).offset(skip).limit(limit).all()
+
+    async def delete(self, id: int) -> bool:
+        notebook = await self.get_by_id(id)
+        if notebook:
+            self.db.delete(notebook)
+            self.db.commit()
+            return True
+        return False</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📊 Queries de Auditoria</h2></div>
+      <p class="text-neutral-300 mb-6">Consultas para rastreabilidade e analytics.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class AuditRepository:
+    """Queries para rastreabilidade GIPM"""
+
+    async def get_usage_by_notebook(self, notebook_id: int) -> UsageStats:
+        result = self.db.query(
+            func.count(Message.id).label("total_messages"),
+            func.sum(Message.tokens_input).label("total_tokens_in"),
+            func.sum(Message.tokens_output).label("total_tokens_out"),
+            func.sum(Message.cost_usd).label("total_cost")
+        ).filter(Message.notebook_id == notebook_id).first()
+
+        return UsageStats(**result._asdict())
+
+    async def get_daily_costs(self, days: int = 30) -> List[DailyCost]:
+        return self.db.query(
+            func.date(Message.created_at).label("date"),
+            func.sum(Message.cost_usd).label("cost")
+        ).group_by(func.date(Message.created_at)
+        ).order_by(func.date(Message.created_at).desc()
+        ).limit(days).all()
+
+    async def get_request_trace(self, request_id: str) -> RequestTrace:
+        """Rastreia uma requisicao completa"""
+        message = self.db.query(Message).filter(
+            Message.request_id == request_id
+        ).first()
+        return RequestTrace.from_message(message)</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Modelos</strong> - Notebook, Source, Message, Artifact</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">SQLite</strong> - Banco leve e portavel</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Repository</strong> - Acesso a dados desacoplado</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Auditoria</strong> - Queries para rastreabilidade</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-4-7.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-4-9.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

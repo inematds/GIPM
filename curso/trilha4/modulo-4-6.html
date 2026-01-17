@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.6: Pipeline Universal Implementado | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">T4</a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 4</a><span class="text-neutral-600">/</span><span class="text-amber-400">Modulo 4.6</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 Pipeline Universal Implementado</h1><p class="text-lg text-neutral-400 max-w-3xl">Os 9 passos do pipeline GIPM em codigo funcional.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avanc.</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Pratico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📐 Arquitetura do Pipeline</h2></div>
+      <p class="text-neutral-300 mb-6">Visao geral das 3 fases e 9 passos implementados.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class UniversalPipeline:
+    """
+    Pipeline Universal GIPM - 9 passos em 3 fases
+
+    ENTRADA (Sistema prepara):
+    1. Receber Input → Validar formato e limites
+    2. Validar → Aplicar regras de governanca
+    3. Preparar Contexto → Montar prompt estruturado
+
+    PROCESSAMENTO (IA executa):
+    4. Invocar IA → Chamar modelo com retry
+    5. Receber Estrutura → Parsear resposta JSON
+    6. Validar Saida → Verificar qualidade
+
+    SAIDA (Sistema materializa):
+    7. Materializar → Gerar artefato final
+    8. Persistir → Salvar tudo no banco
+    9. Retornar → Resposta ao cliente
+    """</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📥 Fase Entrada (Passos 1-3)</h2></div>
+      <p class="text-neutral-300 mb-6">Sistema recebe, valida e prepara o contexto.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>async def phase_input(self, request: PipelineRequest) -> Context:
+    # Passo 1: Receber Input
+    self.logger.info("pipeline_step_1_receive", request_id=request.id)
+    input_data = self._normalize_input(request)
+
+    # Passo 2: Validar
+    self.logger.info("pipeline_step_2_validate", request_id=request.id)
+    self._validate_governance(input_data)
+    self._validate_limits(input_data)
+    self._check_blocked_content(input_data)
+
+    # Passo 3: Preparar Contexto
+    self.logger.info("pipeline_step_3_context", request_id=request.id)
+    context = Context(
+        request_id=request.id,
+        input=input_data,
+        sources=await self._load_sources(request.notebook_id),
+        persona=self._load_persona(request.persona),
+        history=await self._load_history(request.notebook_id, limit=10)
+    )
+
+    return context</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">⚡ Fase Processamento (Passos 4-6)</h2></div>
+      <p class="text-neutral-300 mb-6">IA e invocada e sua saida e validada.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>async def phase_process(self, context: Context) -> AIResponse:
+    # Passo 4: Invocar IA
+    self.logger.info("pipeline_step_4_invoke", request_id=context.request_id)
+    prompt = self._build_prompt(context)
+    raw_response = await self.llm.generate(prompt)
+
+    # Passo 5: Receber Estrutura
+    self.logger.info("pipeline_step_5_parse", request_id=context.request_id)
+    try:
+        structured = self._parse_response(raw_response)
+    except ParseError as e:
+        # Fallback: tenta corrigir formato
+        structured = await self._retry_with_format_fix(raw_response)
+
+    # Passo 6: Validar Saida
+    self.logger.info("pipeline_step_6_validate", request_id=context.request_id)
+    validation = self._validate_output(structured, context)
+    if not validation.passed:
+        raise OutputValidationError(validation.errors)
+
+    return AIResponse(
+        content=structured,
+        tokens=raw_response.usage,
+        validation=validation
+    )</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📤 Fase Saida (Passos 7-9)</h2></div>
+      <p class="text-neutral-300 mb-6">Sistema materializa, persiste e retorna.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>async def phase_output(
+    self,
+    context: Context,
+    ai_response: AIResponse
+) -> PipelineResult:
+    # Passo 7: Materializar
+    self.logger.info("pipeline_step_7_materialize", request_id=context.request_id)
+    artifact = await self._materialize(ai_response.content, context)
+
+    # Passo 8: Persistir
+    self.logger.info("pipeline_step_8_persist", request_id=context.request_id)
+    await self._persist_all(
+        context=context,
+        ai_response=ai_response,
+        artifact=artifact
+    )
+
+    # Passo 9: Retornar
+    self.logger.info("pipeline_step_9_return", request_id=context.request_id)
+    return PipelineResult(
+        request_id=context.request_id,
+        content=artifact.content,
+        metadata=artifact.metadata,
+        cost=self._calculate_cost(ai_response.tokens)
+    )</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔗 Pipeline Completo</h2></div>
+      <p class="text-neutral-300 mb-6">Orquestracao das 3 fases em sequencia.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class UniversalPipeline:
+    async def execute(self, request: PipelineRequest) -> PipelineResult:
+        """Executa pipeline completo de 9 passos"""
+        start_time = time.time()
+
+        try:
+            # Fase 1: Entrada (Passos 1-3)
+            context = await self.phase_input(request)
+
+            # Fase 2: Processamento (Passos 4-6)
+            ai_response = await self.phase_process(context)
+
+            # Fase 3: Saida (Passos 7-9)
+            result = await self.phase_output(context, ai_response)
+
+            # Metricas
+            result.duration_ms = (time.time() - start_time) * 1000
+            self.metrics.record_success(result)
+
+            return result
+
+        except PipelineError as e:
+            self.metrics.record_failure(e)
+            await self._persist_error(request, e)
+            raise</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📊 Rastreabilidade End-to-End</h2></div>
+      <p class="text-neutral-300 mb-6">Cada passo e rastreado com metricas e logs.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># Log estruturado de cada execucao
+{
+    "request_id": "uuid-123",
+    "pipeline_execution": {
+        "steps": [
+            {"step": 1, "name": "receive", "duration_ms": 5, "status": "ok"},
+            {"step": 2, "name": "validate", "duration_ms": 12, "status": "ok"},
+            {"step": 3, "name": "context", "duration_ms": 45, "status": "ok"},
+            {"step": 4, "name": "invoke", "duration_ms": 1523, "status": "ok"},
+            {"step": 5, "name": "parse", "duration_ms": 8, "status": "ok"},
+            {"step": 6, "name": "validate_output", "duration_ms": 15, "status": "ok"},
+            {"step": 7, "name": "materialize", "duration_ms": 234, "status": "ok"},
+            {"step": 8, "name": "persist", "duration_ms": 89, "status": "ok"},
+            {"step": 9, "name": "return", "duration_ms": 2, "status": "ok"}
+        ],
+        "total_duration_ms": 1933,
+        "tokens_used": 2456,
+        "cost_usd": 0.0086
+    }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">9 Passos</strong> - Implementados em codigo Python</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">3 Fases</strong> - Entrada, Processamento, Saida</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Orquestracao</strong> - Sistema controla todo o fluxo</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Rastreabilidade</strong> - Cada passo e logado</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-4-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-4-7.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

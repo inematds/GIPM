@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.4: Integracao com Gemini | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">T4</a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 4</a><span class="text-neutral-600">/</span><span class="text-amber-400">Modulo 4.4</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🤖 Integracao com Gemini</h1><p class="text-lg text-neutral-400 max-w-3xl">Cliente, prompts, tokens e a camada cognitiva controlada pelo sistema.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~35</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avanc.</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Pratico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🔧 Cliente Gemini</h2></div>
+      <p class="text-neutral-300 mb-6">Configuracao do cliente Google Generative AI com parametros otimizados.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>import google.generativeai as genai
+from app.config import settings
+
+# Configuracao global
+genai.configure(api_key=settings.GEMINI_API_KEY)
+
+# Cliente com parametros padrao
+model = genai.GenerativeModel(
+    model_name="gemini-1.5-pro",
+    generation_config={
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "top_k": 40,
+        "max_output_tokens": 8192,
+    },
+    safety_settings={
+        "HARM_CATEGORY_HARASSMENT": "BLOCK_NONE",
+        "HARM_CATEGORY_HATE_SPEECH": "BLOCK_NONE",
+    }
+)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📝 Gerenciamento de Prompts</h2></div>
+      <p class="text-neutral-300 mb-6">Sistema de templates de prompts com variaveis e versionamento.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># prompts/chat_template.py
+CHAT_SYSTEM_PROMPT = """
+Voce e um assistente especializado em analise de documentos.
+
+CONTEXTO DO NOTEBOOK:
+{notebook_context}
+
+FONTES DISPONIVEIS:
+{sources_summary}
+
+PERSONA ATIVA: {persona}
+
+REGRAS:
+1. Responda APENAS com base nas fontes fornecidas
+2. Cite a fonte quando usar informacao especifica
+3. Se nao souber, diga explicitamente
+4. Mantenha o tom profissional
+"""
+
+def build_prompt(context: dict) -> str:
+    return CHAT_SYSTEM_PROMPT.format(**context)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📊 Contagem de Tokens</h2></div>
+      <p class="text-neutral-300 mb-6">Estimativa e tracking de tokens para controle de custos.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">Contagem Pre-Request</h4>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>def count_tokens(text: str) -> int:
+    """Conta tokens antes do request"""
+    return model.count_tokens(text).total_tokens
+
+# Verificacao de limite
+if count_tokens(prompt) > 30000:
+    raise TokenLimitError(
+        "Prompt excede limite"
+    )</code></pre>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">Tracking de Custos</h4>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>PRICING = {
+    "gemini-1.5-pro": {
+        "input": 0.0035 / 1000,
+        "output": 0.0105 / 1000
+    }
+}
+
+def calculate_cost(usage):
+    return (
+        usage.input * PRICING[model]["input"] +
+        usage.output * PRICING[model]["output"]
+    )</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔄 Streaming de Respostas</h2></div>
+      <p class="text-neutral-300 mb-6">Implementacao de streaming para respostas em tempo real.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>async def stream_chat(prompt: str):
+    """Gera resposta em streaming"""
+    response = await model.generate_content_async(
+        prompt,
+        stream=True
+    )
+
+    async for chunk in response:
+        if chunk.text:
+            yield {
+                "type": "chunk",
+                "content": chunk.text
+            }
+
+    # Metadados finais
+    yield {
+        "type": "done",
+        "tokens_used": response.usage_metadata.total_token_count,
+        "finish_reason": response.candidates[0].finish_reason
+    }</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🛡️ Retry e Rate Limiting</h2></div>
+      <p class="text-neutral-300 mb-6">Tratamento de erros e controle de taxa de requisicoes.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>from tenacity import retry, stop_after_attempt, wait_exponential
+import asyncio
+
+# Rate limiter
+rate_limiter = asyncio.Semaphore(10)  # 10 requests simultaneos
+
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_exponential(multiplier=1, min=4, max=60),
+    reraise=True
+)
+async def call_gemini(prompt: str):
+    async with rate_limiter:
+        try:
+            return await model.generate_content_async(prompt)
+        except Exception as e:
+            if "429" in str(e):
+                await asyncio.sleep(60)
+            raise</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📋 Service Layer Completo</h2></div>
+      <p class="text-neutral-300 mb-6">Servico que encapsula toda a logica de integracao com a IA.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class GeminiService:
+    def __init__(self):
+        self.model = genai.GenerativeModel("gemini-1.5-pro")
+        self.rate_limiter = asyncio.Semaphore(10)
+
+    async def chat(
+        self,
+        message: str,
+        context: NotebookContext,
+        persona: str = "professional"
+    ) -> ChatResponse:
+        # 1. Monta prompt
+        prompt = build_prompt({
+            "message": message,
+            "notebook_context": context.summary,
+            "sources_summary": context.sources,
+            "persona": persona
+        })
+
+        # 2. Valida tokens
+        tokens = self.model.count_tokens(prompt).total_tokens
+        if tokens > 30000:
+            raise TokenLimitError(tokens)
+
+        # 3. Executa com retry
+        response = await self._call_with_retry(prompt)
+
+        # 4. Retorna estruturado
+        return ChatResponse(
+            response=response.text,
+            tokens_used=response.usage_metadata.total_token_count,
+            cost_usd=calculate_cost(response.usage_metadata)
+        )</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Cliente</strong> - Configuracao otimizada do Gemini</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Prompts</strong> - Templates versionados e dinamicos</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Tokens</strong> - Contagem e controle de custos</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Service</strong> - Camada encapsulada e resiliente</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-4-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-4-5.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

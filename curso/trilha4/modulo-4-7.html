@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulo 4.7: Materializacao de Artefatos | GIPM Master</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif}.dark body{background-color:#111827}html:not(.dark) body{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 50%,#f1f5f9 100%)}html:not(.dark) .bg-dark-900{background-color:#fff}html:not(.dark) .bg-dark-800{background-color:#f9fafb}html:not(.dark) .bg-dark-700{background-color:#f3f4f6}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .border-dark-600{border-color:#d1d5db}</style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">GIPM Master</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T1</a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T2</a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T3</a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">T4</a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400">T5</a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+  <div class="bg-dark-800/50 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><nav class="flex items-center space-x-2 text-sm"><a href="../../index.html" class="text-neutral-400">Inicio</a><span class="text-neutral-600">/</span><a href="index.html" class="text-neutral-400">Trilha 4</a><span class="text-neutral-600">/</span><span class="text-amber-400">Modulo 4.7</span></nav></div></div>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULO 4.7</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Materializacao de Artefatos</h1><p class="text-lg text-neutral-400 max-w-3xl">Sistema transforma estrutura da IA em podcasts, resumos, flashcards e outros formatos.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">8</div><div class="text-xs text-neutral-400">Topicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Avanc.</div><div class="text-xs text-neutral-400">Nivel</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Pratico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🔀 Principio das Duas Fases</h2></div>
+      <p class="text-neutral-300 mb-6">IA gera estrutura JSON, Sistema materializa artefato final.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">Fase 1: IA Estrutura</h4>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># IA retorna sempre JSON
+{
+    "type": "podcast",
+    "title": "Resumo do Documento",
+    "segments": [
+        {
+            "speaker": "host",
+            "text": "Bem-vindos...",
+            "duration_estimate": 30
+        }
+    ]
+}</code></pre>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-white mb-4">Fase 2: Sistema Materializa</h4>
+          <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># Sistema gera arquivo final
+def materialize(structure):
+    if structure["type"] == "podcast":
+        return PodcastMaterializer()
+    elif structure["type"] == "summary":
+        return SummaryMaterializer()
+    elif structure["type"] == "flashcards":
+        return FlashcardMaterializer()</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🎙️ Materializador de Podcast</h2></div>
+      <p class="text-neutral-300 mb-6">Converte estrutura em audio usando TTS.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class PodcastMaterializer:
+    def __init__(self):
+        self.tts = TTSService()
+        self.voices = {
+            "host": "pt-BR-FranciscaNeural",
+            "guest": "pt-BR-AntonioNeural"
+        }
+
+    async def materialize(self, structure: dict) -> Artifact:
+        audio_segments = []
+
+        for segment in structure["segments"]:
+            # Gera audio para cada segmento
+            audio = await self.tts.synthesize(
+                text=segment["text"],
+                voice=self.voices[segment["speaker"]]
+            )
+            audio_segments.append(audio)
+
+        # Concatena e adiciona transicoes
+        final_audio = self._concatenate(audio_segments)
+        final_audio = self._add_music(final_audio, structure.get("music"))
+
+        return Artifact(
+            type="podcast",
+            content=final_audio,
+            format="mp3",
+            metadata={"duration": len(final_audio) / 1000}
+        )</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📄 Materializador de Resumo</h2></div>
+      <p class="text-neutral-300 mb-6">Gera documentos formatados em varios formatos.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class SummaryMaterializer:
+    async def materialize(
+        self,
+        structure: dict,
+        output_format: str = "markdown"
+    ) -> Artifact:
+        # Estrutura da IA
+        sections = structure["sections"]
+
+        if output_format == "markdown":
+            content = self._to_markdown(sections)
+        elif output_format == "html":
+            content = self._to_html(sections)
+        elif output_format == "pdf":
+            md = self._to_markdown(sections)
+            content = await self._markdown_to_pdf(md)
+
+        return Artifact(
+            type="summary",
+            content=content,
+            format=output_format,
+            metadata={
+                "word_count": len(content.split()),
+                "sections": len(sections)
+            }
+        )
+
+    def _to_markdown(self, sections: list) -> str:
+        md = ""
+        for section in sections:
+            md += f"## {section['title']}\n\n"
+            md += f"{section['content']}\n\n"
+        return md</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎴 Materializador de Flashcards</h2></div>
+      <p class="text-neutral-300 mb-6">Cria decks de estudo em formato Anki.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class FlashcardMaterializer:
+    async def materialize(self, structure: dict) -> Artifact:
+        cards = structure["cards"]
+
+        # Cria deck Anki
+        deck = genanki.Deck(
+            deck_id=random.randrange(1 << 30, 1 << 31),
+            name=structure["deck_name"]
+        )
+
+        model = genanki.Model(
+            model_id=random.randrange(1 << 30, 1 << 31),
+            name="GIPM Card",
+            fields=[{"name": "Front"}, {"name": "Back"}],
+            templates=[{
+                "name": "Card 1",
+                "qfmt": "{{Front}}",
+                "afmt": "{{FrontSide}}<hr>{{Back}}"
+            }]
+        )
+
+        for card in cards:
+            note = genanki.Note(
+                model=model,
+                fields=[card["question"], card["answer"]]
+            )
+            deck.add_note(note)
+
+        # Exporta como .apkg
+        output = io.BytesIO()
+        genanki.Package(deck).write_to_file(output)
+
+        return Artifact(
+            type="flashcards",
+            content=output.getvalue(),
+            format="apkg",
+            metadata={"card_count": len(cards)}
+        )</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🏭 Factory de Materializadores</h2></div>
+      <p class="text-neutral-300 mb-6">Pattern para selecionar o materializador correto.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class MaterializerFactory:
+    """Factory que retorna o materializador apropriado"""
+
+    _materializers = {
+        "podcast": PodcastMaterializer,
+        "summary": SummaryMaterializer,
+        "flashcards": FlashcardMaterializer,
+        "faq": FAQMaterializer,
+        "timeline": TimelineMaterializer,
+        "mindmap": MindmapMaterializer,
+    }
+
+    @classmethod
+    def get(cls, artifact_type: str) -> BaseMaterializer:
+        if artifact_type not in cls._materializers:
+            raise UnsupportedArtifactError(artifact_type)
+        return cls._materializers[artifact_type]()
+
+    @classmethod
+    def register(cls, artifact_type: str, materializer: type):
+        """Permite adicionar novos materializadores"""
+        cls._materializers[artifact_type] = materializer</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">✅ Validacao de Estrutura</h2></div>
+      <p class="text-neutral-300 mb-6">Schemas que validam a estrutura antes de materializar.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>from pydantic import BaseModel, validator
+from typing import List, Literal
+
+class PodcastSegment(BaseModel):
+    speaker: Literal["host", "guest"]
+    text: str
+    duration_estimate: int
+
+    @validator("text")
+    def text_not_empty(cls, v):
+        if len(v.strip()) < 10:
+            raise ValueError("Segmento muito curto")
+        return v
+
+class PodcastStructure(BaseModel):
+    type: Literal["podcast"]
+    title: str
+    segments: List[PodcastSegment]
+
+    @validator("segments")
+    def min_segments(cls, v):
+        if len(v) < 2:
+            raise ValueError("Podcast precisa de ao menos 2 segmentos")
+        return v</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">7</span><h2 class="text-2xl font-bold">💾 Armazenamento de Artefatos</h2></div>
+      <p class="text-neutral-300 mb-6">Persistencia dos artefatos gerados.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class ArtifactStorage:
+    def __init__(self, base_path: str = "./artifacts"):
+        self.base_path = Path(base_path)
+
+    async def save(self, artifact: Artifact, notebook_id: int) -> str:
+        # Gera path unico
+        filename = f"{notebook_id}_{artifact.type}_{uuid4().hex[:8]}.{artifact.format}"
+        path = self.base_path / str(notebook_id) / filename
+
+        # Cria diretorio se necessario
+        path.parent.mkdir(parents=True, exist_ok=True)
+
+        # Salva conteudo
+        if isinstance(artifact.content, bytes):
+            path.write_bytes(artifact.content)
+        else:
+            path.write_text(artifact.content)
+
+        # Registra no banco
+        await self._register_artifact(artifact, path, notebook_id)
+
+        return str(path)</code></pre>
+      </div>
+    </section>
+
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">8</span><h2 class="text-2xl font-bold">🔗 Integracao com Pipeline</h2></div>
+      <p class="text-neutral-300 mb-6">Como a materializacao se encaixa no pipeline.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+        <pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>class GenerationPipeline(UniversalPipeline):
+    """Pipeline especializado para geracao de artefatos"""
+
+    async def phase_output(self, context, ai_response) -> PipelineResult:
+        # Passo 7: Materializar (especializado)
+        structure = ai_response.content
+        materializer = MaterializerFactory.get(structure["type"])
+
+        # Valida estrutura
+        schema = self._get_schema(structure["type"])
+        validated = schema.parse_obj(structure)
+
+        # Materializa
+        artifact = await materializer.materialize(validated.dict())
+
+        # Passo 8: Persistir
+        artifact_path = await self.storage.save(artifact, context.notebook_id)
+
+        # Passo 9: Retornar
+        return PipelineResult(
+            request_id=context.request_id,
+            artifact_type=artifact.type,
+            artifact_path=artifact_path,
+            metadata=artifact.metadata
+        )</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Duas Fases</strong> - IA estrutura, Sistema materializa</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Materializadores</strong> - Podcast, Summary, Flashcards</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Factory</strong> - Extensivel para novos tipos</span></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><span><strong class="text-white">Validacao</strong> - Schemas garantem qualidade</span></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-4-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600">← Modulo Anterior</a>
+          <a href="modulo-4-8.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500">Proximo Modulo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-800 border-t border-dark-600 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center"><p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master</p><p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400">INEMA.CLUB</a></p></div></footer>
+  <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!html.classList.contains('dark'))){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>
