@@ -22,8 +22,6 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
-    .topic-explanation { display: none; }
-    .topic-explanation.active { display: block; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -90,106 +88,608 @@
   <!-- Header -->
   <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <a href="index.html" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 mb-4 text-sm">
-        <span>←</span>
-        <span>Trilha 6: Templates e Downloads</span>
-      </a>
-      <div class="flex items-center gap-4 mb-4">
-        <span class="text-4xl">📖</span>
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm mb-6">
+        <a href="../../index.html" class="text-neutral-500 hover:text-neutral-300">GIPM Master</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-500 hover:text-neutral-300">Trilha 6</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-rose-400">Modulo 6.5</span>
+      </nav>
+
+      <div class="flex items-start gap-4 mb-6">
+        <span class="text-5xl">📖</span>
         <div>
-          <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full">
+          <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-3">
             MODULO 6.5
           </span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">User Stories</h1>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white">User Stories</h1>
+          <p class="text-neutral-400 mt-3 text-lg">Template completo para historias de usuario com criterios de aceitacao, rastreamento de implementacao e registro de agentes de IA.</p>
         </div>
       </div>
-      <p class="text-neutral-400 max-w-2xl">Template para historias de usuario com criterios de aceitacao e tracking de implementacao.</p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">8</div>
+          <div class="text-neutral-500 text-sm">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">~35</div>
+          <div class="text-neutral-500 text-sm">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">Pratico</div>
+          <div class="text-neutral-500 text-sm">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">Template</div>
+          <div class="text-neutral-500 text-sm">Tipo</div>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- Download Section -->
-    <div class="bg-gradient-to-br from-green-900/20 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-8">
-      <div class="flex items-center justify-between">
+    <!-- Download Section Principal -->
+    <div class="bg-gradient-to-br from-green-900/30 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-12">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h3 class="text-lg font-bold text-green-400 mb-2">Download do Template</h3>
-          <p class="text-neutral-400 text-sm">Baixe o template em Markdown e personalize para seu projeto.</p>
+          <h3 class="text-xl font-bold text-green-400 mb-2">Download do Template</h3>
+          <p class="text-neutral-400">Baixe o template de User Story em Markdown. Estrutura completa para historias de usuario com suporte a agentes de IA.</p>
         </div>
-        <a href="templates/user-story.md" download class="flex items-center gap-2 px-6 py-3 bg-green-500/20 text-green-400 rounded-xl hover:bg-green-500/30 transition-colors font-semibold">
-          <span>⬇️</span>
+        <a href="templates/user-story.md" download class="flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-colors font-bold text-lg shadow-lg shadow-green-900/30">
+          <span class="text-xl">⬇️</span>
           <span>Download .md</span>
         </a>
       </div>
     </div>
 
-    <!-- Topics -->
-    <div class="bg-dark-800 rounded-2xl border border-dark-600 p-6 sm:p-8">
-      <h2 class="text-xl font-bold mb-6 text-neutral-300">Topicos</h2>
-      <div class="space-y-3">
-          <button onclick="toggleTopic('topic-5-1')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Anatomia de uma Story</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-1" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Status, Story (As a/I want/So that), Criterios de Aceitacao, Tarefas, Notas de Dev, Testes, Changelog, Dev Agent Record, QA Results.</p>
-          </div>
-          <button onclick="toggleTopic('topic-5-2')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Criterios de Aceitacao</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-2" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Sao o CONTRATO de done. Cada AC deve ser testavel. 'Funciona bem' nao e AC. 'Resposta em menos de 200ms' e AC.</p>
-          </div>
-          <button onclick="toggleTopic('topic-5-3')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Tarefas e Subtarefas</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-3" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Quebre a story em tarefas atomicas. Referencie qual AC cada tarefa atende. Isso facilita tracking e QA.</p>
-          </div>
-          <button onclick="toggleTopic('topic-5-4')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Notas de Desenvolvimento</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-4" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Inclua informacoes relevantes da arquitetura. O dev (humano ou IA) NAO deve precisar ler o documento de arquitetura inteiro - as notas resumem o necessario.</p>
-          </div>
-          <button onclick="toggleTopic('topic-5-5')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Dev Agent Record</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-5" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Quando IA implementa, registre qual modelo foi usado, logs de debug, notas de conclusao, lista de arquivos modificados. Auditabilidade total.</p>
-          </div>
-          <button onclick="toggleTopic('topic-5-6')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">QA Results</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-6" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Checklist de validacao, bugs encontrados, aprovacao final. A story so esta DONE quando QA aprova.</p>
-          </div>
-          <button onclick="toggleTopic('topic-5-7')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Stories para IA</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-7" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Stories para agentes de IA devem ser mais detalhadas que para humanos. A IA nao tem contexto implicito - tudo deve ser explicito.</p>
-          </div>
-          <button onclick="toggleTopic('topic-5-8')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Tamanho Ideal</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-5-8" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Uma story deve ser completavel em uma sessao de trabalho (2-4 horas). Se for maior, quebre em stories menores.</p>
-          </div>
+    <!-- Topico 1: Anatomia de uma Story -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📋 Anatomia de uma Story</h2>
       </div>
-    </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma User Story no GIPM nao e apenas um "cartao" com uma frase. E um <strong class="text-white">documento vivo</strong> que acompanha todo o ciclo de vida da feature, desde a concepcao ate a validacao final. A estrutura e desenhada para suportar tanto desenvolvedores humanos quanto agentes de IA.
+      </p>
+
+      <div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-6 mb-6">
+        <h4 class="font-bold text-rose-400 mb-4">Estrutura Completa de uma Story GIPM</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Status</strong> - Draft, Ready, In Progress, Done</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Story</strong> - As a/I want/So that</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Acceptance Criteria</strong> - Criterios testaveis</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Tasks</strong> - Tarefas atomicas</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Dev Notes</strong> - Contexto tecnico</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Tests</strong> - Casos de teste</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Changelog</strong> - Historico de alteracoes</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">Dev Agent Record</strong> - Log de IA</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-rose-400">●</span>
+            <span class="text-neutral-300"><strong class="text-white">QA Results</strong> - Validacao final</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+        <h4 class="font-semibold text-white mb-3">Exemplo de Story Formatada</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-sm text-neutral-300">
+          <div class="text-rose-400 mb-2"># STORY-001: User Login</div>
+          <div class="text-neutral-500 mb-3">Status: Ready | Priority: High | Epic: AUTH</div>
+          <div class="text-green-400">As a</div> registered user<br>
+          <div class="text-green-400">I want</div> to log in with email and password<br>
+          <div class="text-green-400">So that</div> I can access my dashboard
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 2: Criterios de Aceitacao -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">✅ Criterios de Aceitacao</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Criterios de Aceitacao (AC) sao o <strong class="text-white">contrato de "done"</strong>. Eles definem exatamente quando uma story pode ser considerada completa. No GIPM, cada AC deve ser <strong class="text-white">verificavel objetivamente</strong> - nada de "funciona bem" ou "e rapido".
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-red-400 mb-3">❌ ACs Ruins</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li>• "O sistema deve ser rapido"</li>
+            <li>• "A interface deve ser bonita"</li>
+            <li>• "Funciona corretamente"</li>
+            <li>• "Usuario consegue fazer login"</li>
+          </ul>
+        </div>
+        <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-green-400 mb-3">✅ ACs Bons</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li>• "Resposta em menos de 200ms"</li>
+            <li>• "Segue Design System v2.0"</li>
+            <li>• "Retorna status 200 com token JWT"</li>
+            <li>• "Email invalido mostra erro em vermelho"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 border border-primary/30 rounded-xl p-6">
+        <h4 class="font-bold text-primary mb-3">💡 Formato GIVEN-WHEN-THEN</h4>
+        <p class="text-neutral-400 text-sm mb-4">Use o formato GWT para ACs mais precisos e testaveis automaticamente:</p>
+        <div class="bg-dark-800 rounded-lg p-4 font-mono text-sm">
+          <div class="text-blue-400">GIVEN</div> <span class="text-neutral-300">usuario esta na pagina de login</span><br>
+          <div class="text-blue-400">WHEN</div> <span class="text-neutral-300">submete email invalido</span><br>
+          <div class="text-blue-400">THEN</div> <span class="text-neutral-300">exibe mensagem "Email invalido" em vermelho</span><br>
+          <div class="text-blue-400">AND</div> <span class="text-neutral-300">botao de submit permanece desabilitado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 3: Tarefas e Subtarefas -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📝 Tarefas e Subtarefas</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada Story deve ser quebrada em <strong class="text-white">tarefas atomicas</strong> - acoes especificas que podem ser completadas de forma independente. No GIPM, cada tarefa referencia qual Acceptance Criteria ela atende, criando <strong class="text-white">rastreabilidade total</strong>.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Exemplo de Task Breakdown</h4>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-green-400 mt-1">☑️</span>
+            <div>
+              <div class="font-medium text-white">Task 1: Criar endpoint POST /auth/login</div>
+              <div class="text-sm text-neutral-500">Atende: AC-1, AC-2 | Est: 2h</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-neutral-600 mt-1">⬜</span>
+            <div>
+              <div class="font-medium text-white">Task 2: Implementar validacao de email</div>
+              <div class="text-sm text-neutral-500">Atende: AC-3 | Est: 1h</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-neutral-600 mt-1">⬜</span>
+            <div>
+              <div class="font-medium text-white">Task 3: Criar componente LoginForm</div>
+              <div class="text-sm text-neutral-500">Atende: AC-4, AC-5 | Est: 3h</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-neutral-600 mt-1">⬜</span>
+            <div>
+              <div class="font-medium text-white">Task 4: Escrever testes unitarios</div>
+              <div class="text-sm text-neutral-500">Atende: AC-1 a AC-5 | Est: 2h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-5">
+        <h4 class="font-bold text-rose-400 mb-2">Por que referenciar ACs nas Tasks?</h4>
+        <ul class="space-y-2 text-sm text-neutral-400">
+          <li>• <strong class="text-white">Rastreabilidade</strong> - Sabe-se exatamente qual requisito cada tarefa atende</li>
+          <li>• <strong class="text-white">Validacao</strong> - QA sabe o que testar apos cada task</li>
+          <li>• <strong class="text-white">Cobertura</strong> - Facilita identificar se todos os ACs estao cobertos</li>
+          <li>• <strong class="text-white">Priorizacao</strong> - Permite priorizar tasks de ACs criticos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Topico 4: Notas de Desenvolvimento -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📌 Notas de Desenvolvimento</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As Dev Notes contem <strong class="text-white">contexto tecnico essencial</strong> para implementacao. O objetivo e que o desenvolvedor (humano ou IA) <strong class="text-white">nao precise ler o documento de arquitetura inteiro</strong> - as notas resumem o necessario para aquela story especifica.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">O que incluir nas Dev Notes</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-dark-700 rounded-lg">
+            <div class="text-blue-400 font-semibold mb-2">📁 Arquivos Relevantes</div>
+            <ul class="text-sm text-neutral-400 space-y-1">
+              <li>• src/services/auth.ts</li>
+              <li>• src/components/LoginForm.tsx</li>
+              <li>• src/hooks/useAuth.ts</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-dark-700 rounded-lg">
+            <div class="text-purple-400 font-semibold mb-2">🔧 Padroes a Seguir</div>
+            <ul class="text-sm text-neutral-400 space-y-1">
+              <li>• Usar React Hook Form</li>
+              <li>• Validacao com Zod</li>
+              <li>• Tokens JWT no localStorage</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-dark-700 rounded-lg">
+            <div class="text-green-400 font-semibold mb-2">🔗 Dependencias</div>
+            <ul class="text-sm text-neutral-400 space-y-1">
+              <li>• STORY-000: Setup Auth Context</li>
+              <li>• API endpoint ja existe</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-dark-700 rounded-lg">
+            <div class="text-amber-400 font-semibold mb-2">⚠️ Atencao</div>
+            <ul class="text-sm text-neutral-400 space-y-1">
+              <li>• Rate limit: 5 tentativas/min</li>
+              <li>• Nao logar senhas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+        <h4 class="font-bold text-green-400 mb-2">✨ Dica para IAs</h4>
+        <p class="text-sm text-neutral-400">
+          Para agentes de IA, inclua tambem: exemplos de codigo similares no projeto, links para documentacao de bibliotecas usadas, e qualquer decisao arquitetural relevante.
+        </p>
+      </div>
+    </section>
+
+    <!-- Topico 5: Dev Agent Record -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🤖 Dev Agent Record</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando uma IA implementa a story, o <strong class="text-white">Dev Agent Record</strong> registra tudo que aconteceu. Isso garante <strong class="text-white">auditabilidade total</strong> - voce sabe exatamente qual modelo fez o que, quando, e quais decisoes tomou.
+      </p>
+
+      <div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-6 mb-6">
+        <h4 class="font-bold text-rose-400 mb-4">Campos do Dev Agent Record</h4>
+        <div class="space-y-4 text-sm">
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">1.</span>
+            <div>
+              <span class="font-semibold text-white">Model Used</span>
+              <span class="text-neutral-400"> - Qual modelo (Claude 3.5 Sonnet, GPT-4, etc.)</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">2.</span>
+            <div>
+              <span class="font-semibold text-white">Session ID</span>
+              <span class="text-neutral-400"> - Identificador unico da sessao</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">3.</span>
+            <div>
+              <span class="font-semibold text-white">Timestamp</span>
+              <span class="text-neutral-400"> - Data/hora de inicio e fim</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">4.</span>
+            <div>
+              <span class="font-semibold text-white">Files Modified</span>
+              <span class="text-neutral-400"> - Lista de arquivos criados/alterados</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">5.</span>
+            <div>
+              <span class="font-semibold text-white">Debug Log</span>
+              <span class="text-neutral-400"> - Problemas encontrados e como foram resolvidos</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">6.</span>
+            <div>
+              <span class="font-semibold text-white">Completion Notes</span>
+              <span class="text-neutral-400"> - Resumo do que foi feito e observacoes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+        <h4 class="font-semibold text-white mb-3">Exemplo de Dev Agent Record</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto">
+          <div class="text-purple-400">## Dev Agent Record</div>
+          <div class="mt-2">
+            <span class="text-blue-400">Model:</span> Claude 3.5 Sonnet<br>
+            <span class="text-blue-400">Session:</span> cc-2024-01-15-abc123<br>
+            <span class="text-blue-400">Started:</span> 2024-01-15 14:30:00<br>
+            <span class="text-blue-400">Completed:</span> 2024-01-15 14:45:22<br><br>
+            <span class="text-green-400">Files Modified:</span><br>
+            - src/services/auth.ts (created)<br>
+            - src/components/LoginForm.tsx (created)<br>
+            - src/hooks/useAuth.ts (modified)<br><br>
+            <span class="text-amber-400">Debug Log:</span><br>
+            - TypeScript error on line 45: fixed import<br>
+            - Added missing Zod schema validation<br><br>
+            <span class="text-rose-400">Notes:</span><br>
+            All ACs implemented. Ready for QA review.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 6: QA Results -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 QA Results</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A secao QA Results documenta a <strong class="text-white">validacao final</strong> da story. Uma story so pode ser considerada <strong class="text-white">DONE</strong> quando o QA aprova. Isso inclui checklist de validacao, bugs encontrados, e aprovacao formal.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Checklist de QA</h4>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-green-400">✅</span>
+            <span class="text-neutral-300">Todos os Acceptance Criteria verificados</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-green-400">✅</span>
+            <span class="text-neutral-300">Testes unitarios passando (cobertura > 80%)</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-green-400">✅</span>
+            <span class="text-neutral-300">Testes de integracao executados</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-green-400">✅</span>
+            <span class="text-neutral-300">Code review aprovado</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-green-400">✅</span>
+            <span class="text-neutral-300">Performance dentro dos limites</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-dark-700 rounded-lg">
+            <span class="text-green-400">✅</span>
+            <span class="text-neutral-300">Sem vulnerabilidades de seguranca</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-red-400 mb-3">🐛 Bugs Encontrados</h4>
+          <p class="text-sm text-neutral-400 mb-3">Lista de bugs e se foram corrigidos:</p>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✅</span>
+              <span class="text-neutral-300">BUG-001: Corrigido</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-amber-400">⚠️</span>
+              <span class="text-neutral-300">BUG-002: Minor, defer</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-green-400 mb-3">✅ Aprovacao Final</h4>
+          <div class="space-y-2 text-sm text-neutral-400">
+            <div><strong class="text-white">Status:</strong> APPROVED</div>
+            <div><strong class="text-white">QA:</strong> Maria Silva</div>
+            <div><strong class="text-white">Data:</strong> 2024-01-16</div>
+            <div><strong class="text-white">Notas:</strong> Ready for deploy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 7: Stories para IA -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">🤖 Stories para IA</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Stories destinadas a agentes de IA precisam ser <strong class="text-white">mais detalhadas</strong> do que para humanos. A IA nao tem contexto implicito - ela nao sabe o que "faz sentido" no seu projeto. <strong class="text-white">Tudo deve ser explicito</strong>.
+      </p>
+
+      <div class="bg-primary/10 border border-primary/30 rounded-xl p-6 mb-6">
+        <h4 class="font-bold text-primary mb-4">O que adicionar para IAs</h4>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">📁</span>
+            <div>
+              <div class="font-semibold text-white">Estrutura de Pastas</div>
+              <p class="text-sm text-neutral-400">Indique exatamente onde cada arquivo deve ser criado</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">📝</span>
+            <div>
+              <div class="font-semibold text-white">Exemplos de Codigo</div>
+              <p class="text-sm text-neutral-400">Mostre padroes existentes no projeto para a IA seguir</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">📚</span>
+            <div>
+              <div class="font-semibold text-white">Documentacao Externa</div>
+              <p class="text-sm text-neutral-400">Links para docs de bibliotecas que serao usadas</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">🚫</span>
+            <div>
+              <div class="font-semibold text-white">O que NAO fazer</div>
+              <p class="text-sm text-neutral-400">Liste anti-patterns e restricoes explicitas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+        <h4 class="font-semibold text-white mb-4">Comparacao: Story para Humano vs IA</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 bg-dark-700 rounded-lg">
+            <div class="text-amber-400 font-semibold mb-2">👨‍💻 Para Humano</div>
+            <p class="text-sm text-neutral-400">"Criar form de login seguindo o padrao do projeto"</p>
+          </div>
+          <div class="p-4 bg-dark-700 rounded-lg">
+            <div class="text-blue-400 font-semibold mb-2">🤖 Para IA</div>
+            <p class="text-sm text-neutral-400">"Criar src/components/LoginForm.tsx usando React Hook Form + Zod. Seguir padrao de src/components/RegisterForm.tsx. Usar cores do Design System em src/styles/tokens.ts. Nao usar CSS inline."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 8: Tamanho Ideal -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">8</span>
+        <h2 class="text-2xl font-bold">📏 Tamanho Ideal de uma Story</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma story deve ser <strong class="text-white">completavel em uma sessao de trabalho</strong> - tipicamente entre 2 e 4 horas. Se for maior, quebre em stories menores. Stories muito grandes sao dificeis de estimar, revisar e testar.
+      </p>
+
+      <div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-6 mb-6">
+        <h4 class="font-bold text-rose-400 mb-4">Regra do INVEST</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+          <div class="text-center p-3 bg-dark-800 rounded-lg">
+            <div class="text-2xl mb-1">I</div>
+            <div class="font-semibold text-white">Independent</div>
+            <div class="text-neutral-500">Sem dependencias</div>
+          </div>
+          <div class="text-center p-3 bg-dark-800 rounded-lg">
+            <div class="text-2xl mb-1">N</div>
+            <div class="font-semibold text-white">Negotiable</div>
+            <div class="text-neutral-500">Flexivel em detalhes</div>
+          </div>
+          <div class="text-center p-3 bg-dark-800 rounded-lg">
+            <div class="text-2xl mb-1">V</div>
+            <div class="font-semibold text-white">Valuable</div>
+            <div class="text-neutral-500">Entrega valor</div>
+          </div>
+          <div class="text-center p-3 bg-dark-800 rounded-lg">
+            <div class="text-2xl mb-1">E</div>
+            <div class="font-semibold text-white">Estimable</div>
+            <div class="text-neutral-500">Estimavel</div>
+          </div>
+          <div class="text-center p-3 bg-dark-800 rounded-lg">
+            <div class="text-2xl mb-1">S</div>
+            <div class="font-semibold text-white">Small</div>
+            <div class="text-neutral-500">Pequena</div>
+          </div>
+          <div class="text-center p-3 bg-dark-800 rounded-lg">
+            <div class="text-2xl mb-1">T</div>
+            <div class="font-semibold text-white">Testable</div>
+            <div class="text-neutral-500">Testavel</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-red-400 mb-3">❌ Story muito grande</h4>
+          <p class="text-sm text-neutral-400 mb-2">"Implementar sistema de autenticacao completo"</p>
+          <p class="text-xs text-neutral-500">Problema: Muitas funcionalidades, impossivel estimar</p>
+        </div>
+        <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-green-400 mb-3">✅ Stories corretas</h4>
+          <ul class="text-sm text-neutral-400 space-y-1">
+            <li>• STORY-001: User Login</li>
+            <li>• STORY-002: User Registration</li>
+            <li>• STORY-003: Password Reset</li>
+            <li>• STORY-004: Session Management</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo e Download Final -->
+    <section class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-2xl border border-rose-500/30 p-6 sm:p-8">
+      <h3 class="text-xl font-bold text-rose-400 mb-4">📋 Resumo: User Stories no GIPM</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-sm">
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Estrutura completa com 9 secoes</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">ACs testaveis com formato GWT</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Tasks rastreadas aos ACs</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Dev Notes com contexto tecnico</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Dev Agent Record para auditabilidade</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">QA Results com aprovacao formal</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-rose-500/20">
+        <p class="text-neutral-400">Baixe o template e comece a usar em seus projetos!</p>
+        <a href="templates/user-story.md" download class="flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-colors font-bold text-lg shadow-lg shadow-green-900/30">
+          <span class="text-xl">⬇️</span>
+          <span>Download Template</span>
+        </a>
+      </div>
+    </section>
 
     <!-- Navigation -->
     <div class="flex justify-between items-center pt-8 mt-8 border-t border-dark-600">
-      <a href="modulo-6-4.html" class="flex items-center gap-2 text-neutral-400 hover:text-rose-400 transition-colors"><span>←</span><span>Modulo 6.4</span></a>
-      <a href="modulo-6-6.html" class="flex items-center gap-2 px-6 py-3 bg-rose-500/20 text-rose-400 rounded-xl hover:bg-rose-500/30 transition-colors font-semibold"><span>Proximo Modulo</span><span>→</span></a>
+      <a href="modulo-6-4.html" class="flex items-center gap-2 text-neutral-400 hover:text-rose-400 transition-colors">
+        <span>←</span>
+        <span>Modulo 6.4: Arquitetura</span>
+      </a>
+      <a href="modulo-6-6.html" class="flex items-center gap-2 px-6 py-3 bg-rose-500/20 text-rose-400 rounded-xl hover:bg-rose-500/30 transition-colors font-semibold">
+        <span>Proximo: QA Gate</span>
+        <span>→</span>
+      </a>
     </div>
   </main>
 
@@ -236,11 +736,6 @@
     if (localStorage.getItem('theme') === 'light') {
       html.classList.remove('dark');
       updateIcons();
-    }
-
-    function toggleTopic(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('active');
     }
   </script>
 

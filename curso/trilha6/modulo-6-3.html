@@ -22,22 +22,22 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
-    .topic-explanation { display: none; }
-    .topic-explanation.active { display: block; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
     html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
-    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
     html:not(.dark) .text-neutral-100 { color: #111827; }
     html:not(.dark) .text-neutral-300 { color: #4b5563; }
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
-  <!-- Navigation Global -->
+  <!-- Navigation -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
@@ -51,24 +51,19 @@
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
           <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
           </a>
           <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">O Metodo</span>
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">O Metodo</span>
           </a>
           <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Avancado</span>
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancado</span>
           </a>
           <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
-            <span class="sm:hidden">T4</span>
-            <span class="hidden sm:inline">NotebookLMX</span>
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">NotebookLMX</span>
           </a>
           <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
-            <span class="sm:hidden">T5</span>
-            <span class="hidden sm:inline">Pratico</span>
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Pratico</span>
           </a>
           <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10">
             <span class="sm:hidden">T6</span>
@@ -87,162 +82,399 @@
     </div>
   </nav>
 
+  <!-- Breadcrumb -->
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-neutral-300">Inicio</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-400 hover:text-rose-400">Trilha 6: Templates</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-rose-400">Modulo 6.3</span>
+      </nav>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <a href="index.html" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 mb-4 text-sm">
-        <span>←</span>
-        <span>Trilha 6: Templates e Downloads</span>
-      </a>
-      <div class="flex items-center gap-4 mb-4">
-        <span class="text-4xl">📊</span>
-        <div>
-          <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full">
-            MODULO 6.3
-          </span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">PRD - Product Requirements Document</h1>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MODULO 6.3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📊 PRD - Product Requirements Document</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        O documento que traduz a visao em requisitos executaveis. Define O QUE sera construido, em que ordem, e com quais criterios de aceitacao.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">8</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">~45</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Interm.</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Template</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
         </div>
       </div>
-      <p class="text-neutral-400 max-w-2xl">Detalha requisitos funcionais, nao-funcionais, epicos e historias de usuario.</p>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
     <!-- Download Section -->
-    <div class="bg-gradient-to-br from-green-900/20 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-8">
-      <div class="flex items-center justify-between">
+    <div class="bg-gradient-to-br from-green-900/30 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-12">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h3 class="text-lg font-bold text-green-400 mb-2">Download do Template</h3>
-          <p class="text-neutral-400 text-sm">Baixe o template em Markdown e personalize para seu projeto.</p>
+          <h3 class="text-xl font-bold text-green-400 mb-2">Download do Template</h3>
+          <p class="text-neutral-400">Template completo de PRD em Markdown. Inclui secoes para requisitos, epicos, stories e priorizacao.</p>
         </div>
-        <a href="templates/prd.md" download class="flex items-center gap-2 px-6 py-3 bg-green-500/20 text-green-400 rounded-xl hover:bg-green-500/30 transition-colors font-semibold">
-          <span>⬇️</span>
+        <a href="templates/prd.md" download class="flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-colors font-bold text-lg shadow-lg shadow-green-900/30">
+          <span class="text-xl">⬇️</span>
           <span>Download .md</span>
         </a>
       </div>
     </div>
 
-    <!-- Topics -->
-    <div class="bg-dark-800 rounded-2xl border border-dark-600 p-6 sm:p-8">
-      <h2 class="text-xl font-bold mb-6 text-neutral-300">Topicos</h2>
-      <div class="space-y-3">
-          <button onclick="toggleTopic('topic-3-1')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Do Brief ao PRD</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-1" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">O PRD traduz a visao do Brief em requisitos executaveis. E mais detalhado, mais tecnico, mais proximo da implementacao.</p>
-          </div>
-          <button onclick="toggleTopic('topic-3-2')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Requisitos Funcionais</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-2" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">O que o sistema DEVE fazer. Use formato 'O sistema deve [verbo] [objeto] [condicao]'. Ex: 'O sistema deve enviar email de confirmacao em ate 5 minutos apos registro'.</p>
-          </div>
-          <button onclick="toggleTopic('topic-3-3')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Requisitos Nao-Funcionais</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-3" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Como o sistema deve se comportar. Performance, seguranca, disponibilidade, escalabilidade. Sao as '-ilities' que definem qualidade.</p>
-          </div>
-          <button onclick="toggleTopic('topic-3-4')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Epicos e Sequenciamento</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-4" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Epicos sao grandes blocos de trabalho. Devem ser sequenciais e cada um entregar valor incremental. Epico 1 sempre e fundacao (setup, CI/CD, auth basica).</p>
-          </div>
-          <button onclick="toggleTopic('topic-3-5')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">User Stories</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-5" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Formato: Como [usuario], eu quero [acao], para que [beneficio]. Criterios de aceitacao sao OBRIGATORIOS - sao o contrato de done.</p>
-          </div>
-          <button onclick="toggleTopic('topic-3-6')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Priorizacao MoSCoW</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-6" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Must Have: sem isso nao lanca. Should Have: importante mas nao bloqueante. Could Have: nice to have. Won't Have: explicitamente fora do escopo.</p>
-          </div>
-          <button onclick="toggleTopic('topic-3-7')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">UI Goals no PRD</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-7" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Defina visao de UX, telas principais, acessibilidade. Nao e design detalhado, e direcao para o designer/frontend.</p>
-          </div>
-          <button onclick="toggleTopic('topic-3-8')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Handoff para Arquitetura</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-3-8" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">O PRD termina com prompt para o Arquiteto. Inclua todas as premissas tecnicas para que a arquitetura seja consistente.</p>
-          </div>
+    <!-- Topico 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📄 Do Brief ao PRD</h2>
       </div>
-    </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O PRD <strong class="text-rose-400">traduz a visao do Brief em requisitos executaveis</strong>. Enquanto o Brief responde "O QUE e POR QUE", o PRD responde "O QUE EXATAMENTE e COMO MEDIR".
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Transicao Brief → PRD</h3>
+        <div class="space-y-4">
+          <div class="flex items-center space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-10 h-10 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">📝</span>
+            <div class="flex-1">
+              <div class="font-semibold text-neutral-200">Brief</div>
+              <div class="text-sm text-neutral-400">"Usuarios devem poder se registrar"</div>
+            </div>
+            <span class="text-2xl text-rose-400">→</span>
+            <div class="flex-1">
+              <div class="font-semibold text-neutral-200">PRD</div>
+              <div class="text-sm text-neutral-400">RF-001: Sistema deve permitir registro via email com validacao em 2 fatores</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-dark-700/50 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-semibold text-neutral-200 mb-3">Brief (Alto Nivel)</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li>• Visao e proposito</li>
+            <li>• Problema e usuarios</li>
+            <li>• Escopo macro</li>
+            <li>• Restricoes gerais</li>
+          </ul>
+        </div>
+        <div class="bg-dark-700/50 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-semibold text-neutral-200 mb-3">PRD (Detalhado)</h4>
+          <ul class="space-y-2 text-sm text-neutral-400">
+            <li>• Requisitos numerados</li>
+            <li>• Criterios de aceitacao</li>
+            <li>• Epicos e stories</li>
+            <li>• Metricas de sucesso</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <!-- Navigation -->
-    <div class="flex justify-between items-center pt-8 mt-8 border-t border-dark-600">
-      <a href="modulo-6-2.html" class="flex items-center gap-2 text-neutral-400 hover:text-rose-400 transition-colors"><span>←</span><span>Modulo 6.2</span></a>
-      <a href="modulo-6-4.html" class="flex items-center gap-2 px-6 py-3 bg-rose-500/20 text-rose-400 rounded-xl hover:bg-rose-500/30 transition-colors font-semibold"><span>Proximo Modulo</span><span>→</span></a>
-    </div>
+    <!-- Topico 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">✓ Requisitos Funcionais</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Requisitos funcionais definem <strong class="text-rose-400">O QUE o sistema DEVE fazer</strong>. Cada requisito deve ser testavel, mensuravel e inequivoco.
+      </p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Formato Padrao</h3>
+        <div class="bg-dark-700/50 p-4 rounded-lg font-mono text-sm text-neutral-300">
+          [ID] O sistema <strong class="text-rose-400">DEVE</strong> [verbo] [objeto] [condicao/restricao]
+        </div>
+        <div class="mt-4 space-y-3">
+          <div class="bg-dark-700/50 p-3 rounded-lg">
+            <span class="text-rose-400 font-mono text-sm">RF-001:</span>
+            <span class="text-neutral-300 text-sm ml-2">O sistema DEVE enviar email de confirmacao em ate 5 minutos apos registro</span>
+          </div>
+          <div class="bg-dark-700/50 p-3 rounded-lg">
+            <span class="text-rose-400 font-mono text-sm">RF-002:</span>
+            <span class="text-neutral-300 text-sm ml-2">O sistema DEVE permitir upload de arquivos ate 10MB em formatos PDF, PNG, JPG</span>
+          </div>
+          <div class="bg-dark-700/50 p-3 rounded-lg">
+            <span class="text-rose-400 font-mono text-sm">RF-003:</span>
+            <span class="text-neutral-300 text-sm ml-2">O sistema DEVE exibir historico de transacoes dos ultimos 12 meses</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Dica de Ouro</h3>
+        <p class="text-neutral-300">Se voce nao consegue escrever um teste automatizado para o requisito, ele nao esta especifico o suficiente. Reescreva ate ser testavel.</p>
+      </div>
+    </section>
+
+    <!-- Topico 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">⚡ Requisitos Nao-Funcionais</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Requisitos nao-funcionais definem <strong class="text-rose-400">COMO o sistema deve se comportar</strong>. Sao as "-ilities" que definem qualidade: performance, security, scalability, availability.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Categorias de RNFs</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">🚀 Performance</h5>
+            <p class="text-sm text-neutral-400">Tempo de resposta < 200ms para 95% das requisicoes</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">🔒 Seguranca</h5>
+            <p class="text-sm text-neutral-400">Dados em transito via TLS 1.3, em repouso via AES-256</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">📈 Escalabilidade</h5>
+            <p class="text-sm text-neutral-400">Suportar 10x usuarios sem degradacao</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">✅ Disponibilidade</h5>
+            <p class="text-sm text-neutral-400">SLA de 99.9% uptime mensal</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Atencao</h3>
+        <p class="text-neutral-300">RNFs sao frequentemente ignorados ate serem problemas em producao. Defina-os desde o inicio - retroffitar performance e seguranca e muito mais caro.</p>
+      </div>
+    </section>
+
+    <!-- Topico 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📦 Epicos e Sequenciamento</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Epicos sao <strong class="text-rose-400">grandes blocos de trabalho</strong> que agrupam funcionalidades relacionadas. Cada epico deve entregar valor incremental e ser deployavel independentemente.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Sequencia Tipica de Epicos</h3>
+        <div class="space-y-4">
+          <div class="flex items-center space-x-4 p-3 bg-emerald-900/20 rounded-lg border border-emerald-500/30">
+            <span class="w-8 h-8 rounded-full bg-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold">1</span>
+            <div><strong class="text-emerald-400">Fundacao</strong> - Setup, CI/CD, auth basica, infraestrutura</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-blue-900/20 rounded-lg border border-blue-500/30">
+            <span class="w-8 h-8 rounded-full bg-blue-500/30 text-blue-400 flex items-center justify-center font-bold">2</span>
+            <div><strong class="text-blue-400">Core MVP</strong> - Funcionalidade principal que valida hipotese</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-purple-900/20 rounded-lg border border-purple-500/30">
+            <span class="w-8 h-8 rounded-full bg-purple-500/30 text-purple-400 flex items-center justify-center font-bold">3</span>
+            <div><strong class="text-purple-400">Extensoes</strong> - Features secundarias, integracoes</div>
+          </div>
+          <div class="flex items-center space-x-4 p-3 bg-amber-900/20 rounded-lg border border-amber-500/30">
+            <span class="w-8 h-8 rounded-full bg-amber-500/30 text-amber-400 flex items-center justify-center font-bold">4</span>
+            <div><strong class="text-amber-400">Polish</strong> - UX refinements, otimizacoes, analytics</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Regra de Ouro</h3>
+        <p class="text-neutral-300">Epico 1 SEMPRE e fundacao. Sem CI/CD, sem auth, sem infra = sem projeto. Nao pule para features antes da fundacao estar solida.</p>
+      </div>
+    </section>
+
+    <!-- Topico 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">📝 User Stories</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        User Stories descrevem funcionalidades <strong class="text-rose-400">do ponto de vista do usuario</strong>. O formato padrao garante que sempre haja contexto, acao e beneficio.
+      </p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Formato Padrao</h3>
+        <div class="bg-dark-700/50 p-4 rounded-lg font-mono text-neutral-300">
+          <span class="text-rose-400">Como</span> [tipo de usuario],<br>
+          <span class="text-rose-400">eu quero</span> [acao/funcionalidade],<br>
+          <span class="text-rose-400">para que</span> [beneficio/valor]
+        </div>
+      </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Criterios de Aceitacao (OBRIGATORIOS)</h3>
+        <p class="text-neutral-400 mb-4 text-sm">Criterios de aceitacao sao o contrato de "done". Sem eles, nao ha como validar a story.</p>
+        <div class="bg-dark-700/50 p-4 rounded-lg">
+          <p class="text-neutral-300 mb-3"><strong>Story:</strong> Como usuario, eu quero fazer login, para acessar minha conta.</p>
+          <p class="text-rose-400 font-semibold mb-2">Criterios de Aceitacao:</p>
+          <ul class="space-y-1 text-sm text-neutral-400">
+            <li>✓ Login com email/senha validos redireciona para dashboard</li>
+            <li>✓ Login com credenciais invalidas exibe mensagem de erro</li>
+            <li>✓ 5 tentativas falhas bloqueiam conta por 15 minutos</li>
+            <li>✓ Opcao "Esqueci senha" envia email de reset</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🎯 Priorizacao MoSCoW</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        MoSCoW e um framework de priorizacao que <strong class="text-rose-400">classifica requisitos por criticidade</strong>. Use para alinhar expectativas e evitar scope creep.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">M - Must Have</h4>
+          <p class="text-sm text-neutral-400 mb-2">Sem isso, o produto NAO lanca.</p>
+          <p class="text-xs text-neutral-500">Ex: Auth basica, core feature, deploy pipeline</p>
+        </div>
+        <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
+          <h4 class="font-bold text-amber-400 mb-3">S - Should Have</h4>
+          <p class="text-sm text-neutral-400 mb-2">Importante, mas nao bloqueante.</p>
+          <p class="text-xs text-neutral-500">Ex: Notificacoes, filtros avancados</p>
+        </div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-3">C - Could Have</h4>
+          <p class="text-sm text-neutral-400 mb-2">Nice to have se sobrar tempo.</p>
+          <p class="text-xs text-neutral-500">Ex: Dark mode, exportacao PDF</p>
+        </div>
+        <div class="bg-neutral-800 rounded-xl border border-neutral-600 p-6">
+          <h4 class="font-bold text-neutral-400 mb-3">W - Won't Have</h4>
+          <p class="text-sm text-neutral-400 mb-2">Explicitamente FORA do escopo.</p>
+          <p class="text-xs text-neutral-500">Ex: Mobile app, integracao com X</p>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Distribuicao Saudavel</h3>
+        <p class="text-neutral-300">Um PRD saudavel tem ~60% Must, ~20% Should, ~15% Could, e ~5% Won't. Se tudo e Must, nada e Must.</p>
+      </div>
+    </section>
+
+    <!-- Topico 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">🎨 UI Goals no PRD</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A secao de UI Goals define <strong class="text-rose-400">direcao de experiencia</strong>, nao design detalhado. E o brief para o designer/frontend entender a visao.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">O que Incluir</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Principios de UX</h5>
+            <p class="text-sm text-neutral-400">Simplicidade, consistencia, feedback imediato</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Telas Principais</h5>
+            <p class="text-sm text-neutral-400">Dashboard, cadastro, listagens, detalhes</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Acessibilidade</h5>
+            <p class="text-sm text-neutral-400">WCAG 2.1 AA, navegacao por teclado</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Responsividade</h5>
+            <p class="text-sm text-neutral-400">Mobile-first, breakpoints definidos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">8</span>
+        <h2 class="text-2xl font-bold">🔗 Handoff para Arquitetura</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O PRD termina com um <strong class="text-rose-400">prompt estruturado para o Arquiteto</strong>. Esse handoff garante que nenhuma premissa tecnica seja perdida na transicao.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Checklist de Handoff</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">✓</span><span class="text-neutral-300">Todos os RFs e RNFs estao documentados?</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">✓</span><span class="text-neutral-300">Epicos estao priorizados e sequenciados?</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">✓</span><span class="text-neutral-300">Stories tem criterios de aceitacao?</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">✓</span><span class="text-neutral-300">Restricoes tecnicas estao explicitas?</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">✓</span><span class="text-neutral-300">Integracoes externas estao listadas?</span></label>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Prompt para Arquiteto</h3>
+        <p class="text-neutral-300 text-sm font-mono bg-dark-700/50 p-4 rounded-lg">"Com base neste PRD, projete a arquitetura tecnica considerando: [RNFs listados], [integracoes], [restricoes de stack]. Foco em [area prioritaria]."</p>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">PRD</strong> - Traduz visao em requisitos executaveis e testaveis</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">RFs e RNFs</strong> - O que o sistema faz e como deve se comportar</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">Epicos</strong> - Blocos de trabalho sequenciais com valor incremental</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">User Stories</strong> - Formato padrao com criterios de aceitacao</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">MoSCoW</strong> - Priorizacao clara: Must/Should/Could/Won't</span></div>
+        </div>
+
+        <!-- Download Button in Summary -->
+        <div class="bg-green-900/30 rounded-xl p-4 border border-green-500/30 mb-6">
+          <div class="flex items-center justify-between">
+            <span class="text-green-400 font-semibold">Pronto para documentar requisitos?</span>
+            <a href="templates/prd.md" download class="flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors font-semibold">
+              <span>⬇️</span>
+              <span>Baixar Template</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-6-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Project Brief</a>
+          <a href="modulo-6-4.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">Proximo: Arquitetura →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-dark-600 mt-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div class="text-neutral-500 text-sm">
-          © 2024 GIPM Master - Metodo de Projetos com IA Governada
-        </div>
-        <div class="flex items-center gap-4">
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm">INEMA.CLUB</a>
-          <a href="https://github.com/inematds/GIPM" target="_blank" class="text-neutral-400 hover:text-white text-sm">GitHub</a>
-        </div>
-      </div>
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master - Metodo de Projetos com IA Governada</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
   <script>
     const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     const html = document.documentElement;
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-    function updateIcons() {
-      if (html.classList.contains('dark')) {
-        darkIcon.classList.add('hidden');
-        lightIcon.classList.remove('hidden');
-      } else {
-        darkIcon.classList.remove('hidden');
-        lightIcon.classList.add('hidden');
-      }
-    }
-
-    updateIcons();
-
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-      updateIcons();
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
-
-    if (localStorage.getItem('theme') === 'light') {
-      html.classList.remove('dark');
-      updateIcons();
-    }
-
-    function toggleTopic(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('active');
-    }
   </script>
-
 </body>
 </html>

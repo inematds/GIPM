@@ -22,8 +22,6 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
-    .topic-explanation { display: none; }
-    .topic-explanation.active { display: block; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -90,106 +88,487 @@
   <!-- Header -->
   <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <a href="index.html" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 mb-4 text-sm">
-        <span>←</span>
-        <span>Trilha 6: Templates e Downloads</span>
-      </a>
-      <div class="flex items-center gap-4 mb-4">
-        <span class="text-4xl">🤖</span>
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm mb-6">
+        <a href="../../index.html" class="text-neutral-500 hover:text-neutral-300">GIPM Master</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-500 hover:text-neutral-300">Trilha 6</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-rose-400">Modulo 6.7</span>
+      </nav>
+
+      <div class="flex items-start gap-4 mb-6">
+        <span class="text-5xl">🤖</span>
         <div>
-          <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full">
+          <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-3">
             MODULO 6.7
           </span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Prompts para IA</h1>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Prompts para IA</h1>
+          <p class="text-neutral-400 mt-3 text-lg">Colecao de prompts otimizados para usar com Claude, GPT ou outros LLMs no metodo GIPM.</p>
         </div>
       </div>
-      <p class="text-neutral-400 max-w-2xl">Colecao de prompts otimizados para usar com Claude, GPT ou outros LLMs.</p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">8</div>
+          <div class="text-neutral-500 text-sm">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">~40</div>
+          <div class="text-neutral-500 text-sm">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">Avancado</div>
+          <div class="text-neutral-500 text-sm">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-xl p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-rose-400">Prompts</div>
+          <div class="text-neutral-500 text-sm">Tipo</div>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- Download Section -->
-    <div class="bg-gradient-to-br from-green-900/20 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-8">
-      <div class="flex items-center justify-between">
+    <!-- Download Section Principal -->
+    <div class="bg-gradient-to-br from-green-900/30 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-12">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h3 class="text-lg font-bold text-green-400 mb-2">Download do Template</h3>
-          <p class="text-neutral-400 text-sm">Baixe o template em Markdown e personalize para seu projeto.</p>
+          <h3 class="text-xl font-bold text-green-400 mb-2">Download dos Prompts</h3>
+          <p class="text-neutral-400">Baixe a colecao completa de prompts GIPM em Markdown. Copie e personalize para seus projetos.</p>
         </div>
-        <a href="templates/prompts-ia.md" download class="flex items-center gap-2 px-6 py-3 bg-green-500/20 text-green-400 rounded-xl hover:bg-green-500/30 transition-colors font-semibold">
-          <span>⬇️</span>
+        <a href="templates/prompts-ia.md" download class="flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-colors font-bold text-lg shadow-lg shadow-green-900/30">
+          <span class="text-xl">⬇️</span>
           <span>Download .md</span>
         </a>
       </div>
     </div>
 
-    <!-- Topics -->
-    <div class="bg-dark-800 rounded-2xl border border-dark-600 p-6 sm:p-8">
-      <h2 class="text-xl font-bold mb-6 text-neutral-300">Topicos</h2>
-      <div class="space-y-3">
-          <button onclick="toggleTopic('topic-7-1')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Principio dos Prompts GIPM</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-1" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Prompts devem ser especificos, fornecer contexto, definir formato de saida, e incluir restricoes. Prompts vagos geram respostas vagas.</p>
-          </div>
-          <button onclick="toggleTopic('topic-7-2')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Prompts de Analise</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-2" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Criar Project Brief, refinar requisitos, analisar stakeholders. Use quando estiver na fase de descoberta e definicao.</p>
-          </div>
-          <button onclick="toggleTopic('topic-7-3')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Prompts de Arquitetura</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-3" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Propor arquitetura, revisar arquitetura existente, design de API. Use quando estiver definindo como construir.</p>
-          </div>
-          <button onclick="toggleTopic('topic-7-4')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Prompts de Desenvolvimento</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-4" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Implementar feature, refatorar codigo, debug. Use quando estiver codificando.</p>
-          </div>
-          <button onclick="toggleTopic('topic-7-5')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Prompts de Testes</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-5" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Gerar testes unitarios, criar plano de testes. Use para garantir qualidade.</p>
-          </div>
-          <button onclick="toggleTopic('topic-7-6')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Prompts de Code Review</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-6" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Revisar PR, identificar problemas. Use para validar codigo antes de merge.</p>
-          </div>
-          <button onclick="toggleTopic('topic-7-7')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Prompts de Documentacao</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-7" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Gerar docs de API, criar README. Use para documentar o que foi construido.</p>
-          </div>
-          <button onclick="toggleTopic('topic-7-8')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">GIPM Orchestrator Prompt</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-7-8" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">O prompt master que combina todos os principios GIPM. Use para sessoes longas de trabalho com IA governada.</p>
-          </div>
+    <!-- Topico 1: Principio dos Prompts GIPM -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📐 Principios dos Prompts GIPM</h2>
       </div>
-    </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        No GIPM, <strong class="text-white">prompts vagos geram respostas vagas</strong>. Um bom prompt e especifico, fornece contexto, define formato de saida e inclui restricoes claras. A IA e uma ferramenta - quanto melhor a instrucao, melhor o resultado.
+      </p>
+
+      <div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-6 mb-6">
+        <h4 class="font-bold text-rose-400 mb-4">Anatomia de um Prompt GIPM</h4>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">1.</span>
+            <div>
+              <span class="font-semibold text-white">Papel (Role)</span>
+              <span class="text-neutral-400"> - Quem a IA deve ser: "Voce e um arquiteto de software senior..."</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">2.</span>
+            <div>
+              <span class="font-semibold text-white">Contexto</span>
+              <span class="text-neutral-400"> - Background do projeto, stack, restricoes</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">3.</span>
+            <div>
+              <span class="font-semibold text-white">Tarefa</span>
+              <span class="text-neutral-400"> - O que precisa ser feito, especificamente</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">4.</span>
+            <div>
+              <span class="font-semibold text-white">Formato</span>
+              <span class="text-neutral-400"> - Como a resposta deve ser estruturada</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-rose-400 font-bold">5.</span>
+            <div>
+              <span class="font-semibold text-white">Restricoes</span>
+              <span class="text-neutral-400"> - O que NAO fazer, limites, requisitos nao-funcionais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-red-400 mb-3">❌ Prompt Ruim</h4>
+          <p class="text-sm text-neutral-400 font-mono bg-dark-800 p-3 rounded-lg">"Crie uma API de login"</p>
+        </div>
+        <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+          <h4 class="font-bold text-green-400 mb-3">✅ Prompt Bom</h4>
+          <p class="text-sm text-neutral-400 font-mono bg-dark-800 p-3 rounded-lg">"Voce e um dev backend. Crie endpoint POST /auth/login em Node.js + Express que valida email/senha, retorna JWT. Siga o padrao do projeto em src/. Inclua rate limiting."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 2: Prompts de Analise -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔍 Prompts de Analise</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Use esses prompts na <strong class="text-white">fase de descoberta e definicao</strong>. Eles ajudam a criar o Project Brief, refinar requisitos e analisar stakeholders. A IA atua como um analista de negocios experiente.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Prompt: Criar Project Brief</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto mb-4">
+          <div class="text-purple-400 mb-2"># ROLE</div>
+          Voce e um analista de negocios senior especializado em projetos de software.<br><br>
+          <div class="text-purple-400 mb-2"># CONTEXTO</div>
+          Estou iniciando um novo projeto: [DESCRICAO DO PROJETO]<br><br>
+          <div class="text-purple-400 mb-2"># TAREFA</div>
+          Crie um Project Brief completo seguindo o template GIPM incluindo:<br>
+          - Visao e objetivo<br>
+          - Problema sendo resolvido<br>
+          - Stakeholders<br>
+          - Restricoes e premissas<br>
+          - Metricas de sucesso<br><br>
+          <div class="text-purple-400 mb-2"># FORMATO</div>
+          Markdown com secoes claras e bullet points.
+        </div>
+        <div class="flex items-center gap-2 text-sm text-neutral-500">
+          <span class="text-blue-400">Uso:</span>
+          <span>Inicio do projeto, apos reuniao inicial com stakeholders</span>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 border border-primary/30 rounded-xl p-5">
+        <h4 class="font-bold text-primary mb-2">💡 Outros Prompts de Analise</h4>
+        <ul class="text-sm text-neutral-400 space-y-1">
+          <li>• <strong class="text-white">Refinar Requisitos</strong> - Transforma ideias vagas em requisitos especificos</li>
+          <li>• <strong class="text-white">Analise de Stakeholders</strong> - Mapeia interesses e poder de cada stakeholder</li>
+          <li>• <strong class="text-white">Analise de Riscos</strong> - Identifica riscos e mitigation strategies</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Topico 3: Prompts de Arquitetura -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🏗️ Prompts de Arquitetura</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Use quando estiver <strong class="text-white">definindo como construir</strong>. A IA pode propor arquiteturas, revisar decisoes existentes, e ajudar no design de APIs. Sempre forneca o contexto tecnico do projeto.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Prompt: Propor Arquitetura</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto mb-4">
+          <div class="text-purple-400 mb-2"># ROLE</div>
+          Voce e um arquiteto de software senior com experiencia em sistemas distribuidos.<br><br>
+          <div class="text-purple-400 mb-2"># CONTEXTO</div>
+          Projeto: [NOME]<br>
+          Requisitos: [PRD RESUMIDO]<br>
+          Restricoes: [TIME, BUDGET, STACK]<br><br>
+          <div class="text-purple-400 mb-2"># TAREFA</div>
+          Proponha uma arquitetura incluindo:<br>
+          - Tech stack com justificativas<br>
+          - Diagrama de componentes (ASCII ou Mermaid)<br>
+          - Padroes arquiteturais escolhidos<br>
+          - Trade-offs e riscos<br><br>
+          <div class="text-purple-400 mb-2"># RESTRICOES</div>
+          - Time de 3 devs<br>
+          - MVP em 2 meses<br>
+          - Budget limitado (sem enterprise licenses)
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-blue-400 mb-3">Design de API</h4>
+          <p class="text-sm text-neutral-400">Cria especificacao OpenAPI, define endpoints, metodos, e schemas de request/response.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-3">Revisar Arquitetura</h4>
+          <p class="text-sm text-neutral-400">Analisa arquitetura existente, identifica problemas e sugere melhorias.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 4: Prompts de Desenvolvimento -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">💻 Prompts de Desenvolvimento</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Use quando estiver <strong class="text-white">codificando</strong>. Esses prompts ajudam a implementar features, refatorar codigo, e fazer debug. Sempre inclua o contexto do codigo existente.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Prompt: Implementar Feature</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto mb-4">
+          <div class="text-purple-400 mb-2"># ROLE</div>
+          Voce e um desenvolvedor fullstack experiente em [STACK].<br><br>
+          <div class="text-purple-400 mb-2"># CONTEXTO</div>
+          - Stack: Next.js 14, TypeScript, Prisma, PostgreSQL<br>
+          - Estrutura: src/app para routes, src/lib para utils<br>
+          - Codigo existente: [COLE ARQUIVOS RELEVANTES]<br><br>
+          <div class="text-purple-400 mb-2"># TAREFA</div>
+          Implemente a Story: [COLE A STORY COMPLETA]<br><br>
+          <div class="text-purple-400 mb-2"># RESTRICOES</div>
+          - Siga os padroes do codigo existente<br>
+          - Inclua tratamento de erros<br>
+          - Nao use bibliotecas nao listadas no package.json<br>
+          - Codigo em TypeScript strict
+        </div>
+      </div>
+
+      <div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-5 mb-6">
+        <h4 class="font-bold text-rose-400 mb-3">Prompt: Debug</h4>
+        <div class="text-sm text-neutral-400 space-y-2">
+          <p><strong class="text-white">Contexto:</strong> Forneca o erro completo, codigo relevante, e o que voce ja tentou.</p>
+          <p><strong class="text-white">Tarefa:</strong> "Identifique a causa raiz do erro e proponha correcao com explicacao."</p>
+        </div>
+      </div>
+
+      <div class="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+        <h4 class="font-bold text-green-400 mb-3">Prompt: Refatorar</h4>
+        <div class="text-sm text-neutral-400 space-y-2">
+          <p><strong class="text-white">Contexto:</strong> Codigo atual, problemas identificados, objetivo da refatoracao.</p>
+          <p><strong class="text-white">Tarefa:</strong> "Refatore para [OBJETIVO]. Mantenha comportamento. Explique mudancas."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 5: Prompts de Testes -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Prompts de Testes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Use para <strong class="text-white">garantir qualidade</strong>. A IA pode gerar testes unitarios, criar planos de teste, e identificar edge cases que voce pode ter esquecido.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Prompt: Gerar Testes Unitarios</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto mb-4">
+          <div class="text-purple-400 mb-2"># ROLE</div>
+          Voce e um QA engineer especializado em testes automatizados.<br><br>
+          <div class="text-purple-400 mb-2"># CONTEXTO</div>
+          - Framework de testes: Jest + React Testing Library<br>
+          - Codigo a testar: [COLE O CODIGO]<br><br>
+          <div class="text-purple-400 mb-2"># TAREFA</div>
+          Crie testes unitarios cobrindo:<br>
+          - Happy path<br>
+          - Inputs invalidos<br>
+          - Edge cases<br>
+          - Erros esperados<br><br>
+          <div class="text-purple-400 mb-2"># FORMATO</div>
+          Arquivo de teste completo, pronto para executar.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-blue-400 mb-3">Plano de Testes</h4>
+          <p class="text-sm text-neutral-400">Cria plano de testes completo para uma feature, incluindo casos manuais e automatizaveis.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-3">Identificar Edge Cases</h4>
+          <p class="text-sm text-neutral-400">Analisa requisitos e identifica cenarios de borda que devem ser testados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 6: Prompts de Code Review -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">👀 Prompts de Code Review</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Use para <strong class="text-white">validar codigo antes do merge</strong>. A IA pode revisar PRs, identificar problemas de seguranca, performance e legibilidade.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Prompt: Revisar PR</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto mb-4">
+          <div class="text-purple-400 mb-2"># ROLE</div>
+          Voce e um tech lead fazendo code review.<br><br>
+          <div class="text-purple-400 mb-2"># CONTEXTO</div>
+          PR: [TITULO E DESCRICAO]<br>
+          Diff: [COLE O DIFF]<br>
+          Padroes do projeto: [RESUMO]<br><br>
+          <div class="text-purple-400 mb-2"># TAREFA</div>
+          Revise o codigo verificando:<br>
+          - Logica e corretude<br>
+          - Seguranca (OWASP top 10)<br>
+          - Performance<br>
+          - Legibilidade e padroes<br>
+          - Testes adequados<br><br>
+          <div class="text-purple-400 mb-2"># FORMATO</div>
+          Lista de issues por severidade: CRITICO, ALTO, MEDIO, BAIXO<br>
+          Inclua linha, problema, e sugestao de correcao.
+        </div>
+      </div>
+
+      <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
+        <h4 class="font-bold text-red-400 mb-3">⚠️ Security Review</h4>
+        <p class="text-sm text-neutral-400">
+          Para revisao especifica de seguranca, use prompt focado em OWASP: "Analise este codigo para vulnerabilidades: SQL injection, XSS, CSRF, auth bypass, sensitive data exposure..."
+        </p>
+      </div>
+    </section>
+
+    <!-- Topico 7: Prompts de Documentacao -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">📚 Prompts de Documentacao</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Use para <strong class="text-white">documentar o que foi construido</strong>. A IA pode gerar docs de API, criar READMEs, e documentar decisoes arquiteturais.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-4">Prompt: Gerar Docs de API</h4>
+        <div class="bg-dark-700 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto mb-4">
+          <div class="text-purple-400 mb-2"># ROLE</div>
+          Voce e um technical writer especializado em APIs.<br><br>
+          <div class="text-purple-400 mb-2"># CONTEXTO</div>
+          API: [NOME]<br>
+          Endpoints: [LISTA OU CODIGO]<br><br>
+          <div class="text-purple-400 mb-2"># TAREFA</div>
+          Gere documentacao OpenAPI 3.0 incluindo:<br>
+          - Descricao de cada endpoint<br>
+          - Schemas de request/response<br>
+          - Exemplos de uso<br>
+          - Codigos de erro<br><br>
+          <div class="text-purple-400 mb-2"># FORMATO</div>
+          YAML OpenAPI valido.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-green-400 mb-3">README</h4>
+          <p class="text-sm text-neutral-400">Gera README completo com setup, como rodar, como contribuir, e estrutura do projeto.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-amber-400 mb-3">ADR (Architectural Decision Record)</h4>
+          <p class="text-sm text-neutral-400">Documenta decisoes arquiteturais com contexto, opcoes consideradas, e justificativa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topico 8: GIPM Orchestrator Prompt -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">8</span>
+        <h2 class="text-2xl font-bold">🎯 GIPM Orchestrator Prompt</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-white">prompt master</strong> que combina todos os principios GIPM. Use no inicio de sessoes longas de trabalho com IA para estabelecer contexto e regras. A IA passa a atuar como um membro do time que conhece o metodo.
+      </p>
+
+      <div class="bg-rose-500/10 border border-rose-500/30 rounded-xl p-6 mb-6">
+        <h4 class="font-bold text-rose-400 mb-4">GIPM Master System Prompt</h4>
+        <div class="bg-dark-800 rounded-lg p-4 font-mono text-xs text-neutral-300 overflow-x-auto">
+          <div class="text-green-400 mb-3"># IDENTIDADE</div>
+          Voce e um membro senior do time seguindo o metodo GIPM.<br><br>
+
+          <div class="text-green-400 mb-3"># PRINCIPIOS GIPM</div>
+          1. Backend orquestra, IA executa (voce nunca controla fluxo)<br>
+          2. Duas fases: IA gera estrutura, sistema gera artefatos<br>
+          3. Persistencia total: tudo documentado e auditavel<br>
+          4. API-first: capacidades expostas via APIs<br>
+          5. Anti lock-in: componentes substituiveis<br><br>
+
+          <div class="text-green-400 mb-3"># DOCUMENTOS DO PROJETO</div>
+          [COLE PROJECT BRIEF, PRD, ARQUITETURA]<br><br>
+
+          <div class="text-green-400 mb-3"># PADROES DE CODIGO</div>
+          [COLE CODE STANDARDS]<br><br>
+
+          <div class="text-green-400 mb-3"># COMPORTAMENTO</div>
+          - Sempre pergunte antes de assumir<br>
+          - Proponha, nao decida<br>
+          - Cite documentos quando relevante<br>
+          - Nao invente requisitos
+        </div>
+      </div>
+
+      <div class="bg-primary/10 border border-primary/30 rounded-xl p-5">
+        <h4 class="font-bold text-primary mb-2">💡 Quando usar o Orchestrator</h4>
+        <ul class="text-sm text-neutral-400 space-y-1">
+          <li>• <strong class="text-white">Sessoes longas</strong> - Mais de 30 minutos de trabalho</li>
+          <li>• <strong class="text-white">Novo membro no time</strong> - Quando IA precisa conhecer o projeto</li>
+          <li>• <strong class="text-white">Tarefas complexas</strong> - Que envolvem multiplos documentos</li>
+          <li>• <strong class="text-white">Consistencia</strong> - Garantir que IA siga os padroes do projeto</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Resumo e Download Final -->
+    <section class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-2xl border border-rose-500/30 p-6 sm:p-8">
+      <h3 class="text-xl font-bold text-rose-400 mb-4">📋 Resumo: Prompts GIPM</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-sm">
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Role + Contexto + Tarefa + Formato</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Prompts de analise para descoberta</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Prompts de arquitetura para design</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Prompts de dev para implementacao</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Prompts de testes para qualidade</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="text-green-400">✓</span>
+          <span class="text-neutral-300">Orchestrator para sessoes longas</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-rose-500/20">
+        <p class="text-neutral-400">Baixe todos os prompts e personalize para seu projeto!</p>
+        <a href="templates/prompts-ia.md" download class="flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-colors font-bold text-lg shadow-lg shadow-green-900/30">
+          <span class="text-xl">⬇️</span>
+          <span>Download Prompts</span>
+        </a>
+      </div>
+    </section>
 
     <!-- Navigation -->
     <div class="flex justify-between items-center pt-8 mt-8 border-t border-dark-600">
-      <a href="modulo-6-6.html" class="flex items-center gap-2 text-neutral-400 hover:text-rose-400 transition-colors"><span>←</span><span>Modulo 6.6</span></a>
-      <a href="index.html" class="flex items-center gap-2 px-6 py-3 bg-rose-500/20 text-rose-400 rounded-xl hover:bg-rose-500/30 transition-colors font-semibold"><span>Voltar para Trilha</span><span>→</span></a>
+      <a href="modulo-6-6.html" class="flex items-center gap-2 text-neutral-400 hover:text-rose-400 transition-colors">
+        <span>←</span>
+        <span>Modulo 6.6: QA Gate</span>
+      </a>
+      <a href="index.html" class="flex items-center gap-2 px-6 py-3 bg-rose-500/20 text-rose-400 rounded-xl hover:bg-rose-500/30 transition-colors font-semibold">
+        <span>Voltar para Trilha 6</span>
+        <span>→</span>
+      </a>
     </div>
   </main>
 
@@ -236,11 +615,6 @@
     if (localStorage.getItem('theme') === 'light') {
       html.classList.remove('dark');
       updateIcons();
-    }
-
-    function toggleTopic(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('active');
     }
   </script>
 

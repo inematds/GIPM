@@ -22,22 +22,22 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
-    .topic-explanation { display: none; }
-    .topic-explanation.active { display: block; }
     html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
     html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
-    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
     html:not(.dark) .text-neutral-100 { color: #111827; }
     html:not(.dark) .text-neutral-300 { color: #4b5563; }
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
-  <!-- Navigation Global -->
+  <!-- Navigation -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
@@ -51,24 +51,19 @@
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
           <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
           </a>
           <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">O Metodo</span>
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">O Metodo</span>
           </a>
           <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Avancado</span>
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avancado</span>
           </a>
           <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
-            <span class="sm:hidden">T4</span>
-            <span class="hidden sm:inline">NotebookLMX</span>
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">NotebookLMX</span>
           </a>
           <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">
-            <span class="sm:hidden">T5</span>
-            <span class="hidden sm:inline">Pratico</span>
+            <span class="sm:hidden">T5</span><span class="hidden sm:inline">Pratico</span>
           </a>
           <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10">
             <span class="sm:hidden">T6</span>
@@ -87,162 +82,395 @@
     </div>
   </nav>
 
+  <!-- Breadcrumb -->
+  <div class="bg-dark-800/50 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <nav class="flex items-center space-x-2 text-sm">
+        <a href="../../index.html" class="text-neutral-400 hover:text-neutral-300">Inicio</a>
+        <span class="text-neutral-600">/</span>
+        <a href="index.html" class="text-neutral-400 hover:text-rose-400">Trilha 6: Templates</a>
+        <span class="text-neutral-600">/</span>
+        <span class="text-rose-400">Modulo 6.2</span>
+      </nav>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <a href="index.html" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 mb-4 text-sm">
-        <span>←</span>
-        <span>Trilha 6: Templates e Downloads</span>
-      </a>
-      <div class="flex items-center gap-4 mb-4">
-        <span class="text-4xl">📝</span>
-        <div>
-          <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full">
-            MODULO 6.2
-          </span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Project Brief</h1>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MODULO 6.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📝 Project Brief</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        O documento fundacional que define visao, problema, usuarios e escopo do projeto. E o ponto de partida para qualquer iniciativa com IA governada.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">8</div>
+          <div class="text-xs text-neutral-400">Topicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">~30</div>
+          <div class="text-xs text-neutral-400">Minutos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Inicial</div>
+          <div class="text-xs text-neutral-400">Nivel</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Template</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
         </div>
       </div>
-      <p class="text-neutral-400 max-w-2xl">O documento fundacional que define visao, problema, usuarios e escopo do projeto.</p>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
     <!-- Download Section -->
-    <div class="bg-gradient-to-br from-green-900/20 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-8">
-      <div class="flex items-center justify-between">
+    <div class="bg-gradient-to-br from-green-900/30 to-dark-800 rounded-2xl border border-green-500/30 p-6 sm:p-8 mb-12">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h3 class="text-lg font-bold text-green-400 mb-2">Download do Template</h3>
-          <p class="text-neutral-400 text-sm">Baixe o template em Markdown e personalize para seu projeto.</p>
+          <h3 class="text-xl font-bold text-green-400 mb-2">Download do Template</h3>
+          <p class="text-neutral-400">Baixe o template em Markdown e personalize para seu projeto. Estrutura completa pronta para uso.</p>
         </div>
-        <a href="templates/project-brief.md" download class="flex items-center gap-2 px-6 py-3 bg-green-500/20 text-green-400 rounded-xl hover:bg-green-500/30 transition-colors font-semibold">
-          <span>⬇️</span>
+        <a href="templates/project-brief.md" download class="flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-colors font-bold text-lg shadow-lg shadow-green-900/30">
+          <span class="text-xl">⬇️</span>
           <span>Download .md</span>
         </a>
       </div>
     </div>
 
-    <!-- Topics -->
-    <div class="bg-dark-800 rounded-2xl border border-dark-600 p-6 sm:p-8">
-      <h2 class="text-xl font-bold mb-6 text-neutral-300">Topicos</h2>
-      <div class="space-y-3">
-          <button onclick="toggleTopic('topic-2-1')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">O que e o Project Brief</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-1" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">E o documento que captura a essencia do projeto: qual problema resolve, para quem, com que restricoes. E o 'elevator pitch' expandido que alinha todos os stakeholders.</p>
-          </div>
-          <button onclick="toggleTopic('topic-2-2')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Resumo Executivo</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-2" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">2-3 frases que qualquer pessoa pode ler e entender o projeto. Se voce nao consegue resumir em 3 frases, nao entendeu o projeto ainda.</p>
-          </div>
-          <button onclick="toggleTopic('topic-2-3')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Declaracao do Problema</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-3" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Descreva o problema de forma quantificavel. 'Usuarios perdem tempo' e vago. 'Usuarios gastam 2h/dia em tarefas manuais' e especifico e mensuravel.</p>
-          </div>
-          <button onclick="toggleTopic('topic-2-4')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Usuarios-Alvo</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-4" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Defina personas concretas. Nao 'empresas', mas 'gerentes de projeto em empresas de 50-200 funcionarios que usam planilhas para tracking'.</p>
-          </div>
-          <button onclick="toggleTopic('topic-2-5')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Escopo do MVP</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-5" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Liste explicitamente o que esta IN e OUT do MVP. Essa lista evita scope creep e alinha expectativas. Seja impiedoso no que fica de fora.</p>
-          </div>
-          <button onclick="toggleTopic('topic-2-6')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Restricoes e Premissas</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-6" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Documente limitacoes de orcamento, timeline, tecnologia, compliance. Premissas sao apostas - se mudarem, o projeto muda.</p>
-          </div>
-          <button onclick="toggleTopic('topic-2-7')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Como Usar com IA</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-7" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Use o prompt de geracao de Brief com seu LLM favorito. Forneca contexto maximo. Itere o resultado. O Brief final deve passar pelo crivo humano.</p>
-          </div>
-          <button onclick="toggleTopic('topic-2-8')" class="w-full flex items-center justify-between p-4 bg-dark-700/50 rounded-xl hover:bg-dark-700 transition-colors">
-            <span class="font-medium">Quando Atualizar</span>
-            <span class="text-rose-400">+</span>
-          </button>
-          <div id="topic-2-8" class="topic-explanation px-4 py-3 bg-dark-800 rounded-b-xl -mt-2 border-t border-dark-600">
-            <p class="text-neutral-400 text-sm leading-relaxed">Atualize o Brief quando premissas mudarem significativamente. Mantenha changelog. Versione o documento.</p>
-          </div>
+    <!-- Topico 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📄 O que e o Project Brief</h2>
       </div>
-    </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Project Brief e o <strong class="text-rose-400">documento fundacional</strong> de qualquer projeto GIPM. Ele captura a essencia do que sera construido, para quem, e com quais restricoes. E o "elevator pitch" expandido que alinha todos os stakeholders.
+      </p>
+      <div class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl border border-rose-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">📋 Componentes do Brief</h3>
+        <p class="text-neutral-300 mb-4">Um Project Brief completo deve responder:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>O QUE</strong> - Qual problema estamos resolvendo?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>PARA QUEM</strong> - Quem sao os usuarios-alvo?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>POR QUE</strong> - Por que este problema importa?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>COMO</strong> - Qual e a abordagem de alto nivel?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">•</span><span><strong>COM O QUE</strong> - Quais sao as restricoes?</span></li>
+        </ul>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Regra de Ouro</h3>
+        <p class="text-neutral-300">Se voce nao consegue resumir seu projeto em 3 frases claras, voce ainda nao entendeu o projeto. O Brief forca essa clareza.</p>
+      </div>
+    </section>
 
-    <!-- Navigation -->
-    <div class="flex justify-between items-center pt-8 mt-8 border-t border-dark-600">
-      <a href="modulo-6-1.html" class="flex items-center gap-2 text-neutral-400 hover:text-rose-400 transition-colors"><span>←</span><span>Modulo 6.1</span></a>
-      <a href="modulo-6-3.html" class="flex items-center gap-2 px-6 py-3 bg-rose-500/20 text-rose-400 rounded-xl hover:bg-rose-500/30 transition-colors font-semibold"><span>Proximo Modulo</span><span>→</span></a>
-    </div>
+    <!-- Topico 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📋 Resumo Executivo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Resumo Executivo e a secao mais importante do Brief. Em <strong class="text-rose-400">2-3 frases</strong>, qualquer pessoa deve entender o que e o projeto. Se voce nao consegue escrever um resumo conciso, o projeto precisa de mais clareza.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Estrutura do Resumo Executivo</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-8 h-8 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">1</span>
+            <div><strong class="text-rose-400">Frase 1</strong> - O que e o produto/sistema (nome + categoria)</div>
+          </div>
+          <div class="flex items-start space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-8 h-8 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">2</span>
+            <div><strong class="text-rose-400">Frase 2</strong> - Qual problema resolve + para quem</div>
+          </div>
+          <div class="flex items-start space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-8 h-8 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">3</span>
+            <div><strong class="text-rose-400">Frase 3</strong> - Diferencial ou abordagem principal</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-dark-700/50 rounded-xl p-6 border border-dark-600">
+        <h4 class="font-semibold text-neutral-200 mb-3">Exemplo Pratico</h4>
+        <p class="text-neutral-400 italic">"Dashboard Mastery e uma plataforma de aprendizado interativo. Ajuda profissionais a dominarem visualizacao de dados atraves de licoes praticas e progressivas. Combina teoria com exercicios hands-on usando datasets reais."</p>
+      </div>
+    </section>
+
+    <!-- Topico 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🎯 Declaracao do Problema</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Descreva o problema de forma <strong class="text-rose-400">quantificavel e especifica</strong>. Problemas vagos levam a solucoes vagas. Um bom problema e mensuravel e tem impacto claro.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">❌ Problema Vago</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Usuarios perdem tempo"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"O processo e ineficiente"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Precisamos melhorar"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Clientes reclamam"</span></li>
+          </ul>
+        </div>
+        <div class="bg-green-900/20 rounded-xl border border-green-500/30 p-6">
+          <h4 class="font-bold text-green-400 mb-4">✓ Problema Especifico</h4>
+          <ul class="space-y-3 text-neutral-300">
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>"Usuarios gastam 2h/dia em tarefas manuais"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>"40% dos tickets sao duplicados"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>"Tempo medio de resposta: 48h"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>"NPS caiu de 45 para 32 em 6 meses"</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Dica</h3>
+        <p class="text-neutral-300">Use o formato: "[Quem] enfrenta [problema especifico] resultando em [impacto mensuravel]"</p>
+      </div>
+    </section>
+
+    <!-- Topico 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">👥 Usuarios-Alvo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Defina <strong class="text-rose-400">personas concretas</strong>, nao categorias genericas. Quanto mais especifica a persona, melhores serao as decisoes de design e funcionalidade.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Estrutura de Persona</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Demografico</h5>
+            <p class="text-sm text-neutral-400">Cargo, setor, tamanho empresa, experiencia</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Comportamental</h5>
+            <p class="text-sm text-neutral-400">Ferramentas que usa, frequencia de uso, habilidades</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Dores</h5>
+            <p class="text-sm text-neutral-400">Frustrações atuais, obstaculos, gaps</p>
+          </div>
+          <div class="bg-dark-700/50 p-4 rounded-lg">
+            <h5 class="font-semibold text-neutral-200 mb-2">Objetivos</h5>
+            <p class="text-sm text-neutral-400">O que quer alcançar, metricas de sucesso pessoal</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-dark-700/50 rounded-xl p-6 border border-dark-600">
+        <h4 class="font-semibold text-neutral-200 mb-3">Exemplo de Persona Especifica</h4>
+        <p class="text-neutral-400">"Gerentes de projeto em empresas de 50-200 funcionarios que usam planilhas para tracking de tarefas e perdem 3h/semana consolidando status manualmente."</p>
+      </div>
+    </section>
+
+    <!-- Topico 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎪 Escopo do MVP</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Liste explicitamente o que esta <strong class="text-rose-400">DENTRO</strong> e <strong class="text-rose-400">FORA</strong> do MVP. Essa lista e seu escudo contra scope creep e alinha expectativas de todos os stakeholders.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-green-900/20 rounded-xl border border-green-500/30 p-6">
+          <h4 class="font-bold text-green-400 mb-4">✓ IN (MVP)</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>Funcionalidades essenciais para validar hipotese</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>Features que resolvem a dor principal</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>Fluxo critico end-to-end</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>Integracao minima necessaria</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ OUT (Futuro)</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Nice-to-haves e melhorias incrementais</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Otimizacoes de performance</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Integrações secundarias</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Features para casos de borda</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Seja Impiedoso</h3>
+        <p class="text-neutral-300">Quando em duvida, coloque fora do MVP. E mais facil adicionar depois do que remover. MVP e sobre aprendizado, nao sobre completude.</p>
+      </div>
+    </section>
+
+    <!-- Topico 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">⚠️ Restricoes e Premissas</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Documente limitacoes de orcamento, timeline, tecnologia e compliance. <strong class="text-rose-400">Premissas sao apostas</strong> - se mudarem, o projeto muda.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-bold text-rose-400 mb-4">Restricoes Tipicas</h4>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Orcamento maximo</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Data limite de entrega</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Stack tecnologico obrigatorio</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Requisitos de compliance (LGPD, SOC2)</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Limitacoes de equipe</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-rose-400 mb-4">Premissas Criticas</h4>
+            <ul class="space-y-2 text-neutral-300 text-sm">
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>API X estara disponivel</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Usuarios terao acesso a Y</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Volume estimado de Z usuarios</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Infraestrutura existente suporta</span></li>
+              <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span>Aprovacao de stakeholder X</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ Atencao</h3>
+        <p class="text-neutral-300">Premissas nao validadas sao riscos. Para cada premissa, defina como e quando sera validada, e qual o plano B se falhar.</p>
+      </div>
+    </section>
+
+    <!-- Topico 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">🤖 Como Usar com IA</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O template do Brief pode ser preenchido com assistencia de IA, seguindo o metodo GIPM. A IA ajuda a <strong class="text-rose-400">estruturar e refinar</strong>, mas a decisao final e sempre humana.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Fluxo de Geracao com IA</h3>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-8 h-8 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">1</span>
+            <div><strong class="text-rose-400">Contexto</strong> - Forneca maximo contexto sobre o projeto, dominio, restricoes</div>
+          </div>
+          <div class="flex items-start space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-8 h-8 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">2</span>
+            <div><strong class="text-rose-400">Geracao</strong> - Peca a IA para gerar um draft do Brief usando o template</div>
+          </div>
+          <div class="flex items-start space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-8 h-8 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">3</span>
+            <div><strong class="text-rose-400">Iteracao</strong> - Refine secao por secao com perguntas especificas</div>
+          </div>
+          <div class="flex items-start space-x-4 p-3 bg-rose-900/20 rounded-lg border border-rose-500/30">
+            <span class="w-8 h-8 rounded-full bg-rose-500/30 text-rose-400 flex items-center justify-center font-bold">4</span>
+            <div><strong class="text-rose-400">Validacao</strong> - Humano revisa, ajusta e aprova versao final</div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6">
+        <h3 class="text-lg font-semibold text-primary mb-3">💡 Prompt Sugerido</h3>
+        <p class="text-neutral-300 text-sm font-mono bg-dark-700/50 p-4 rounded-lg">"Com base no contexto [X], gere um Project Brief seguindo o template GIPM. Foque em [area prioritaria]. Restricoes: [listar]. Usuarios-alvo: [descrever]."</p>
+      </div>
+    </section>
+
+    <!-- Topico 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">8</span>
+        <h2 class="text-2xl font-bold">🔄 Quando Atualizar</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Brief nao e um documento estatico. Ele <strong class="text-rose-400">evolui com o projeto</strong>, mas de forma controlada e versionada.
+      </p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Gatilhos para Atualizacao</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">1</span><span class="text-neutral-300">Premissa critica se mostrou invalida</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">2</span><span class="text-neutral-300">Mudanca significativa no escopo do MVP</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">3</span><span class="text-neutral-300">Descoberta de nova restricao critica</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">4</span><span class="text-neutral-300">Pivot no problema ou usuario-alvo</span></label>
+          <label class="flex items-center space-x-3"><span class="w-5 h-5 rounded bg-rose-500/30 text-rose-400 flex items-center justify-center text-xs">5</span><span class="text-neutral-300">Aprovacao de nova fase do projeto</span></label>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-green-900/20 rounded-xl border border-green-500/30 p-6">
+          <h4 class="font-bold text-green-400 mb-3">✓ Boas Praticas</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>Versionar cada atualizacao (v1.0, v1.1...)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>Manter changelog no documento</span></li>
+            <li class="flex items-start space-x-2"><span class="text-green-400">✓</span><span>Comunicar mudancas aos stakeholders</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ Evitar</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Editar sem registrar mudanca</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mudar escopo sem alinhamento</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Deixar Brief desatualizado</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6">📝 Resumo do Modulo</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">Project Brief</strong> - Documento fundacional que define visao, problema e escopo</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">Resumo Executivo</strong> - 2-3 frases que explicam o projeto para qualquer pessoa</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">Problema Especifico</strong> - Quantificavel e mensuravel, nunca vago</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">Escopo MVP</strong> - Lista explicita do que esta IN e OUT</span></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><span><strong class="text-white">Versionamento</strong> - Brief evolui mas de forma controlada</span></div>
+        </div>
+
+        <!-- Download Button in Summary -->
+        <div class="bg-green-900/30 rounded-xl p-4 border border-green-500/30 mb-6">
+          <div class="flex items-center justify-between">
+            <span class="text-green-400 font-semibold">Pronto para comecar?</span>
+            <a href="templates/project-brief.md" download class="flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors font-semibold">
+              <span>⬇️</span>
+              <span>Baixar Template</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 6</a>
+          <a href="modulo-6-3.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">Proximo: PRD →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-dark-600 mt-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div class="text-neutral-500 text-sm">
-          © 2024 GIPM Master - Metodo de Projetos com IA Governada
-        </div>
-        <div class="flex items-center gap-4">
-          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm">INEMA.CLUB</a>
-          <a href="https://github.com/inematds/GIPM" target="_blank" class="text-neutral-400 hover:text-white text-sm">GitHub</a>
-        </div>
-      </div>
+  <footer class="bg-dark-800 border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-neutral-400 text-sm mb-2">🎓 GIPM Master - Metodo de Projetos com IA Governada</p>
+      <p class="text-neutral-500 text-xs">© 2026 <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- Theme Toggle Script -->
   <script>
     const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     const html = document.documentElement;
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-    function updateIcons() {
-      if (html.classList.contains('dark')) {
-        darkIcon.classList.add('hidden');
-        lightIcon.classList.remove('hidden');
-      } else {
-        darkIcon.classList.remove('hidden');
-        lightIcon.classList.add('hidden');
-      }
-    }
-
-    updateIcons();
-
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-      updateIcons();
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
-
-    if (localStorage.getItem('theme') === 'light') {
-      html.classList.remove('dark');
-      updateIcons();
-    }
-
-    function toggleTopic(id) {
-      const el = document.getElementById(id);
-      el.classList.toggle('active');
-    }
   </script>
-
 </body>
 </html>
